@@ -1,0 +1,169 @@
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-display: swap;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+.header {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.bio {
+  min-width: 290px;
+  display: inline-block;
+  height: 30vh;
+}
+
+.bio span {
+  color: #808080;
+}
+
+.bio img {
+  height: 20vh;
+}
+
+.buttonContainer {
+  margin: 0 auto;
+  padding-top: 15px;
+  text-align: center;
+}
+
+@media screen and (min-width: 501px) {
+  .buttonContainer {
+    min-width: 500px;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .buttonContainer {
+    width: 100%;
+  }
+}
+
+.button, .button2 {
+  display: inline-block;
+  width: 25%;
+  margin: 0 10px;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.button {
+  border: dotted 0.1px #000000;
+}
+
+.button2 {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+
+.info {
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media screen and (min-height: 701px) {
+  .info {
+    height: 300px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .info {
+    height: 240px;
+  }
+}
+
+.about {
+  animation: fadein 0.2s linear;
+}
+
+.links {
+  display: inline-block;
+  text-align: left;
+  animation: fadein2 0.2s linear;
+}
+
+.links ul {
+  margin: 0 30px 0 0;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadein2 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.footer {
+  text-align: center;
+  color: #808080;
+}
+
+.footer p {
+  margin: 10px;
+}
+
+
+.whoami {
+  text-align: center;
+}
+
+.detail {
+  text-align: left;
+  display: inline-block;
+}
+
+.detail .bold {
+  font-size: 1.3em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  margin-left: -0.5em;
+}
+
+.detail span {
+  color: #208080;
+}
+
+.jump {
+  text-align: center;
+  color: #1111cc;
+  cursor: pointer;
+}
