@@ -47,7 +47,7 @@ class Certifications extends React.Component {
 export default () => (
   <div>
     <Meta>
-      <title>HelloRusk Official Website</title>
+      <title key="title">HelloRusk Official Website</title>
     </Meta>
     <div className="whoami">
       <div className="detail">

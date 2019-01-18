@@ -7,7 +7,7 @@ import "../style.css";
 export default () => (
   <div>
     <Meta>
-      <title>HelloRusk Official Website</title>
+      <title key="title">HelloRusk Official Website</title>
     </Meta>
     <Header />
     <p>Error</p>

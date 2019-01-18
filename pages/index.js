@@ -115,7 +115,7 @@ function renderInfo(num) {
 export default () => (
   <div>
     <Meta>
-      <title>HelloRusk Official Website</title>
+      <title key="title">HelloRusk Official Website</title>
     </Meta>
     <Header />
     <Main />
