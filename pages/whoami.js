@@ -56,9 +56,11 @@ export default () => (
         <Certifications /><br/>
       </div>
     </div>
-    <Link href="/">
-      <p className="jump">home</p>
-    </Link>
+    <div className="jump">
+      <Link href="/">
+        <a>home</a>
+      </Link>
+    </div>
     <Footer />
   </div>
 )

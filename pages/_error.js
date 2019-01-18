@@ -10,10 +10,12 @@ export default () => (
       <title>HelloRusk Official Website</title>
     </Meta>
     <Header />
-      <p>Error</p>
-    <Link href="/">
-      <p className="jump">home</p>
-    </Link>
+    <p>Error</p>
+    <div className="jump">
+      <Link href="/">
+        <a>home</a>
+      </Link>
+    </div>
     <Footer />
   </div>
 )

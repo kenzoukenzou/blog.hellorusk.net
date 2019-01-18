@@ -66,9 +66,11 @@ function renderInfo(num) {
       INTJ-T.
       <br />
       <br />
-      <Link href="/whoami">
-        <p className="jump">in more detail</p>
-      </Link>
+      <div className="jump">
+        <Link href="/whoami">
+          <a>in more detail</a>
+        </Link>
+      </div>
     </div>,
     <div className="links">
       <ul>

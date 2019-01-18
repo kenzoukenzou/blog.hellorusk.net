@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
           <meta name="description" content="HelloRusk Official Website." />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300" />
         </Head>
-        <body className="custom_class">
+        <body>
           <Main />
           <NextScript />
         </body>
