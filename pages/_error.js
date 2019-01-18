@@ -12,7 +12,7 @@ export default () => (
     <Header />
     <p>Error</p>
     <div className="jump">
-      <Link href="/">
+      <Link href="/" replace>
         <a>home</a>
       </Link>
     </div>
