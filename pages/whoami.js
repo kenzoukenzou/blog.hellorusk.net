@@ -3,11 +3,11 @@ import Footer from '../components/footer';
 import Link from 'next/link';
 import "../style.css";
 
-class About extends React.Component {
+class Profile extends React.Component {
   render() {
     return(
-      <div className="aboutme">
-        <div className="bold"># About</div>
+      <div>
+        <div className="bold"># Profile</div>
         計算機科学を学んでいる大学生(B2).<br/>
         怠惰で, 気まぐれ屋で, 考え事が多く, <br/>
         生きるのが少し苦手です.
@@ -19,7 +19,7 @@ class About extends React.Component {
 class Interests extends React.Component {
   render() {
     return(
-      <div className="interests">
+      <div>
         <div className="bold"># Interests</div>
         -  Node.js<br/>
         -  React / Redux<br/>
@@ -36,10 +36,20 @@ class Interests extends React.Component {
 class Certifications extends React.Component {
   render() {
     return(
-      <div className="certifications">
+      <div>
         <div className="bold"># Certifications</div>
         -  Not yet ... (I wanna get some)
       </div>
+    );
+  }
+}
+
+class About extends React.Component {
+  render() {
+    return(
+      <p>
+        This site is created by <a href="https://nextjs.org/">Next.js</a>.
+      </p>
     );
   }
 }
@@ -51,9 +61,10 @@ export default () => (
     </Meta>
     <div className="whoami">
       <div className="detail">
-        <About /><br/>
+        <Profile /><br/>
         <Interests /><br/>
         <Certifications /><br/>
+        <About /><br/>
       </div>
     </div>
     <div className="jump">
