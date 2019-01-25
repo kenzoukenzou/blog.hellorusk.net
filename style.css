@@ -21,14 +21,14 @@ ul {
 
 
 .header {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
 }
 
 .bio {
   min-width: 290px;
   display: inline-block;
-  height: 30vh;
+  height: 28vh;
 }
 
 .bio span {
@@ -90,7 +90,7 @@ ul {
 
 @media screen and (max-height: 700px) {
   .info {
-    height: 240px;
+    height: 260px;
   }
 }
 
