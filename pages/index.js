@@ -78,6 +78,9 @@ function renderInfo(num) {
           <a href="https://github.com/7ma7X">GitHub</a>
         </li>
         <li>
+        <a href="https://keybase.io/hellorusk">Keybase</a>
+        </li>
+        <li>
           <a href="https://twitter.com/hellorusk">Twitter</a>
         </li>
         <li>
