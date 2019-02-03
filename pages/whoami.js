@@ -22,10 +22,10 @@ class Interests extends React.Component {
       <div>
         <div className="bold"># Interests</div>
         -  Node.js<br/>
-        -  React / Redux<br/>
+        -  React<br/>
+        -  TypeScript<br/>
         -  Haskell<br/>
         -  Rust<br/>
-        -  Ruby, Rails<br/>
         -  fish shell<br/>
         -  Vim<br/>
       </div>
