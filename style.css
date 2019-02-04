@@ -19,6 +19,10 @@ ul {
   list-style-type: none;
 }
 
+.jump {
+  text-align: center;
+}
+
 
 .header {
   margin-top: 15px;
@@ -32,6 +36,7 @@ ul {
 }
 
 .bio span {
+  font-size: 0.9em;
   color: #808080;
 }
 
@@ -139,6 +144,7 @@ ul {
 
 .footer p {
   margin: 10px;
+  font-size: 0.9em;
 }
 
 
@@ -156,8 +162,4 @@ ul {
   margin-top: 1em;
   margin-bottom: 0.5em;
   margin-left: -0.5em;
-}
-
-.jump {
-  text-align: center;
 }
