@@ -72,12 +72,12 @@ ul {
 }
 
 .button {
-  border: dotted 0.1px #000000;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .button2 {
-  background-color: #000000;
-  color: #FFFFFF;
+  border: dotted 0.1px #000000;
 }
 
 

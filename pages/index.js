@@ -7,49 +7,34 @@ import "../style.css";
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      num: 0,
-      numArray: [1, 0],
-      buttonType: ["button", "button2"]
-    };
+    this.state = { num: 0 };
   }
 
   clickHandler(i) {
     this.setState({ num: i });
-    if (i === 0) {
-      this.setState({
-        numArray: [1, 0]
-      });
-    }
-    if (i === 1) {
-      this.setState({
-        numArray: [0, 1]
-      });
-    }
   }
 
   render() {
     const idList = ["About", "Links"];
-    const elements = [];
+    const buttonType = ["button", "button2"];
+    const buttonElements = [];
 
-    idList.forEach((v, i) => {
-      elements.push(
+    idList.forEach((v, iter) => {
+      buttonElements.push(
         <div
           key={v}
-          className={this.state.buttonType[this.state.numArray[i]]}
-          onClick={() => this.clickHandler(i)}
+          className={buttonType[(this.state.num + iter) % 2]}
+          onClick={() => this.clickHandler(iter)}
         >
           {v}
         </div>
       );
     });
 
-    let tmp = this.state.num;
-
     return (
       <div>
-        <div className="buttonContainer">{elements}</div>
-        <div className="info">{renderInfo(tmp)}</div>
+        <div className="buttonContainer">{buttonElements}</div>
+        <div className="info">{renderInfo(this.state.num)}</div>
       </div>
     );
   }
