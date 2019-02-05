@@ -18,7 +18,7 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        <PageTransition timeout={300} classNames="page-transition">
+        <PageTransition timeout={300} classNames="page-transition" monkeyPatchScrolling>
           <Component {...pageProps} />
         </PageTransition>
         <style jsx global>{`
