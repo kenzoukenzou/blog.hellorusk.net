@@ -1,6 +1,12 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6d9ef494-a24b-46a2-882b-4440976ade37/deploy-status)](https://app.netlify.com/sites/modest-payne-215883/deploys)
 [![Dependency Status](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)
 
+#### 2019/02/05
+
+リッチなページ遷移をやってみる  
+Next.js ではページの初期化方法をカスタマイズする際に _app.js を設定しておくことで自由に変更できる  
+ページ遷移自体は [next-page-transitions](https://github.com/illinois/next-page-transitions) という Next 向けの便利なモジュールがあったのでそれをデフォルトに近い感じで使う。もし仮にオリジナルのローディング画面を作成したい場合にも、`PageTransition` の中の `loadingComponent` というpropsに自分が作成したローディングの Component を指定してあげればそれがローディング画面になる、ということで便利
+
 #### 2019/02/04
 
 デプロイ状況を示すバッジをREADMEに置いた
