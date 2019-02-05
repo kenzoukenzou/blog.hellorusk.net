@@ -40,7 +40,7 @@ class Main extends React.Component {
   }
 }
 
-function renderInfo(num) {
+const renderInfo = (num) => {
   const elements = [
     <div className="about">
       横浜在住の大学生. <br />
