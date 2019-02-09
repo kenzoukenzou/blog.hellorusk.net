@@ -68,7 +68,7 @@ export default () => (
       </div>
     </div>
     <div className="jump">
-      <Link href="/" replace>
+      <Link scroll={false} href="/" replace>
         <a>home</a>
       </Link>
     </div>
