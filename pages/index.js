@@ -20,32 +20,12 @@ class Main extends React.Component {
 
     idList.forEach((v, iter) => {
       buttonElements.push(
-        <div>
-          <div
-            key={v}
-            className={buttonType[(this.state.num + iter) % 2]}
-            onClick={() => this.clickHandler(iter)}
-          >
-            {v}
-          </div>
-          <style jsx>{`
-            .button, .button2 {
-              display: inline-block;
-              width: 25%;
-              margin: 0 10px;
-              padding: 5px 0;
-              cursor: pointer;
-            }
-            
-            .button {
-              background-color: #000000;
-              color: #FFFFFF;
-            }
-            
-            .button2 {
-              border: dotted 0.1px #000000;
-            }
-          `}</style>
+        <div
+          key={v}
+          className={buttonType[(this.state.num + iter) % 2]}
+          onClick={() => this.clickHandler(iter)}
+        >
+          {v}
         </div>
       );
     });
@@ -71,6 +51,24 @@ class Main extends React.Component {
             .buttonContainer {
               width: 100%;
             }
+          }
+        `}</style>
+        <style jsx global>{`
+          .button, .button2 {
+            display: inline-block;
+            width: 25%;
+            margin: 0 10px;
+            padding: 5px 0;
+            cursor: pointer;
+          }
+          
+          .button {
+            background-color: #000000;
+            color: #FFFFFF;
+          }
+          
+          .button2 {
+            border: dotted 0.1px #000000;
           }
         `}</style>
         <div className="info">{renderInfo(this.state.num)}</div>
@@ -173,14 +171,14 @@ const renderInfo = (num) => {
         .links {
           display: inline-block;
           text-align: left;
-          animation: fadein2 0.2s linear;
+          animation: fadein 0.2s linear;
         }
 
         .links ul {
           margin: 0 30px 0 0;
         }
 
-        @keyframes fadein2 {
+        @keyframes fadein {
           from {
             opacity: 0;
             transform: translate3d(0, 5px, 0);
