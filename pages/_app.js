@@ -37,6 +37,32 @@ export default class MyApp extends App {
             transition: opacity 300ms;
           }
         `}</style>
+        <style jsx global>{`
+          body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-display: swap;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+          }
+          
+          a {
+            text-decoration: none;
+          }
+          
+          p {
+            text-align: center;
+          }
+          
+          ul {
+            list-style-type: none;
+          }
+          
+          .jump {
+            text-align: center;
+          }
+        `}</style>
       </Container>
     )
   }
