@@ -2,7 +2,6 @@ import Meta from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Link from 'next/link';
-import "../style.css";
 
 class Main extends React.Component {
   constructor(props) {
@@ -34,7 +33,64 @@ class Main extends React.Component {
     return (
       <div>
         <div className="buttonContainer">{buttonElements}</div>
+        <style jsx>{`
+          .buttonContainer {
+            margin: 0 auto;
+            padding-top: 15px;
+            text-align: center;
+          }
+          
+          @media screen and (min-width: 501px) {
+            .buttonContainer {
+              min-width: 500px;
+              width: 50%;
+            }
+          }
+          
+          @media screen and (max-width: 500px) {
+            .buttonContainer {
+              width: 100%;
+            }
+          }
+        `}</style>
+        <style jsx global>{`
+          .button, .button2 {
+            display: inline-block;
+            width: 25%;
+            margin: 0 10px;
+            padding: 5px 0;
+            cursor: pointer;
+          }
+          
+          .button {
+            background-color: #000000;
+            color: #FFFFFF;
+          }
+          
+          .button2 {
+            border: dotted 0.1px #000000;
+          }
+        `}</style>
         <div className="info">{renderInfo(this.state.num)}</div>
+        <style jsx>{`          
+          .info {
+            margin: 0 auto;
+            margin-top: 10px;
+            text-align: center;
+          }
+          
+          @media screen and (min-height: 701px) {
+            .info {
+              height: 300px;
+            }
+          }
+          
+          @media screen and (max-height: 700px) {
+            .info {
+              height: 250px;
+            }
+          }
+        `}</style>
       </div>
     );
   }
@@ -56,6 +112,23 @@ const renderInfo = (num) => {
           <a>in more detail</a>
         </Link>
       </div>
+      <style jsx>{`
+        .about {
+          animation: fadein 0.2s linear;
+        }
+      
+        @keyframes fadein {
+          from {
+            opacity: 0;
+            transform: translate3d(0, 5px, 0);
+          }
+        
+          to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      `}</style>
     </div>,
     <div className="links">
       <ul>
@@ -94,6 +167,29 @@ const renderInfo = (num) => {
           </a>
         </li>
       </ul>
+      <style jsx>{`
+        .links {
+          display: inline-block;
+          text-align: left;
+          animation: fadein 0.2s linear;
+        }
+
+        .links ul {
+          margin: 0 30px 0 0;
+        }
+
+        @keyframes fadein {
+          from {
+            opacity: 0;
+            transform: translate3d(0, 5px, 0);
+          }
+
+          to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      `}</style>
     </div>
   ];
 

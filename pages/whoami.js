@@ -1,7 +1,6 @@
 import Meta from 'next/head';
 import Footer from '../components/footer';
 import Link from 'next/link';
-import "../style.css";
 
 class Profile extends React.Component {
   render() {
@@ -11,6 +10,14 @@ class Profile extends React.Component {
         計算機科学を学んでいる大学生(B2).<br/>
         怠惰で, 気まぐれ屋で, 考え事が多く, <br/>
         生きるのが少し苦手です.
+        <style jsx>{`
+          .bold {
+            font-size: 1.3em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            margin-left: -0.5em;
+          }
+        `}</style>
       </div>
     );
   }
@@ -28,6 +35,14 @@ class Interests extends React.Component {
         -  Rust<br/>
         -  fish shell<br/>
         -  Vim<br/>
+        <style jsx>{`
+          .bold {
+            font-size: 1.3em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            margin-left: -0.5em;
+          }
+        `}</style>
       </div>
     );
   }
@@ -39,6 +54,14 @@ class Certifications extends React.Component {
       <div>
         <div className="bold"># Certifications</div>
         -  Not yet ... (I wanna get some)
+        <style jsx>{`
+          .bold {
+            font-size: 1.3em;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            margin-left: -0.5em;
+          }
+        `}</style>
       </div>
     );
   }
@@ -66,6 +89,16 @@ export default () => (
         <Certifications /><br/>
         <About /><br/>
       </div>
+      <style jsx>{`
+        .whoami {
+          text-align: center;
+        }
+        
+        .detail {
+          text-align: left;
+          display: inline-block;
+        }
+      `}</style>
     </div>
     <div className="jump">
       <Link scroll={false} href="/" replace>
