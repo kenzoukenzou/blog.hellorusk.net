@@ -1,7 +1,6 @@
-const withCSS = require('@zeit/next-css')
 const fs = require('fs')
 
-module.exports = withCSS({
+module.exports = {
   exportPathMap: async function () {
     fs.copyFileSync('./static/keybase.txt', './out/keybase.txt')
 
@@ -11,4 +10,4 @@ module.exports = withCSS({
       '/404.html': { page: '/_error' },
     }
   }
-})
+}

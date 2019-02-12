@@ -1,7 +1,6 @@
 import Meta from 'next/head';
 import Footer from '../components/footer';
 import Link from 'next/link';
-import "../style.css";
 
 class Profile extends React.Component {
   render() {
@@ -66,6 +65,23 @@ export default () => (
         <Certifications /><br/>
         <About /><br/>
       </div>
+      <style jsx>{`
+        .whoami {
+          text-align: center;
+        }
+        
+        .detail {
+          text-align: left;
+          display: inline-block;
+        }
+        
+        .detail .bold {
+          font-size: 1.3em;
+          margin-top: 1em;
+          margin-bottom: 0.5em;
+          margin-left: -0.5em;
+        }
+      `}</style>
     </div>
     <div className="jump">
       <Link scroll={false} href="/" replace>
