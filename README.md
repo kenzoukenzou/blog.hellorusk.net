@@ -1,6 +1,11 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6d9ef494-a24b-46a2-882b-4440976ade37/deploy-status)](https://app.netlify.com/sites/modest-payne-215883/deploys)
 [![Dependency Status](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)
 
+#### 2019/02/13
+
+CSSの管理がしづらいことから、CSSを除去してstyled-jsxに置き換えてみることにした。ひとまずうまく行った気がする。これでCode Coverageが JavaScript 100%になった。  
+CSSが個々のパーツに分解されたのはとてもうれしい。
+
 #### 2019/02/09
 
 Next のドキュメントを読むと、Link には画面の一番上へとスクロールするのを防ぐプロパティが備わっていることに気が付いたので、モンキーパッチをやめる
