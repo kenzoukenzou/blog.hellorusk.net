@@ -3,12 +3,17 @@
     "dev": "next",
     "build": "next build",
     "export": "next export",
-    "deploy": "npm run build && npm run export"
+    "deploy": "npm run build && npm run export",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
     "next": "^8.0.0",
     "next-page-transitions": "^1.0.0-alpha.6",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-plugin-react": "^7.12.4"
   }
 }

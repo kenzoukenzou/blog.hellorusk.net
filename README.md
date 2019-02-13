@@ -1,10 +1,12 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6d9ef494-a24b-46a2-882b-4440976ade37/deploy-status)](https://app.netlify.com/sites/modest-payne-215883/deploys)
 [![Dependency Status](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)
+[![DevDpendency Status](https://img.shields.io/david/dev/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/dev/7ma7X/mywebsite.svg?style=flat)
 
 #### 2019/02/13
 
 CSSの管理がしづらいことから、CSSを除去してstyled-jsxに置き換えてみることにした。ひとまずうまく行った気がする。これでCode Coverageが JavaScript 100%になった。  
-CSSが個々のパーツに分解されたのはとてもうれしい。
+CSSが個々のパーツに分解されたのはとてもうれしい。  
+さらにESLintを導入したり, Stateless functional components を使えるところは使ったり, export defaultを使ってないところで使ったり
 
 #### 2019/02/09
 
