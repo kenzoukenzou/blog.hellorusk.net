@@ -1,8 +1,8 @@
-import React from 'react';
-import Meta from 'next/head';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Link from 'next/link';
+import React from "react";
+import Meta from "next/head";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import Link from "next/link";
 
 class Main extends React.Component {
   constructor(props) {
@@ -137,7 +137,7 @@ const renderInfo = (num) => {
           <a href="https://github.com/7ma7X">GitHub</a>
         </li>
         <li>
-        <a href="https://keybase.io/hellorusk">Keybase</a>
+          <a href="https://keybase.io/hellorusk">Keybase</a>
         </li>
         <li>
           <a href="https://twitter.com/hellorusk">Twitter</a>
@@ -195,7 +195,7 @@ const renderInfo = (num) => {
   ];
 
   return elements[num];
-}
+};
 
 export default () => (
   <div>
@@ -206,4 +206,4 @@ export default () => (
     <Main />
     <Footer />
   </div>
-)
+);

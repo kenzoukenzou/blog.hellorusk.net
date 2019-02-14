@@ -1,7 +1,7 @@
-import Meta from 'next/head';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Link from 'next/link';
+import Meta from "next/head";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import Link from "next/link";
 
 export default () => (
   <div>
@@ -17,4 +17,4 @@ export default () => (
     </div>
     <Footer />
   </div>
-)
+);

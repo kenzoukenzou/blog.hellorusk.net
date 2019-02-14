@@ -1,19 +1,19 @@
-import App, { Container } from 'next/app'
-import { PageTransition } from 'next-page-transitions'
+import App, { Container } from "next/app";
+import { PageTransition } from "next-page-transitions";
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+    let pageProps = {};
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps }
+    return { pageProps };
   }
 
   render () {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
 
     return (
       <Container>
@@ -63,6 +63,6 @@ export default class MyApp extends App {
           }
         `}</style>
       </Container>
-    )
+    );
   }
 }

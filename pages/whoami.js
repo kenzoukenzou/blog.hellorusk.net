@@ -1,6 +1,6 @@
-import Meta from 'next/head';
-import Footer from '../components/footer';
-import Link from 'next/link';
+import Meta from "next/head";
+import Footer from "../components/footer";
+import Link from "next/link";
 
 const Profile = () => (
   <div>
@@ -17,7 +17,7 @@ const Profile = () => (
       }
     `}</style>
   </div>
-)
+);
 
 const Interests = () => (
   <div>
@@ -38,7 +38,7 @@ const Interests = () => (
       }
     `}</style>
   </div>
-)
+);
 
 const Certifications = () => (
   <div>
@@ -53,11 +53,11 @@ const Certifications = () => (
       }
     `}</style>
   </div>
-)
+);
 
 const About = () => (
   <p>This site is created by <a href="https://nextjs.org/">Next.js</a>.</p>
-)
+);
 
 export default () => (
   <div>
@@ -81,6 +81,14 @@ export default () => (
           display: inline-block;
         }
       `}</style>
+      <style jsx global>{`
+        .bold {
+          font-size: 1.3em;
+          margin-top: 1em;
+          margin-bottom: 0.5em;
+          margin-left: -0.5em;
+        }
+      `}</style>
     </div>
     <div className="jump">
       <Link scroll={false} href="/" replace>
@@ -89,4 +97,4 @@ export default () => (
     </div>
     <Footer />
   </div>
-)
+);
