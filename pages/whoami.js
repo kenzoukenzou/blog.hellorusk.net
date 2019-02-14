@@ -37,7 +37,9 @@ const About = () => (
 
 export default () => (
   <div>
-    <Meta />
+    <Meta>
+    <title key="title">page title change test</title>
+    </Meta>
     <div className="whoami">
       <div className="detail">
         <Profile /><br/>
