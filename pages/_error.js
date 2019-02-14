@@ -5,7 +5,9 @@ import Link from "next/link";
 
 export default () => (
   <div>
-    <Meta />
+    <Meta>
+      <title key="title">error | HelloRusk Official Website</title>
+    </Meta>
     <Header />
     <p>Error</p>
     <div className="jump">

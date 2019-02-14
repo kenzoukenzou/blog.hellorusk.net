@@ -199,7 +199,9 @@ const renderInfo = (num) => {
 
 export default () => (
   <div>
-    <Meta />
+    <Meta>
+      <title key="title">home | HelloRusk Official Website</title>
+    </Meta>
     <Header />
     <Main />
     <Footer />

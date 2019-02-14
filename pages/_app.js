@@ -1,5 +1,4 @@
 import App, { Container } from "next/app";
-import Head from "next/head";
 import { PageTransition } from "next-page-transitions";
 
 export default class MyApp extends App {
@@ -18,9 +17,6 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        <Head>
-          <title key="title">HelloRusk Official Website</title>
-        </Head>
         <PageTransition timeout={300} classNames="page-transition">
           <Component {...pageProps} />
         </PageTransition>
