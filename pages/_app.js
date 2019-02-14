@@ -37,8 +37,13 @@ export default class MyApp extends App {
           }
         `}</style>
         <style jsx global>{`
+          @font-face {
+            font-family: 'NotoSansJP';
+            src: url(/static/font/NotoSansJP-Light.otf);
+          }          
+
           body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: NotoSansJP, sans-serif;
             font-display: swap;
             -webkit-text-size-adjust: 100%;
             -webkit-font-smoothing: antialiased;

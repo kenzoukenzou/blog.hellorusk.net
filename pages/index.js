@@ -109,7 +109,7 @@ const renderInfo = (num) => {
       <br />
       <br />
       <div className="jump">
-        <Link scroll={false} href="/whoami" replace>
+        <Link scroll={false} href="/whoami">
           <a>in more detail</a>
         </Link>
       </div>
