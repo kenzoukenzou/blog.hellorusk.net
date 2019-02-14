@@ -11,7 +11,7 @@ export default () => (
     <Header />
     <p>Error</p>
     <div className="jump">
-      <Link scroll={false} href="/">
+      <Link scroll={false} href="/" replace>
         <a>home</a>
       </Link>
     </div>
