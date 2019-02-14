@@ -65,7 +65,7 @@ export default () => (
       `}</style>
     </div>
     <div className="jump">
-      <Link scroll={false} href="/">
+      <Link scroll={false} href="/" prefetch>
         <a>home</a>
       </Link>
     </div>
