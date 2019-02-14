@@ -5,13 +5,11 @@ import Link from "next/link";
 
 export default () => (
   <div>
-    <Meta>
-      <title key="title">HelloRusk Official Website</title>
-    </Meta>
+    <Meta />
     <Header />
     <p>Error</p>
     <div className="jump">
-      <Link scroll={false} href="/" replace>
+      <Link scroll={false} href="/">
         <a>home</a>
       </Link>
     </div>

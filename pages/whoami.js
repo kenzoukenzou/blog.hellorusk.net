@@ -37,9 +37,7 @@ const About = () => (
 
 export default () => (
   <div>
-    <Meta>
-      <title key="title">HelloRusk Official Website</title>
-    </Meta>
+    <Meta />
     <div className="whoami">
       <div className="detail">
         <Profile /><br/>
@@ -67,7 +65,7 @@ export default () => (
       `}</style>
     </div>
     <div className="jump">
-      <Link scroll={false} href="/" replace>
+      <Link scroll={false} href="/">
         <a>home</a>
       </Link>
     </div>
