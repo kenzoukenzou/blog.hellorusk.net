@@ -57,6 +57,7 @@ class Main extends React.Component {
         <style jsx global>{`
           .button, .button2 {
             display: inline-block;
+            border: dotted 0.1px #000000;
             width: 25%;
             margin: 0 10px;
             padding: 5px 0;
@@ -69,7 +70,12 @@ class Main extends React.Component {
           }
           
           .button2 {
-            border: dotted 0.1px #000000;
+            transition: .4s;
+          }
+
+          .button2:hover {
+            background-color: #000000;
+            color: #FFFFFF;
           }
         `}</style>
         <div className="info">{renderInfo(this.state.num)}</div>
