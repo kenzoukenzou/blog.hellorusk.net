@@ -58,7 +58,7 @@ class Main extends React.Component {
           .button, .button2 {
             display: inline-block;
             border: dotted 0.1px #000000;
-            width: 25%;
+            width: 30%;
             margin: 0 10px;
             padding: 5px 0;
             cursor: pointer;
@@ -106,21 +106,12 @@ class Main extends React.Component {
 const renderInfo = (num) => {
   const elements = [
     <div className="about">
-      横浜在住の大学生. <br />
-      UNISON SQUARE GARDENとfhánaが好き.
-      <br />
-      最近はねんどろいどにハマってます.
-      <br />
-      INTJ-T.
-      <br />
-      <br />
-      <div className="jump">
-        <Link scroll={false} href="/whoami">
-          <a>in more detail</a>
-        </Link>
-      </div>
+      <Link scroll={false} href="/whoami"><a>Profile</a></Link><br/>
+      <Link scroll={false} href="/blog"><a>Blog</a></Link><br/>
       <style jsx>{`
         .about {
+          display: inline-block;
+          text-align: left;
           animation: fadein 0.2s linear;
         }
       

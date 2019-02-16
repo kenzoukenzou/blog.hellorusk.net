@@ -4,35 +4,35 @@ import Link from "next/link";
 
 const Profile = () => (
   <div>
-    <div className="bold"># Profile</div>
-    計算機科学を学んでいる大学生(B2).<br/>
-    怠惰で, 気まぐれ屋で, 考え事が多く, <br/>
-    生きるのが少し苦手です.
+    <div className="title">Profile</div>
+    横浜市に在住する大学生です. 大学では計算機科学を学んでいます.<br/>
+    おもにプログラミングと読書をして日々を過ごしています.<br/>
+    音楽の話をするのが好きです. 好きなアーティストは UNISON SQUARE GARDEN と fhána.<br/>
+    その他, 声優アーティストの楽曲にも少し詳しいです.<br/>
+    最近はねんどろいどにハマってます.
   </div>
 );
 
 const Interests = () => (
   <div>
-    <div className="bold"># Interests</div>
-    -  Node.js<br/>
-    -  React<br/>
-    -  TypeScript<br/>
-    -  Haskell<br/>
-    -  Rust<br/>
-    -  fish shell<br/>
-    -  Vim<br/>
+    <div className="title">Interests</div>
+    Node.js, React, TypeScript, Haskell, Rust, fish shell, Vim ...
   </div>
 );
 
 const Certifications = () => (
   <div>
-    <div className="bold"># Certifications</div>
-    -  Not yet ... (I wanna get some)
+    <div className="title">Certifications</div>
+    Not yet ... (I wanna get some)
   </div>
 );
 
 const About = () => (
-  <p>This site is created by <a href="https://nextjs.org/">Next.js</a>.</p>
+  <div>
+    <div className="title">About this site</div>
+      <a href="https://nextjs.org/">Next.js</a> を用いて構築されています.<br/>
+      Netlify によって<a href="https://github.com/7ma7X/mywebsite"> GitHub のリポジトリ</a>から自動でデプロイされています.
+  </div>
 );
 
 export default () => (
@@ -47,22 +47,18 @@ export default () => (
         <Certifications /><br/>
         <About /><br/>
       </div>
-      <style jsx>{`
-        .whoami {
-          text-align: center;
-        }
-        
+      <style jsx>{`      
         .detail {
           text-align: left;
           display: inline-block;
         }
       `}</style>
       <style jsx global>{`
-        .bold {
-          font-size: 1.3em;
+        .title {
+          font-size: 1.5em;
           margin-top: 1em;
           margin-bottom: 0.5em;
-          margin-left: -0.5em;
+          font-weight: 400;
         }
       `}</style>
     </div>

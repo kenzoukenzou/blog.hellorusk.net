@@ -40,10 +40,14 @@ export default class MyApp extends App {
           body {
             font-family: 'Noto Sans JP', sans-serif;
             font-display: swap;
+            font-weight: 300;
+            max-width: 656px;
+            margin-right: auto;
+            margin-left : auto; 
+            padding: 0 2%;
             -webkit-text-size-adjust: 100%;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            margin: 0;
           }
           
           a {

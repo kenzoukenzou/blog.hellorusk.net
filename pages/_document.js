@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="HelloRusk Official Website." />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400" />
         </Head>
         <body>
           <Main />
