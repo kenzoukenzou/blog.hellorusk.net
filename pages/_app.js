@@ -1,6 +1,6 @@
 import App, { Container } from "next/app";
 import { PageTransition } from "next-page-transitions";
-import Layout from "../components/page-layout"
+import Layout from "../components/page-layout";
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

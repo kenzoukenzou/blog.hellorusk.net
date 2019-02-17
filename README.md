@@ -2,6 +2,10 @@
 [![Dependency Status](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)
 [![DevDpendency Status](https://img.shields.io/david/dev/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/dev/7ma7X/mywebsite.svg?style=flat)
 
+#### 2019/02/17
+
+Next.js + MDX を使ったブログシステムの構築を試してみる。
+
 #### 2019/02/13
 
 CSSの管理がしづらいことから、CSSを除去してstyled-jsxに置き換えてみることにした。ひとまずうまく行った気がする。これでCode Coverageが JavaScript 100%になった。  

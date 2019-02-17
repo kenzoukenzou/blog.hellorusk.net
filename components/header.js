@@ -3,7 +3,7 @@ export default () => (
     <div className="bio">
       <img src="/static/mika.png" alt="mika"></img><br/>
         HelloRusk<br/>
-        <span>Contact: hellorusk1998 [at] gmail.com</span>
+      <span>Contact: hellorusk1998 [at] gmail.com</span>
     </div>
     <style jsx>{`
       .header {

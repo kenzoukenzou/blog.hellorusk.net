@@ -197,7 +197,7 @@ const renderInfo = (num) => {
 export default () => (
   <div>
     <Meta>
-      <title key="title">home | HelloRusk Official Website</title>
+      <title key="title">HelloRusk Official Website</title>
     </Meta>
     <Header />
     <Main />

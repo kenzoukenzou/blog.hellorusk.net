@@ -1,23 +1,14 @@
 import Meta from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
-import { meta } from "./blog/20190217.mdx";
-
-const PostPreview = ({ post }) => {
-  return (
-    <div className="blog">
-      <div className="date">{post.date}</div>
-      <div className="title"><Link scroll={false} href={post.url}><a>{post.title}</a></Link></div>
-    </div>
-  )
-}
+import PostsPreviewer from "./posts-renderer";
 
 export default () => (
   <div>
     <Meta>
-      <title key="title">blog | HelloRusk Official Website</title>
+      <title key="title">blog - HelloRusk Official Website</title>
     </Meta>
-    <PostPreview post={meta}/>
+    <PostsPreviewer />
     <br/>
     <div className="jump">
       <Link scroll={false} href="/">
@@ -50,4 +41,4 @@ export default () => (
       }
     `}</style>
   </div>
-)
+);

@@ -1,0 +1,26 @@
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+export const meta = {
+  date: '2019-02-17',
+  title: 'ブログシステムを自作した',
+  url: '/blog/2019/02/17',
+  description: '2019-02-17 の日記'
+}
+
+## ブログシステムを自作した
+#### 2019-02-17
+
+hellorusk.net のドメインを取得してからもうすぐ1年になります。  
+当初は jQuery のみを使った簡素なサイトでしたが、次第にモダンな JavaScript を用いて書き換えてきました。今年1月からは Next.js のフレームワークを新たに活用し始めました。その結果、CSS を [styled-jsx](https://github.com/zeit/styled-jsx) によって個々の Component ごとに分解できるというメリットを得ることができました。たかが個人サイトといえど、CSS の管理が行いやすくなるというのはサイトを保守していく上で大きな利点であるのは間違いありません。  
+今回ブログを作成したのも、その Next.js をさらに活用したいという考えが一つにありました。  
+そしてもう一つ、Markdown を使って、見た目を逐次確認しながらブログを書く、ということをローカル環境で行いたいという考えもありました。はてなブログはブログサービスとして申し分無いですが、ネット接続せずに執筆を行えればより魅力的です。
+  
+ブログシステムを構築する上で大きく役に立ったのが [MDX](https://github.com/mdx-js/mdx) という技術です。これは Markdown を JSX と対応が取れるように自然に拡張したもので、いま書かれているこの文章も 20190217.mdx というファイルの上に置かれたものです。  
+MDX においては通常の Markdown がサポートされているだけでなく、他のモジュールを import してそれを Markdown の文中に置いたり、逆にオブジェクトを定義してそれを export することもできます。このブログでも、前者はツイートボタンやmetaタグの記述などに、後者は記事のタイトル・日付等の export に活用されています。詳しくは [GitHub のリポジトリ](https://github.com/7ma7X/mywebsite)で確認していただければと思います。  
+    
+このブログの用途ですが、生活の中の比較的大きなイベント（今であれば大学生活に関してなど）について記録するのに利用していこうと考えています。  
+引き続き、コード量の多い記事は https://helllrrrk.hatenablog.com/ に、生存報告的な意味合いの強い日記は https://hellorusk.hatenablog.com/ に書いていくつもりです。
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />

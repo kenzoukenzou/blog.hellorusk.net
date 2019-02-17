@@ -38,7 +38,7 @@ const About = () => (
 export default () => (
   <div>
     <Meta>
-      <title key="title">whoami | HelloRusk Official Website</title>
+      <title key="title">whoami - HelloRusk Official Website</title>
     </Meta>
     <div className="whoami">
       <div className="detail">
