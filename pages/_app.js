@@ -1,5 +1,6 @@
 import App, { Container } from "next/app";
 import { PageTransition } from "next-page-transitions";
+import Layout from "../components/page-layout"
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -36,36 +37,7 @@ export default class MyApp extends App {
             transition: opacity 300ms;
           }
         `}</style>
-        <style jsx global>{`
-          body {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-display: swap;
-            font-weight: 300;
-            max-width: 656px;
-            margin-right: auto;
-            margin-left : auto; 
-            padding: 0 2%;
-            -webkit-text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
-          
-          a {
-            text-decoration: none;
-          }
-          
-          p {
-            text-align: center;
-          }
-          
-          ul {
-            list-style-type: none;
-          }
-          
-          .jump {
-            text-align: center;
-          }
-        `}</style>
+        <Layout />
       </Container>
     );
   }

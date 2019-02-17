@@ -1,9 +1,9 @@
 export default () => (
   <div className="header">
     <div className="bio">
-      <img src="/static/mika.png" alt="mika"></img>
-      <p>HelloRusk<br/>
-        <span>Contact: hellorusk1998 [at] gmail.com</span></p>
+      <img src="/static/mika.png" alt="mika"></img><br/>
+        HelloRusk<br/>
+        <span>Contact: hellorusk1998 [at] gmail.com</span>
     </div>
     <style jsx>{`
       .header {
@@ -24,6 +24,7 @@ export default () => (
       
       .bio img {
         height: 110px;
+        margin-bottom: 1em;
       }
     `}</style> 
   </div>

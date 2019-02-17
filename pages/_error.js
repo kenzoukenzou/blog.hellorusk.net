@@ -9,7 +9,16 @@ export default () => (
       <title key="title">error | HelloRusk Official Website</title>
     </Meta>
     <Header />
-    <p>Error</p>
+    <div className="error">
+      <span>ERROR</span>
+      <style jsx>{`
+        .error {
+          padding-top: 15px;
+          text-align: center;
+        }
+      `}</style>
+    </div>
+    <br/>
     <div className="jump">
       <Link scroll={false} href="/">
         <a>home</a>
