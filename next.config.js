@@ -12,7 +12,7 @@ module.exports = withMDX({
     const data = {
       postsDateList: posts
     };
-    fs.writeFileSync("./posts.json", JSON.stringify(data));
+    fs.writeFileSync("./out/posts.json", JSON.stringify(data));
 
     const pathMap = {};
     pathMap["/"] = { page: "/" };
