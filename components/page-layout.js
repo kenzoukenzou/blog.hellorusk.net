@@ -4,6 +4,7 @@ export default () => (
       font-family: 'Noto Sans JP', sans-serif;
       font-display: swap;
       font-weight: 300;
+      word-break : break-all;
       max-width: 656px;
       margin-right: auto;
       margin-left: auto; 
