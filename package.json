@@ -4,7 +4,7 @@
     "build": "next build",
     "export": "next export",
     "clean": "rm -rf .next out",
-    "deploy": "npm run clean && npm run build && npm run export",
+    "deploy": "npm run clean && node posts-builder.js && npm run build && npm run export",
     "lint": "./node_modules/.bin/eslint . --fix"
   },
   "dependencies": {

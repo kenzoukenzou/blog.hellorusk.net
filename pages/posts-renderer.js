@@ -1,5 +1,5 @@
 import Link from "next/link";
-import data from "../posts.json";
+import data from "./posts.json";
 
 const postsDateList = data["postsDateList"];
 const postsComponentList = [];
