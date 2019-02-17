@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "dev": "next",
+    "dev": "node posts-builder.js && next",
     "build": "next build",
     "export": "next export",
     "clean": "rm -rf .next out",
     "deploy": "npm run clean && node posts-builder.js && npm run build && npm run export",
+    "blog": "node new-post-generator.js",
     "lint": "./node_modules/.bin/eslint . --fix"
   },
   "dependencies": {
