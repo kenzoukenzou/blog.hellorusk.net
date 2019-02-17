@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path");
 const withMDX = require("@zeit/next-mdx")();
 
 module.exports = withMDX({
