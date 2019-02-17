@@ -2,7 +2,7 @@
 [![Dependency Status](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/7ma7X/mywebsite.svg?style=flat)
 [![DevDpendency Status](https://img.shields.io/david/dev/7ma7X/mywebsite.svg?style=flat)](https://img.shields.io/david/dev/7ma7X/mywebsite.svg?style=flat)
 
-```
+```sh
 # serve as http://localhost:3000
 npm run dev
 
