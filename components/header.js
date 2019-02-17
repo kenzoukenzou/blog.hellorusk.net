@@ -14,7 +14,7 @@ export default () => (
       .bio {
         min-width: 290px;
         display: inline-block;
-        height: 28vh;
+        height: 150px;
       }
       
       .bio span {
@@ -23,7 +23,7 @@ export default () => (
       }
       
       .bio img {
-        height: 20vh;
+        height: 110px;
       }
     `}</style> 
   </div>
