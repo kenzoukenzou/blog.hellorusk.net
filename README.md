@@ -9,6 +9,9 @@ npm run dev
 # build
 npm run build
 
+# deploy
+npm run deploy
+
 # add new post
 npm run blog
 ```
