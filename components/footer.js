@@ -1,6 +1,6 @@
 export default () => (
   <div className="footer">
-    <span>© 2018-2019 HelloRusk</span>
+    <span>© 2019 HelloRusk</span>
     <style jsx>{`
       .footer {
         text-align: center;
