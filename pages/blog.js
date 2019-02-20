@@ -23,6 +23,20 @@ export default () => (
       }
     `}</style>
     <style jsx global>{`
+      .blog {
+        animation: fadein 0.2s linear;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
       .date {
         font-size: 0.9em;
         color: #666666;
