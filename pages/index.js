@@ -1,109 +1,100 @@
-import React from "react";
 import Meta from "next/head";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Link from "next/link";
+import { useState } from "react";
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { num: 0 };
-  }
+const Main = () => {
+  const [num, setNum] = useState(0);
 
-  clickHandler(i) {
-    this.setState({ num: i });
-  }
+  const idList = ["About", "Links"];
+  const buttonType = ["button", "button2"];
+  const buttonElements = [];
 
-  render() {
-    const idList = ["About", "Links"];
-    const buttonType = ["button", "button2"];
-    const buttonElements = [];
-
-    idList.forEach((v, iter) => {
-      buttonElements.push(
-        <div
-          key={v}
-          className={buttonType[(this.state.num + iter) % 2]}
-          onClick={() => this.clickHandler(iter)}
-        >
-          {v}
-        </div>
-      );
-    });
-
-    return (
-      <div>
-        <div className="buttonContainer">{buttonElements}</div>
-        <style jsx>{`
-          .buttonContainer {
-            margin: 0 auto;
-            padding-top: 15px;
-            text-align: center;
-          }
-          
-          @media screen and (min-width: 501px) {
-            .buttonContainer {
-              min-width: 500px;
-              width: 50%;
-            }
-          }
-          
-          @media screen and (max-width: 500px) {
-            .buttonContainer {
-              width: 100%;
-            }
-          }
-        `}</style>
-        <style jsx global>{`
-          .button, .button2 {
-            display: inline-block;
-            border: dotted 0.1px #000000;
-            width: 30%;
-            margin: 0 10px;
-            padding: 5px 0;
-            cursor: pointer;
-          }
-          
-          .button {
-            background-color: #000000;
-            color: #FFFFFF;
-          }
-          
-          .button2 {
-            transition: .4s;
-          }
-
-          .button2:hover {
-            background-color: #000000;
-            color: #FFFFFF;
-          }
-        `}</style>
-        <div className="info">{renderInfo(this.state.num)}</div>
-        <style jsx>{`          
-          .info {
-            margin: 0 auto;
-            margin-top: 10px;
-            text-align: center;
-          }
-          
-          @media screen and (min-height: 701px) {
-            .info {
-              height: 300px;
-            }
-          }
-          
-          @media screen and (max-height: 700px) {
-            .info {
-              height: 250px;
-            }
-          }
-        `}</style>
+  idList.forEach((v, iter) => {
+    buttonElements.push(
+      <div
+        key={v}
+        className={buttonType[(num + iter) % 2]}
+        onClick={() => setNum(iter)}
+      >
+        {v}
       </div>
     );
-  }
-}
+  });
 
-const renderInfo = (num) => {
+  return (
+    <div>
+      <div className="buttonContainer">{buttonElements}</div>
+      <style jsx>{`
+        .buttonContainer {
+          margin: 0 auto;
+          padding-top: 15px;
+          text-align: center;
+        }
+        
+        @media screen and (min-width: 501px) {
+          .buttonContainer {
+            min-width: 500px;
+            width: 50%;
+          }
+        }
+        
+        @media screen and (max-width: 500px) {
+          .buttonContainer {
+            width: 100%;
+          }
+        }
+      `}</style>
+      <style jsx global>{`
+        .button, .button2 {
+          display: inline-block;
+          border: dotted 0.1px #000000;
+          width: 30%;
+          margin: 0 10px;
+          padding: 5px 0;
+          cursor: pointer;
+        }
+        
+        .button {
+          background-color: #000000;
+          color: #FFFFFF;
+        }
+        
+        .button2 {
+          transition: .4s;
+        }
+
+        .button2:hover {
+          background-color: #000000;
+          color: #FFFFFF;
+        }
+      `}</style>
+      <div className="info">{renderInfo(num)}</div>
+      <style jsx>{`          
+        .info {
+          margin: 0 auto;
+          margin-top: 10px;
+          text-align: center;
+        }
+        
+        @media screen and (min-height: 701px) {
+          .info {
+            height: 300px;
+          }
+        }
+        
+        @media screen and (max-height: 700px) {
+          .info {
+            height: 250px;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const renderInfo = num => {
   const elements = [
     <div className="about">
       <Link scroll={false} href="/whoami"><a>Profile</a></Link><br/>

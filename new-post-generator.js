@@ -5,7 +5,7 @@ const Y = date.getFullYear();
 const M = date.getMonth() + 1;
 const D = date.getDate();
 
-const zeroPadding = (num) => {
+const zeroPadding = num => {
   if (num < 10) {
     return "0" + String(num);
   } else {
