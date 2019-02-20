@@ -39,6 +39,14 @@ export default () => (
       text-align: left;
     }
 
+    ul {
+      padding-inline-start: 1.2em;
+    }
+
+    li {
+      font-size: 0.9em;
+    }
+
     span {
       text-align: center;
     }

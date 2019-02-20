@@ -177,6 +177,10 @@ const renderInfo = (num) => {
           list-style-type: none;
         }
 
+        .links li {
+          font-size: 1em;
+        }
+
         @keyframes fadein {
           from {
             opacity: 0;
