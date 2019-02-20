@@ -19,6 +19,11 @@ export default () => (
       font-size: 1.3em;
     }
 
+    h3 {
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
     h4 {
       font-weight: 300;
       font-size: 0.9em;
@@ -37,9 +42,39 @@ export default () => (
     span {
       text-align: center;
     }
-    
-    ul {
-      list-style-type: none;
+
+    hr {
+      border-width: 0.5px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th {
+      padding: 0.2em 1em;
+      font-size: 0.9em;
+    }
+
+    td {
+      border-top: 1px solid #ddd;
+      padding: 0.2em 1em;
+      font-size: 0.9em;
+    }
+
+    blockquote {
+      margin: 0;
+      padding-left: 0.8em;
+      border-left-style: solid;
+      color: #808080;
+    }
+
+    code {
+      font-family: monaco;
+      font-size: 0.9em;
+      background-color: #F0F0F0;
+      padding: 0.2em;
+      border-radius: 0.3em;
     }
     
     .jump {

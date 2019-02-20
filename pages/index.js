@@ -174,6 +174,7 @@ const renderInfo = (num) => {
 
         .links ul {
           margin: 0 30px 0 0;
+          list-style-type: none;
         }
 
         @keyframes fadein {

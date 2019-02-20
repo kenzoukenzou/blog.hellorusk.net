@@ -23,6 +23,23 @@ export default ({ meta }) => {
           p {
             font-size: 0.9em;
           }
+
+          p img {
+            display: block;
+            margin: 0 auto;
+          }
+
+          @media screen and (min-width: 501px) {
+            p img {
+              width: 450px;
+            }
+          }
+          
+          @media screen and (max-width: 500px) {
+            p img {
+              width: 90%;
+            }
+          }
         `}</style>
       </div>
       <Footer />
