@@ -29,15 +29,15 @@ export default ({ meta }) => {
             margin: 0 auto;
           }
 
-          @media screen and (min-width: 501px) {
+          @media screen and (min-width: 657px) {
             p img {
-              width: 450px;
+              width: 650px;
             }
           }
           
-          @media screen and (max-width: 500px) {
+          @media screen and (max-width: 656px) {
             p img {
-              width: 90%;
+              width: 100%;
             }
           }
         `}</style>
