@@ -111,36 +111,36 @@ const renderInfo = num => {
     <div className="links">
       <ul>
         <li>
-          <a href="https://github.com/7ma7X">GitHub</a>
+          <a href="https://github.com/7ma7X" target="_blank">GitHub</a>
         </li>
         <li>
-          <a href="https://keybase.io/hellorusk">Keybase</a>
+          <a href="https://keybase.io/hellorusk" target="_blank">Keybase</a>
         </li>
         <li>
-          <a href="https://twitter.com/hellorusk">Twitter</a>
+          <a href="https://twitter.com/hellorusk" target="_blank">Twitter</a>
         </li>
         <li>
-          <a href="https://mstdn.jp/@hellorusk">mstdn.jp</a>
+          <a href="https://mstdn.jp/@hellorusk" target="_blank">mstdn.jp</a>
         </li>
         <li>
-          <a href="https://www.last.fm/ja/user/HelloRusk">Last.fm</a>
+          <a href="https://www.last.fm/ja/user/HelloRusk" target="_blank">Last.fm</a>
         </li>
         <li>
-          <a href="https://helllrrrk.hatenablog.com">
+          <a href="https://helllrrrk.hatenablog.com" target="_blank">
             はてなブログ（技術メモ）
           </a>
         </li>
         <li>
-          <a href="https://hellorusk.hatenablog.com">はてなブログ（日記）</a>
+          <a href="https://hellorusk.hatenablog.com" target="_blank">はてなブログ（日記）</a>
         </li>
         <li>
-          <a href="http://b.hatena.ne.jp/HelloRusk/">はてなブックマーク</a>
+          <a href="http://b.hatena.ne.jp/HelloRusk/" target="_blank">はてなブックマーク</a>
         </li>
         <li>
-          <a href="https://bookmeter.com/users/849928">読書メーター</a>
+          <a href="https://bookmeter.com/users/849928" target="_blank">読書メーター</a>
         </li>
         <li>
-          <a href="https://www.eventernote.com/users/8ma8X/">
+          <a href="https://www.eventernote.com/users/8ma8X/" target="_blank">
             イベンターノート
           </a>
         </li>

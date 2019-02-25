@@ -7,7 +7,7 @@ export default ({ meta }) => {
   return (
     <div>
       <div className="tweet">
-        <a href={tweetlink}><img src="/static/twitter.png" height="30" alt="tweet" /></a>
+        <a href={tweetlink} target="_blank"><img src="/static/twitter.png" height="30" alt="tweet" /></a>
         <style jsx>{`
           .tweet {
             text-align: right;
