@@ -76,18 +76,7 @@ const Main = () => {
           margin: 0 auto;
           margin-top: 10px;
           text-align: center;
-        }
-        
-        @media screen and (min-height: 701px) {
-          .info {
-            height: 300px;
-          }
-        }
-        
-        @media screen and (max-height: 700px) {
-          .info {
-            height: 250px;
-          }
+          height: 250px;
         }
       `}</style>
     </div>
