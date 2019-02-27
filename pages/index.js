@@ -76,7 +76,7 @@ const Main = () => {
           margin: 0 auto;
           margin-top: 10px;
           text-align: center;
-          height: 250px;
+          height: 270px;
         }
       `}</style>
     </div>
