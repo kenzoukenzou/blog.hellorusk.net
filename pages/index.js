@@ -114,7 +114,7 @@ const renderInfo = num => {
           <a href="https://github.com/7ma7X" target="_blank">GitHub</a>
         </li>
         <li>
-          <a href="https://keybase.io/hellorusk" target="_blank">Keybase</a>
+          <a href="https://www.instagram.com/8ma8x/" target="_blank">Instagram</a>
         </li>
         <li>
           <a href="https://twitter.com/hellorusk" target="_blank">Twitter</a>
