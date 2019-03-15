@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
           />
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-136305100-1');`
+              __html: "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-136305100-1');"
             }}
           />
           <link rel="shortcut icon" href="/static/favicon.ico" />
