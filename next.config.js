@@ -6,7 +6,6 @@ module.exports = withMDX({
 
   exportPathMap: async function () {
     fs.copyFileSync("./static/keybase.txt", "./out/keybase.txt");
-    fs.copyFileSync("./static/google8c5f2c5fc219aa0b.html", "./out/google8c5f2c5fc219aa0b.html");
     fs.copyFileSync("./static/sitemap.xml", "./out/sitemap.xml");
 
     const pathMap = {};

@@ -184,6 +184,7 @@ export default () => (
   <div>
     <Meta>
       <title key="title">HelloRusk Official Website</title>
+      <meta name="google-site-verification" content="NukXzTqPewV5uTImQdXdiNq4ZKc6d3I65Bq9amzEM1s" />
     </Meta>
     <Header />
     <Main />
