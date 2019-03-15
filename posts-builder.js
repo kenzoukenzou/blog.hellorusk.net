@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const posts = fs.readdirSync("./pages/posts");
+
 posts.sort((a, b) => a < b ? 1 : -1);
 
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -38,6 +39,9 @@ fs.writeFile("./pages/posts.json", JSON.stringify({ "postsDateList": posts }), e
 
   fs.writeFile("./static/sitemap.xml", sitemap, "utf-8", err => {
     if (err) throw err;
+
     console.log("Successfully generated: sitemap.xml");
+    console.log("-----------------------------------");
+    console.log(sitemap);
   });
 });
