@@ -39,6 +39,12 @@ export default () => (
   <div>
     <Meta>
       <title key="title">whoami - HelloRusk Official Website</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@HelloRusk" />
+      <meta name="twitter:image" content="https://hellorusk.net/static/mika_square.png" />
+      <meta property="og:title" content="HelloRusk Portfolio" /> 
+      <meta property="og:url" content="/whoami" /> 
+      <meta property="og:description" content="HelloRuskとは何者か？" />
     </Meta>
     <div className="whoami">
       <div className="detail">

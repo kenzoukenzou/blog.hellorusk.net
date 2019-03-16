@@ -183,8 +183,14 @@ const renderInfo = num => {
 export default () => (
   <div>
     <Meta>
-      <title key="title">HelloRusk Official Website</title>
       <meta name="google-site-verification" content="NukXzTqPewV5uTImQdXdiNq4ZKc6d3I65Bq9amzEM1s" />
+      <title key="title">HelloRusk Official Website</title>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@HelloRusk" />
+      <meta name="twitter:image" content="https://hellorusk.net/static/mika_square.png" />
+      <meta property="og:title" content="HelloRusk Official Website" /> 
+      <meta property="og:url" content="/" /> 
+      <meta property="og:description" content="HelloRuskの公式ウェブサイト" />
     </Meta>
     <Header />
     <Main />
