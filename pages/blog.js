@@ -7,9 +7,6 @@ export default () => (
   <div>
     <Meta>
       <title key="title">blog - HelloRusk Official Website</title>
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@HelloRusk" />
-      <meta name="twitter:image" content="https://hellorusk.net/static/mika_square.png" />
       <meta property="og:title" content="HelloRusk Blog" /> 
       <meta property="og:url" content="/blog" /> 
       <meta property="og:description" content="HelloRuskの生活の記録" />
