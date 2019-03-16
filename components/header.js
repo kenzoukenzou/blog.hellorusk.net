@@ -1,7 +1,10 @@
 export default () => (
   <div className="header">
     <div className="bio">
-      <img src="/static/mika.png" alt="mika"></img><br/>
+      <picture>
+        <source type="image/webp" srcset="/static/mika.webp" alt="mika"/>
+        <img src="/static/mika.png" alt="mika"/><br/>
+      </picture>
         HelloRusk<br/>
       <span>Contact: hellorusk1998 [at] gmail.com</span>
     </div>
