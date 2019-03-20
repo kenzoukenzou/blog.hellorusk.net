@@ -39,11 +39,18 @@ export default () => (
   <div>
     <Meta>
       <title key="title">whoami - HelloRusk Official Website</title>
-      <meta property="og:title" content="HelloRusk Portfolio" /> 
+      <meta property="og:title" content="HelloRusk Profile" /> 
       <meta property="og:url" content="/whoami" /> 
       <meta property="og:description" content="HelloRuskとは何者か？" />
     </Meta>
     <div className="whoami">
+      <div className="icon">
+        <picture>
+          <source type="image/webp" srcSet="/static/mika.webp" alt="mika"/>
+          <img src="/static/mika.png" alt="mika"/><br/>
+        </picture>
+        <span>HN: HelloRusk</span>
+      </div>
       <div className="detail">
         <Profile /><br/>
         <Interests /><br/>
@@ -54,6 +61,17 @@ export default () => (
         .detail {
           text-align: left;
           display: inline-block;
+        }
+
+        .icon img {
+          margin-top: 20px;
+          height: 70px;
+        }
+
+        .icon span {
+          font-size: 0.9em;
+          font-style: italic;
+          color: #505050;
         }
       `}</style>
       <style jsx global>{`
