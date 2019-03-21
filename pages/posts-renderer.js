@@ -30,7 +30,6 @@ export default () => {
               font-style: italic;
               cursor: pointer;
               color: #4B0082;
-              font-weight: 400;
             }
           `}</style>
         </div>

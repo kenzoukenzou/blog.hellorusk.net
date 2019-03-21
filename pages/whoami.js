@@ -79,7 +79,7 @@ export default () => (
           font-size: 1.5em;
           margin-top: 1em;
           margin-bottom: 0.5em;
-          font-weight: 400;
+          text-shadow: 4px 4px 4px #C0C0C0;
         }
       `}</style>
     </div>

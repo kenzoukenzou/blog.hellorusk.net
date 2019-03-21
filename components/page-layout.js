@@ -15,12 +15,12 @@ export default () => (
     }
 
     h2 {
-      font-weight: 400;
+      font-weight: 300;
       font-size: 1.3em;
     }
 
     h3 {
-      font-weight: 400;
+      font-weight: 300;
       font-size: 1.1em;
     }
 

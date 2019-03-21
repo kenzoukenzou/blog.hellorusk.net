@@ -28,7 +28,6 @@ export default class MyDocument extends Document {
           <meta name="twitter:site" content="@HelloRusk" />
           <meta name="twitter:image" content="https://hellorusk.net/static/mika_square.png" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400" />
         </Head>
         <body>
           <Main />

@@ -1,0 +1,25 @@
+
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+export const meta = {
+  date: '2019-03-21',
+  title: 'font-weight に頼らない"タイトル感"の出し方の検討',
+  url: '/blog/2019/03/21/',
+  description: '2019-03-21 の日記'
+}
+
+## font-weight に頼らない"タイトル感"の出し方の検討
+#### 2019-03-21
+
+Web フォントを愛用する我々にとって悩みとなるのが CSS の読み込み時間の問題です。このウェブサイトも Google の [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) で点検すると、クリティカルな問題は殆ど Web フォントの読み込みによるものだと分かります。  
+おまけにこのウェブサイトでは、これまで、本文に対して `font-weight: 300` 用の CSS を、タイトルなどの強調したい文に対して `font-weight: 400` 用の CSS を、それぞれ別々に読み込んでいました。なぜそのようなことを行なっていたかというと、単純に `font-weight: 300` 用の CSS で読み込むフォントを太字にすると、`font-weight: 400` 専用のフォントを別に読み込む場合に比べて、文字が汚くなってしまうからです。これは特にアルファベットにおいて顕著です。  
+しかし、タイトルなどの強調したい文の箇所は全体のごく一部であり、このためだけに Web フォントを新たに読み込むのは無駄だと考えました。そこで、本文と同じ `font-weight: 300` 専用のフォントを活用したまま、従来とは異なった形式で、文字に"タイトル感"を出す方法を模索しました。  
+
+1つ目は `text-shadow` 属性の活用です。CSS3 の機能であり、文字に簡単に影をつけることができます。これは [Get Started with the Google Fonts API](https://developers.google.com/fonts/docs/getting_started) という Google Fonts のドキュメンテーションを読んでいる際に見つけました。`text-shadow` 属性は https://caniuse.com/#search=text-shadow にある通りほぼ全てのブラウザに対応しているため安心して使うことができます。  
+2つ目は `:hover` 擬似クラスによるアンダーラインアニメーションです。特に、[CSS：ホバー時のアンダーラインアニメーションの実装サンプルとmixinを用いた実装方法](https://www.nxworld.net/tips/css-hover-underline-animation-examples-and-sass-mixin.html) という記事を参考にしました。`:hover` 自体はこれまで使っていたのですが、ここまで凝ったアニメーションを実現できるとは思っていませんでした。
+
+以上を活用し、`font-weight: 400` 用の CSS を読み込まないようなデザインに改めることができました。
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
