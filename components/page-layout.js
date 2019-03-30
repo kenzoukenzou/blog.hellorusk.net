@@ -78,7 +78,7 @@ export default () => (
     }
 
     code {
-      font-family: monaco;
+      font-family: consolas, monaco;
       font-size: 0.9em;
       background-color: #F0F0F0;
       padding: 0.2em;
