@@ -5,18 +5,20 @@ import Link from "next/link";
 const Profile = () => (
   <div>
     <div className="title">Profile</div>
-    横浜市に在住する大学生です. 大学では計算機科学を学んでいます.<br/>
-    おもにプログラミングと読書をして日々を過ごしています.<br/>
-    音楽の話をするのが好きです. 好きなアーティストは UNISON SQUARE GARDEN と fhána.<br/>
-    その他, 声優アーティストの楽曲にも少し詳しいです.<br/>
-    最近はねんどろいどにハマってます.
+    横浜市に在住する大学生です。大学では計算機科学を学んでいます。<br/>
+    おもにプログラミングと読書をして日々を過ごしています。<br/>
+    アルバイトや趣味で Web 開発も多少やります。一番理解があるのは React です。<br/>
+    音楽の話をするのが好きです。聴くのは概ねアニソンか邦ロック。<br/>
+    好きなアーティストは UNISON SQUARE GARDEN と fhána。<br/>
+    その他、声優アーティストの楽曲にも少し詳しいです。<br/>
+    ねんどろいど蒐集癖。
   </div>
 );
 
 const Interests = () => (
   <div>
     <div className="title">Interests</div>
-    Node.js, React, TypeScript, Haskell, Rust, fish shell, Vim ...
+    Node.js, React/Redux, TypeScript, PHP(Slim, Propel), Rust, Haskell ...
   </div>
 );
 
