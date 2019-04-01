@@ -41,7 +41,5 @@ fs.writeFile("./pages/posts.json", JSON.stringify({ "postsDateList": posts }), e
     if (err) throw err;
 
     console.log("Successfully generated: sitemap.xml");
-    console.log("-----------------------------------");
-    console.log(sitemap);
   });
 });
