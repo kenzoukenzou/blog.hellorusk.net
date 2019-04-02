@@ -32,8 +32,8 @@ const Certifications = () => (
 const About = () => (
   <div>
     <div className="title">About this site</div>
-    <a href="https://nextjs.org/" target="_blank">Next.js</a> を用いて構築されています.<br/>
-      Netlify によって<a href="https://github.com/7ma7X/mywebsite" target="_blank"> GitHub のリポジトリ</a>から自動でデプロイされています.
+    <a href="https://nextjs.org/" target="_blank">Next.js</a> を用いて構築されています。<br/>
+      Netlify によって<a href="https://github.com/7ma7X/mywebsite" target="_blank"> GitHub のリポジトリ</a>から自動でデプロイされています。
   </div>
 );
 
