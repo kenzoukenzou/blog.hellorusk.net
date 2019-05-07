@@ -49,11 +49,12 @@ const Main = () => {
       <style jsx global>{`
         .button, .button2 {
           display: inline-block;
-          border: dotted 0.1px #000000;
+          border: none;
           width: 30%;
           margin: 0 10px;
           padding: 5px 0;
           cursor: pointer;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
         }
         
         .button {
