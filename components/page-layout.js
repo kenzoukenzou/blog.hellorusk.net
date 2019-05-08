@@ -34,6 +34,10 @@ export default () => (
     a {
       text-decoration: none;
     }
+
+    a:link {
+      color: #1529DC;
+    }
     
     p {
       text-align: left;
