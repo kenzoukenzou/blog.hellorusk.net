@@ -48,6 +48,7 @@ const Main = () => {
       `}</style>
       <style jsx global>{`
         .button, .button2 {
+          font-size: 1.1em;
           display: inline-block;
           border: none;
           width: 30%;

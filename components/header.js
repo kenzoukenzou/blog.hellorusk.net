@@ -27,7 +27,11 @@ export default () => (
       
       .bio img {
         height: 110px;
-        margin-bottom: 1em;
+        margin-bottom: 0.2em;
+        padding: 5px;
+        border-radius: 150px;
+        -webkit-border-radius: 150px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
     `}</style> 
   </div>
