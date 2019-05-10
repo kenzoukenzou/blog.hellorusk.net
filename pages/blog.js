@@ -56,7 +56,6 @@ export default () => (
         position: relative;
         display: inline-block;
         text-decoration: none;
-        color: #000000;
       }
 
       .title a::after {

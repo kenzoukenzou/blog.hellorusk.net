@@ -38,6 +38,10 @@ export default () => (
     a:link {
       color: #1529DC;
     }
+
+    .title a:link {
+      color: #000000;
+    }
     
     p {
       text-align: left;
