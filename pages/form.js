@@ -7,7 +7,9 @@ export default () => (
     <Meta>
       <title key="title">form - HelloRusk Official Website</title>
     </Meta>
-    <form name="contact" method="POST" data-netlify="true">
+    <form name="contact" action="/" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
       <p>
         <label>Name: <br /><textarea name="name" className="name"></textarea></label>
       </p>
