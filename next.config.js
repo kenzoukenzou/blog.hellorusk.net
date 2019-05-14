@@ -12,6 +12,7 @@ module.exports = withMDX({
     pathMap["/"] = { page: "/" };
     pathMap["/whoami"] = { page: "/whoami" };
     pathMap["/blog"] = { page: "/blog" };
+    pathMap["/form"] = { page: "/form" };
     pathMap["404.html"] = { page: "/_error" };
 
     const posts = fs.readdirSync("./pages/posts");

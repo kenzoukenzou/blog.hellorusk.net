@@ -47,6 +47,16 @@ export default () => (
       text-align: left;
     }
 
+    textarea {
+      margin: 0.5em;
+      border: 2px solid #bbb;
+    }
+
+    .message {
+      width: 200px;
+      height: 100px;
+    }
+
     ul {
       padding-inline-start: 1.2em;
     }

@@ -18,6 +18,10 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <loc>https://hellorusk.net/blog/</loc>
   <priority>0.8</priority>
 </url>
+<url>
+  <loc>https://hellorusk.net/form/</loc>
+  <priority>0.8</priority>
+</url>
 `;
 
 fs.writeFile("./pages/posts.json", JSON.stringify({ "postsDateList": posts }), err => {
