@@ -11,10 +11,10 @@ export default () => (
       <input type="hidden" name="form-name" value="contact" />
       <input type="hidden" name="bot-field" />
       <p>
-        <label>Name: <br /><textarea name="name" className="name"></textarea></label>
+        <label>Name: <br /><textarea name="name" className="name" required></textarea></label>
       </p>
       <p>
-        <label>Message: <br /><textarea name="message" className="message"></textarea></label>
+        <label>Message: <br /><textarea name="message" className="message" required></textarea></label>
       </p>
       <p>
         <button type="submit">Send</button>
