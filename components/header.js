@@ -31,7 +31,8 @@ export default () => (
         padding: 5px;
         border-radius: 150px;
         -webkit-border-radius: 150px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+        -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
       }
     `}</style> 
   </div>
