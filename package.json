@@ -9,6 +9,7 @@
     "lint": "./node_modules/.bin/eslint . --fix"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "@zeit/next-mdx": "^1.2.0",
     "next": "^8.0.0",
     "next-page-transitions": "^1.0.0-alpha.6",

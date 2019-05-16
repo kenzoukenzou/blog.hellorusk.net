@@ -1,6 +1,8 @@
 import Meta from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 export default () => (
   <div>
@@ -11,18 +13,31 @@ export default () => (
       <form name="contact" action="/" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
-        <p>
-          <label>Name: <br /><textarea name="name" className="name" required></textarea></label>
-        </p>
-        <p>
-          <label>Message: <br /><textarea name="message" className="message" required></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
+        <TextField
+          name="name"
+          label="Name (Optional)"
+          margin="normal"
+        />
         <br />
+        <TextField
+          name="message"
+          label="Message"
+          multiline
+          rows="5"
+          margin="normal"
+          fullWidth
+          required
+          variant="outlined"
+        />
+        <br />
+        <br />
+        <Button variant="outlined" type="submit">
+          Submit
+        </Button>
       </form>
     </div>
+    <br />
+    <br />
     <div className="jump">
       <Link scroll={false} href="/">
         <a>home</a>
@@ -36,6 +51,8 @@ export default () => (
 
       form {
         display: inline-block;
+        text-align: left;
+        width: 300px;
       }
     `}</style>
   </div>
