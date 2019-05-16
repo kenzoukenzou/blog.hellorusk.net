@@ -1,0 +1,35 @@
+
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+export const meta = {
+  date: '2019-05-16',
+  title: '便利な Netlify Forms',
+  url: '/blog/2019/05/16/',
+  description: '2019-05-16 の日記'
+}
+
+## 便利な Netlify Forms
+#### 2019-05-16
+
+最近、自分のウェブサイトの中に新たに[フォーム](https://hellorusk.net/form/)を作成しました。
+これは、様々な人から、見た方が良いアニメをできるだけ募集したいと思っているからです。普通の人であればこのような行為は Twitter でリプライを集めることによって行うでしょうが、
+私は Twitter をできるだけひっそりと運用していく方針でいるため、SNS よりも自分のウェブサイトを活用するのが良さそうだと考えました。  
+　 
+このフォームについてですが、[Netlify Forms](https://www.netlify.com/docs/form-handling/) によって実現しています。  
+Netlify Forms とは Netlify でホスティングしているサイトにおいて使えるフォームサービスです。基本的には、
+通常の html の `form` タグに `data-netlify="true"` と付記するだけで Netlify Forms として処理してくれるという、
+恐ろしく簡便なシステムです（GatsbyJS や Next.js 等のフレームワークを既に用いている場合は
+もう少し作業が必要ですが、それでも簡単なことには変わりありません）。  
+また、Netlify の設定画面からメールや Slack と連携することもできるので、フォームに届く投稿にすぐに気づくことができ、とても便利です。  
+ただし、無料枠においては、1ヶ月に処理できる POST の回数が 100 回以内、
+また（`<input type="file">` 等でファイルをアップロードできるフォームを作成している場合、）受け取ることができるファイルのサイズが 10 MB 以内という制限が2019年5月現在あります。
+よって、あまり投稿が来ないことを前提としたフォームで Netlify Forms を使っていくのが良いでしょう。
+  
+さて、冒頭の内容に戻りますが、[フォーム](https://hellorusk.net/form/)において、見るべきアニメを常に募集しています。  
+私が今まで見たアニメの一覧は[ここ](https://scrapbox.io/hellorusk/HelloRusk_Watched_Anime_List)にまとめられていますので、
+もしこのリストを眺めて、どうして○○や△△を見ていないんだ、という気持ちになった方は、
+ぜひフォームに投稿していただけると嬉しいです。
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
