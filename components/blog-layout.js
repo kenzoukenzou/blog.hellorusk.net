@@ -1,8 +1,12 @@
 import Link from "next/link";
 import Footer from "./footer";
 
+const excludeReservedCharacter = str => {
+  return str.replace(/[#|$]/g, "");
+};
+
 export default ({ meta }) => {
-  const tweetlink = `https://twitter.com/intent/tweet?text=${meta.title}%20-%20HelloRusk%20Official%20Website%0a&url=https://hellorusk.net${meta.url}`;
+  const tweetlink = `https://twitter.com/intent/tweet?text=${excludeReservedCharacter(meta.title)}%20-%20HelloRusk%20Official%20Website%0a&url=https://hellorusk.net${meta.url}`;
 
   return (
     <div>
