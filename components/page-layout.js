@@ -42,6 +42,10 @@ export default () => (
     .title a:link {
       color: #000000;
     }
+
+    .title a:visited {
+      color: #000000;
+    }
     
     p {
       text-align: left;
