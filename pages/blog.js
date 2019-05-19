@@ -57,24 +57,6 @@ export default () => (
         display: inline-block;
         text-decoration: none;
       }
-
-      .title a::after {
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        content: '';
-        width: 100%;
-        height: 1px;
-        background: #333;
-        transform: scale(0, 1);
-        transform-origin: right top;
-        transition: transform .4s;
-      }
-
-      .title a:hover::after {
-        transform-origin: left top;
-        transform: scale(1, 1);
-      }
     `}</style>
   </div>
 );
