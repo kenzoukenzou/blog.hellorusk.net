@@ -26,7 +26,7 @@ const Interests = () => (
 const Certifications = () => (
   <div>
     <div className="title">Certifications</div>
-    Not yet ... (I wanna get some)
+    基本情報技術者
   </div>
 );
 
