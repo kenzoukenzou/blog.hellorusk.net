@@ -136,7 +136,7 @@ const renderInfo = num => {
           <a href="https://hellorusk.hatenablog.com" target="_blank">はてなブログ（日記）</a>
         </li>
         <li>
-          <a href="http://b.hatena.ne.jp/HelloRusk/" target="_blank">はてなブックマーク</a>
+          <a href="https://b.hatena.ne.jp/HelloRusk/" target="_blank">はてなブックマーク</a>
         </li>
         <li>
           <a href="https://bookmeter.com/users/849928" target="_blank">読書メーター</a>
