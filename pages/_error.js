@@ -1,5 +1,4 @@
 import Meta from "next/head";
-import Header from "../components/header";
 import Footer from "../components/footer";
 import Link from "next/link";
 
@@ -8,9 +7,9 @@ export default () => (
     <Meta>
       <title key="title">error - HelloRusk Official Website</title>
     </Meta>
-    <Header />
     <div className="error">
-      <span>ERROR</span>
+      <br/>
+      <span>ERROR!!</span>
       <style jsx>{`
         .error {
           padding-top: 15px;
