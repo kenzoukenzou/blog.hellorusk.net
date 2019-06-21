@@ -9,23 +9,23 @@ const initialState = {
   border: "none"
 };
 
-function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-  case "DARKMODE":
-    return {
-      isDarkMode: true,
-      textcolor: "#FFFFFF",
-      backgroundcolor: "#000000",
-      linkcolor: "#00FFFF",
-      boxshadow: "none",
-      border: "0.2px solid #FFFFFF"
-    };
-  case "WHITEMODE":
-    return initialState;
-  default:
-    return state;
+    case "DARKMODE":
+      return {
+        isDarkMode: true,
+        textcolor: "#FFFFFF",
+        backgroundcolor: "#000000",
+        linkcolor: "#00FFFF",
+        boxshadow: "none",
+        border: "0.2px solid #FFFFFF"
+      };
+    case "WHITEMODE":
+      return initialState;
+    default:
+      return state;
   }
-}
+};
 
 const store = createStore(reducer);
 export default store;
