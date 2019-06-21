@@ -10,7 +10,7 @@ export default () => (
     </div>
     <style jsx>{`
       .header {
-        margin-top: 15px;
+        margin-top: -30px;
         text-align: center;
       }
 

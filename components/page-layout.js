@@ -1,6 +1,10 @@
-export default () => (
+import { connect } from "react-redux";
+
+const PageLayout = props => (
   <style jsx global>{`
     body {
+      color: ${props.textcolor};
+      background-color: ${props.backgroundcolor};
       font-family: 'Noto Sans JP', sans-serif;
       font-display: swap;
       font-weight: 300;
@@ -36,11 +40,11 @@ export default () => (
     }
 
     a:link {
-      color: #1529DC;
+      color: ${props.linkcolor};
     }
 
     .title a:link {
-      color: #000000;
+      color: ${props.textcolor};
     }
 
     .title a:visited {
@@ -102,3 +106,13 @@ export default () => (
     }
   `}</style>
 );
+
+const mapStateToProps = state => {
+  return {
+    textcolor: state.textcolor,
+    backgroundcolor: state.backgroundcolor,
+    linkcolor: state.linkcolor
+  };
+};
+
+export default connect(mapStateToProps)(PageLayout);

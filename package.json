@@ -11,10 +11,12 @@
   "dependencies": {
     "@material-ui/core": "^4.0.1",
     "@zeit/next-mdx": "^1.2.0",
-    "next": "^8.1.1-canary.39",
+    "next": "^8.1.0",
     "next-page-transitions": "^1.0.0-beta.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^6.0.0-alpha.2",
