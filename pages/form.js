@@ -27,7 +27,7 @@ export default () => (
           margin="normal"
           fullWidth
           required
-          variant="outlined"
+          variant="filled"
         />
         <br />
         <br />
