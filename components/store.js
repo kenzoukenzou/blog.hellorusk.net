@@ -1,5 +1,4 @@
 import { createStore } from "redux";
-import moment from "moment-timezone";
 
 const initialState = {
   isDarkMode: false,
@@ -10,19 +9,17 @@ const initialState = {
   border: "none"
 };
 
-const nightState = {
-  isDarkMode: true,
-  textcolor: "#FFFFFF",
-  backgroundcolor: "#000000",
-  linkcolor: "#00FFFF",
-  boxshadow: "none",
-  border: "0.2px solid #FFFFFF"
-};
-
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "DARKMODE":
-      return nightState;
+      return {
+        isDarkMode: true,
+        textcolor: "#FFFFFF",
+        backgroundcolor: "#000000",
+        linkcolor: "#00FFFF",
+        boxshadow: "none",
+        border: "0.2px solid #FFFFFF"
+      };
     case "WHITEMODE":
       return initialState;
     default:
@@ -30,7 +27,5 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-const now = Number(moment().tz("Asia/Tokyo").format("H"));
-const currentState = (now < 7 || now >= 19) ? nightState : initialState;
-
-export default createStore(reducer, currentState);
+const store = createStore(reducer);
+export default store;

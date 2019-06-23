@@ -94,7 +94,6 @@ const PageLayout = props => (
     }
 
     code {
-      color: #000000;
       font-family: consolas, monaco;
       font-size: 0.9em;
       background-color: #F0F0F0;
