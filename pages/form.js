@@ -35,8 +35,9 @@ export default () => (
           Submit
         </Button>
       </form>
+      <br />
+      <br />
     </div>
-    <br />
     <br />
     <div className="jump">
       <Link scroll={false} href="/">
@@ -47,6 +48,8 @@ export default () => (
     <style jsx>{`
       .form-container {
         text-align: center;
+        background-color: #FFFFFF;
+        border-radius: 1em;
       }
 
       form {

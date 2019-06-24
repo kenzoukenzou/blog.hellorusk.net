@@ -1,4 +1,11 @@
 import { createStore } from "redux";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+  key: "HelloRuskMode",
+  storage
+};
 
 const initialState = {
   isDarkMode: false,
@@ -27,5 +34,8 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-const store = createStore(reducer);
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+const store = createStore(persistedReducer);
+export const persistor = persistStore(store);
 export default store;
