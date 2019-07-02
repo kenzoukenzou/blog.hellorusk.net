@@ -39,7 +39,7 @@ const PageLayout = props => (
       text-decoration: none;
     }
 
-    a:link {
+    a:link, a:visited {
       color: ${props.linkcolor};
     }
 
@@ -48,7 +48,7 @@ const PageLayout = props => (
     }
 
     .title a:visited {
-      color: #000000;
+      color: ${props.textcolor};
     }
     
     p {
