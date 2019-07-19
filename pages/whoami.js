@@ -18,20 +18,6 @@ const Profile = () => (
   </div>
 );
 
-const Interests = () => (
-  <div>
-    <div className="title">Interests</div>
-    Node.js, React/Redux, TypeScript, Go, Rust, Scala ...
-  </div>
-);
-
-const Certifications = () => (
-  <div>
-    <div className="title">Certifications</div>
-    基本情報技術者
-  </div>
-);
-
 const About = () => (
   <div>
     <div className="title">About this site</div>
@@ -58,9 +44,8 @@ export default () => (
       </div>
       <div className="detail">
         <Profile /><br/>
-        <Interests /><br/>
-        <Certifications /><br/>
         <About /><br/>
+        <br/>
       </div>
       <style jsx>{`      
         .detail {
