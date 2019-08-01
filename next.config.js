@@ -39,7 +39,6 @@ module.exports = withMDX({
       pathMap[postPath] = { page: pagePath };
     }
 
-    console.log(pathMap);
     return pathMap;
   }
 });
