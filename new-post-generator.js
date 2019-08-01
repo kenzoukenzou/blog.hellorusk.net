@@ -1,10 +1,5 @@
 const fs = require("fs");
 
-const date = new Date();
-const Y = date.getFullYear();
-const M = date.getMonth() + 1;
-const D = date.getDate();
-
 const zeroPadding = num => {
   if (num < 10) {
     return "0" + String(num);
@@ -13,19 +8,24 @@ const zeroPadding = num => {
   }
 };
 
+const date = new Date();
+const Y = zeroPadding(date.getFullYear());
+const M = zeroPadding(date.getMonth() + 1);
+const D = zeroPadding(date.getDate());
+
 const template = `
 import BlogLayout from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 
 export const meta = {
-  date: '${Y}-${zeroPadding(M)}-${zeroPadding(D)}',
+  date: '${Y}-${M}-${D}',
   title: 'ここにタイトルを記入してください',
-  url: '/blog/${Y}/${zeroPadding(M)}/${zeroPadding(D)}/',
-  description: '${Y}-${zeroPadding(M)}-${zeroPadding(D)} の日記'
+  url: '/blog/${Y}/${M}/${D}/',
+  description: '${Y}-${M}-${D} の日記'
 }
 
 ## ここにタイトルを記入してください
-#### ${Y}-${zeroPadding(M)}-${zeroPadding(D)}
+#### ${Y}-${M}-${D}
 
 
 
@@ -33,7 +33,7 @@ export const meta = {
 <BlogMeta meta={meta} />
 `;
 
-fs.writeFile(`./pages/posts/${Y}${zeroPadding(M)}${zeroPadding(D)}.mdx`, template, "utf-8", err => {
+fs.writeFile(`./pages/posts/${Y}${M}${D}.mdx`, template, "utf-8", err => {
   if (err) throw err;
-  console.log(`Successfully generated: ${Y}${zeroPadding(M)}${zeroPadding(D)}.mdx`);
+  console.log(`Successfully generated: ${Y}${M}${D}.mdx`);
 });
