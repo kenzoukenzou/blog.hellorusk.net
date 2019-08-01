@@ -1,6 +1,13 @@
 import { connect } from "react-redux";
+import { ModeState } from "../store/types";
 
-const PageLayout = props => (
+interface LayoutProps {
+  textcolor: string,
+  backgroundcolor: string,
+  linkcolor: string
+}
+
+const PageLayout = (props: LayoutProps) => (
   <style jsx global>{`
     body {
       color: ${props.textcolor};
@@ -108,7 +115,7 @@ const PageLayout = props => (
   `}</style>
 );
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ModeState) => {
   return {
     textcolor: state.textcolor,
     backgroundcolor: state.backgroundcolor,

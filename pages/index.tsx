@@ -5,9 +5,15 @@ import Footer from "../components/footer";
 import { whitemode, darkmode } from "../store/actions";
 import Switch from "@material-ui/core/Switch";
 import { connect } from "react-redux";
+import { ModeState, ActionTypes } from "../store/types";
 
+interface LayoutProps {
+  isDarkMode: boolean,
+  whitemode: () => ActionTypes,
+  darkmode: () => ActionTypes
+}
 
-const Index = props => {
+const Index: React.FC<LayoutProps> = props => {
   const handleChange = () => {
     props.isDarkMode ? props.whitemode() : props.darkmode();
   };
@@ -35,7 +41,7 @@ const Index = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ModeState) => {
   return {
     isDarkMode: state.isDarkMode,
   };

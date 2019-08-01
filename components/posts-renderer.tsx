@@ -3,7 +3,7 @@ import data from "./posts.json";
 import { useState } from "react";
 
 const postsDateList = data["postsDateList"];
-const postsComponentList = [];
+const postsComponentList: JSX.Element[] = [];
 
 for (const date of postsDateList) {
   const { meta } = require(`../pages/posts/${date}`);
@@ -19,7 +19,7 @@ export default () => {
   const [num, setNum] = useState(7);
   const article_num = postsComponentList.length;
 
-  const show_more = num => {
+  const show_more = (num: number) => {
     if (num < article_num) {
       return (
         <div className="older" onClick={() => setNum(num + 7)}>

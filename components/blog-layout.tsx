@@ -1,11 +1,18 @@
 import Link from "next/link";
 import Footer from "./footer";
 
-const encodeCharacterForURL = str => {
+const encodeCharacterForURL = (str: string) => {
   return str.replace(/#/g, "%23");
 };
 
-export default ({ meta }) => {
+interface Meta {
+  meta: {
+    title: string,
+    url: string
+  }
+}
+
+export default ({ meta }: Meta) => {
   const tweetlink = `https://twitter.com/intent/tweet?text=${encodeCharacterForURL(meta.title)}%20-%20HelloRusk%20Official%20Website%0a&url=https://hellorusk.net${meta.url}`;
 
   return (

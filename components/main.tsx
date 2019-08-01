@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import { connect } from "react-redux";
+import { ModeState } from "../store/types";
+import { border } from "@material-ui/system";
 
-const renderInfo = num => {
+const renderInfo = (num: number) => {
   const elements = [
     <div className="about">
       <Link scroll={false} href="/whoami"><a>Profile</a></Link><br/>
@@ -99,12 +101,17 @@ const renderInfo = num => {
   return elements[num];
 };
 
-const Main = props => {
+interface LayoutProps {
+  boxshadow: string,
+  border: string
+}
+
+const Main = (props: LayoutProps) => {
   const [num, setNum] = useState(0);
 
   const idList = ["About", "Links"];
   const buttonType = ["button", "button2"];
-  const buttonElements = [];
+  const buttonElements: JSX.Element[] = [];
 
   idList.forEach((v, iter) => {
     buttonElements.push(
@@ -182,7 +189,7 @@ const Main = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ModeState) => {
   return {
     boxshadow: state.boxshadow,
     border: state.border
