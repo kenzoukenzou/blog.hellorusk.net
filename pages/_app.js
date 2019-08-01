@@ -1,6 +1,6 @@
 import App, { Container } from "next/app";
 import { PageTransition } from "next-page-transitions";
-import Layout from "../components/page-layout";
+import Layout from "../layouts/page-layout";
 import { Provider } from "react-redux";
 import store, { persistor } from "../store/store";
 import { PersistGate } from "redux-persist/integration/react";
