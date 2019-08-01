@@ -6,16 +6,6 @@ import store, { persistor } from "../store/store";
 import { PersistGate } from "redux-persist/integration/react";
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
   render () {
     const { Component, pageProps, router } = this.props;
 
