@@ -2,7 +2,7 @@ import Meta from "next/head";
 import Header from "../components/header";
 import Main from "./main";
 import Footer from "../components/footer";
-import { whitemode, darkmode } from "../components/actions";
+import { whitemode, darkmode } from "../store/actions";
 import Switch from "@material-ui/core/Switch";
 import { connect } from "react-redux";
 

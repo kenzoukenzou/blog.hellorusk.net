@@ -2,7 +2,7 @@ import App, { Container } from "next/app";
 import { PageTransition } from "next-page-transitions";
 import Layout from "../components/page-layout";
 import { Provider } from "react-redux";
-import store, { persistor } from "../components/store";
+import store, { persistor } from "../store/store";
 import { PersistGate } from "redux-persist/integration/react";
 
 export default class MyApp extends App {
