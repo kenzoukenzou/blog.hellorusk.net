@@ -6,7 +6,7 @@ const postsDateList = data["postsDateList"];
 const postsComponentList = [];
 
 for (const date of postsDateList) {
-  const { meta } = require(`./posts/${date}`);
+  const { meta } = require(`../pages/posts/${date}`);
   postsComponentList.push(
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>

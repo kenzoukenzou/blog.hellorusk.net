@@ -8,7 +8,7 @@ const readdir = util.promisify(fs.readdir);
 const copyFile = util.promisify(fs.copyFile);
 
 module.exports = withMDX({
-  pageExtensions: ["js", "mdx"],
+  pageExtensions: ["tsx", "mdx"],
 
   exportPathMap: async function () {
     try {

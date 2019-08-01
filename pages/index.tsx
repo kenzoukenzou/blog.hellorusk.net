@@ -1,6 +1,6 @@
 import Meta from "next/head";
 import Header from "../components/header";
-import Main from "./main";
+import Main from "../components/main";
 import Footer from "../components/footer";
 import { whitemode, darkmode } from "../store/actions";
 import Switch from "@material-ui/core/Switch";

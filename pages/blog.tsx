@@ -1,7 +1,7 @@
 import Meta from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
-import PostsPreviewer from "./posts-renderer";
+import PostsPreviewer from "../components/posts-renderer";
 
 export default () => (
   <div>

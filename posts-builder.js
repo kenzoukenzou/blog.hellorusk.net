@@ -24,7 +24,7 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 </url>
 `;
 
-fs.writeFile("./pages/posts.json", JSON.stringify({ "postsDateList": posts }), err => {
+fs.writeFile("./components/posts.json", JSON.stringify({ "postsDateList": posts }), err => {
   if (err) throw err;
   console.log("Successfully generated: posts.json");
 
