@@ -10,9 +10,6 @@ const Profile = () => (
     アルバイトや趣味で Web 開発も多少やります。<br/>
     音楽の話をするのが好きです。聴くのは概ねアニソンか邦ロック。<br/>
     好きなアーティストは UNISON SQUARE GARDEN と fhána。<br/>
-    その他、声優アーティストの楽曲にも少し詳しいです。<br/>
-    ねんどろいど蒐集癖。<br/>
-    視聴済のアニメを <a href="https://scrapbox.io/hellorusk/HelloRusk_Watched_Anime_List" target="_blank">Scrapbox</a> で記録しています。<br/>
     <br/>
     何か御用ありましたら<Link scroll={false} href="/form"><a>フォーム</a></Link>から気軽にどうぞ。
   </div>
