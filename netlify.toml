@@ -8,4 +8,4 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src https:; script-src https: 'unsafe-inline'; style-src https: 'unsafe-inline'"
+    Content-Security-Policy = "default-src https:; object-src 'none'; script-src https: 'unsafe-inline'; style-src https: 'unsafe-inline'"
