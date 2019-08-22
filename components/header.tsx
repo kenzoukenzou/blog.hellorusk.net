@@ -6,7 +6,9 @@ export default () => (
         <img src="/static/mika.png" alt="mika"/><br/>
       </picture>
         HelloRusk<br/>
-      <span>Contact: k＠hellorusk.net</span>
+      <span>
+        <a href="mailto:k@hellorusk.net">k＠hellorusk.net</a>
+      </span>
     </div>
     <style jsx>{`
       .header {
@@ -22,6 +24,10 @@ export default () => (
       
       .bio span {
         font-size: 0.9em;
+        color: #808080;
+      }
+
+      .bio span a {
         color: #808080;
       }
       

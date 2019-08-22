@@ -11,7 +11,8 @@ const Profile = () => (
     音楽の話をするのが好きです。聴くのは概ねアニソンか邦ロック。<br/>
     好きなアーティストは UNISON SQUARE GARDEN と fhána。<br/>
     <br/>
-    何か御用ありましたら<Link scroll={false} href="/form"><a>フォーム</a></Link>から気軽にどうぞ。
+    何か御用ありましたら<Link scroll={false} href="/form"><a>フォーム</a></Link>
+    または<a href="mailto:k@hellorusk.net">メール</a>から気軽にどうぞ。
   </div>
 );
 
