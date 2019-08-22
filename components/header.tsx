@@ -6,7 +6,7 @@ export default () => (
         <img src="/static/mika.png" alt="mika"/><br/>
       </picture>
         HelloRusk<br/>
-      <span>Contact: hellorusk1998 [at] gmail.com</span>
+      <span>Contact: k＠hellorusk.net</span>
     </div>
     <style jsx>{`
       .header {
