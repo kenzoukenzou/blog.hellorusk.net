@@ -10,7 +10,7 @@ for (const date of postsDateList) {
   postsComponentList.push(
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>
-      <div className="title"><Link scroll={false} href={meta.url}><a>{meta.title}</a></Link></div>
+      <div className="title"><Link prefetch={false} scroll={false} href={meta.url}><a>{meta.title}</a></Link></div>
     </div>
   );
 }
