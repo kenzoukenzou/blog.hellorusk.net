@@ -30,7 +30,7 @@ fs.writeFile("./components/posts.json", JSON.stringify({ "postsDateList": posts 
 
   posts.forEach(e => {
     const path = e.replace(/(\d{4})(\d{2})(\d{2})\.mdx/, (match, p1, p2, p3) => {
-      return `blog/${p1}/${p2}/${p3}/`;
+      return `blog/${p1}/${p2}/${p3}`;
     });
 
     sitemap += "<url>\n";
