@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { ModeState } from "../store/types";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "../store/store";
 
 const renderInfo = (num: number) => {
   const elements = [
@@ -125,7 +127,7 @@ const Main = (props: LayoutProps) => {
   });
 
   return (
-    <div>
+    <PersistGate loading={null} persistor={persistor}>
       <div className="buttonContainer">{buttonElements}</div>
       <style jsx>{`
         .buttonContainer {
@@ -184,7 +186,7 @@ const Main = (props: LayoutProps) => {
           height: 270px;
         }
       `}</style>
-    </div>
+    </PersistGate>
   );
 };
 

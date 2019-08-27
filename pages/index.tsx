@@ -6,6 +6,8 @@ import { whitemode, darkmode } from "../store/actions";
 import Switch from "@material-ui/core/Switch";
 import { connect } from "react-redux";
 import { ModeState, ActionTypes } from "../store/types";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "../store/store";
 
 interface LayoutProps {
   isDarkMode: boolean,
@@ -27,13 +29,15 @@ const Index: React.FC<LayoutProps> = props => {
         <meta property="og:url" content="/" /> 
         <meta property="og:description" content="HelloRuskの公式ウェブサイト" />
       </Meta>
-      <Switch
-        className="modechange"
-        checked={props.isDarkMode}
-        onChange={() => handleChange()}
-        value="checked"
-        color="primary"
-      />
+      <PersistGate loading={null} persistor={persistor}>
+        <Switch
+          className="modechange"
+          checked={props.isDarkMode}
+          onChange={() => handleChange()}
+          value="checked"
+          color="primary"
+        />
+      </PersistGate>
       <Header />
       <Main />
       <Footer />
