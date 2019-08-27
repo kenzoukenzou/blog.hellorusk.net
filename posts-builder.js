@@ -11,15 +11,15 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <priority>1.0</priority>
 </url>
 <url>
-  <loc>https://hellorusk.net/whoami/</loc>
+  <loc>https://hellorusk.net/whoami</loc>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://hellorusk.net/blog/</loc>
+  <loc>https://hellorusk.net/blog</loc>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://hellorusk.net/form/</loc>
+  <loc>https://hellorusk.net/form</loc>
   <priority>0.8</priority>
 </url>
 `;
