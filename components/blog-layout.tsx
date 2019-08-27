@@ -1,19 +1,19 @@
 import Link from "next/link";
 import Footer from "./footer";
+import { MetaUrl, MetaTitle, removeTrailingSlash, encodeCharacterForLink } from "./blog-meta";
 
-const encodeCharacterForURL = (str: string) => {
-  return str.replace(/#/g, "%23");
-};
-
-interface Meta {
+interface MetaLayout {
   meta: {
-    title: string,
-    url: string
+    title: MetaTitle,
+    url: MetaUrl
   }
 }
 
-export default ({ meta }: Meta) => {
-  const tweetlink = `https://twitter.com/intent/tweet?text=${encodeCharacterForURL(meta.title)}%20-%20HelloRusk%20Official%20Website%0a&url=https://hellorusk.net${meta.url}`;
+export default ({ meta }: MetaLayout) => {
+  const normalizedUrl = removeTrailingSlash(meta.url);
+  const normalizedTitle = encodeCharacterForLink(meta.title);
+
+  const tweetlink = `https://twitter.com/intent/tweet?text=${normalizedTitle}%20-%20HelloRusk%20Official%20Website%0a&url=https://hellorusk.net${normalizedUrl}`;
 
   return (
     <div>

@@ -1,22 +1,21 @@
 import Link from "next/link";
 import data from "./posts.json";
 import { useState } from "react";
+import { internalLink, removeTrailingSlash} from "./blog-meta";
 
 const postsDateList = data["postsDateList"];
 const postsComponentList: JSX.Element[] = [];
 
-const internalLink = (date: String) => {
-  return date.replace(/^(\d{4})-(\d{2})-(\d{2})$/, (match, p1, p2, p3) => {
-    return `/posts/${p1}${p2}${p3}`;
-  })
-}
-
 for (const date of postsDateList) {
   const { meta } = require(`../pages/posts/${date}`);
+
+  const normalizedLink = internalLink(meta.date);
+  const normalizedUrl = removeTrailingSlash(meta.url);
+
   postsComponentList.push(
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>
-      <div className="title"><Link scroll={false} href={internalLink(meta.date)} as={meta.url}><a>{meta.title}</a></Link></div>
+      <div className="title"><Link scroll={false} href={normalizedLink} as={normalizedUrl}><a>{meta.title}</a></Link></div>
     </div>
   );
 }

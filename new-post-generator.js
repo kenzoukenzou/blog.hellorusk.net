@@ -20,7 +20,7 @@ import BlogMeta from "../../components/blog-meta";
 export const meta = {
   date: '${Y}-${M}-${D}',
   title: 'ここにタイトルを記入してください',
-  url: '/blog/${Y}/${M}/${D}/',
+  url: '/blog/${Y}/${M}/${D}',
   description: '${Y}-${M}-${D} の日記'
 }
 

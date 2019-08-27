@@ -1,4 +1,4 @@
-import App, { Container } from "next/app";
+import App from "next/app";
 import { PageTransition } from "next-page-transitions";
 import Layout from "../layouts/page-layout";
 import { Provider } from "react-redux";

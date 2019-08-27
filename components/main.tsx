@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { ModeState } from "../store/types";
-import { border } from "@material-ui/system";
 
 const renderInfo = (num: number) => {
   const elements = [
