@@ -48,12 +48,9 @@ const renderInfo = (num: number) => {
           <a href="https://www.last.fm/ja/user/HelloRusk" target="_blank">Last.fm</a>
         </li>
         <li>
-          <a href="https://helllrrrk.hatenablog.com" target="_blank">
-            はてなブログ（技術メモ）
+          <a href="https://tech.hellorusk.net" target="_blank">
+            はてなブログ
           </a>
-        </li>
-        <li>
-          <a href="https://hellorusk.hatenablog.com" target="_blank">はてなブログ（日記）</a>
         </li>
         <li>
           <a href="https://b.hatena.ne.jp/HelloRusk/" target="_blank">はてなブックマーク</a>
@@ -75,7 +72,7 @@ const renderInfo = (num: number) => {
         }
 
         .links ul {
-          margin: 0 30px 0 0;
+          margin: 0 40px 0 0;
           list-style-type: none;
           padding-inline-start: 3em;
         }
