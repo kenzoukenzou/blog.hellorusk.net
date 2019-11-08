@@ -1,6 +1,13 @@
 const fs = require("fs");
 const util = require("util");
-const withMDX = require("@zeit/next-mdx")();
+const remarkMath = require("remark-math");
+const rehypeKatex = require("rehype-katex");
+const withMDX = require("@zeit/next-mdx")({
+  options: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex]
+  }
+});
 
 const stat = util.promisify(fs.stat);
 const mkdir = util.promisify(fs.mkdir);
