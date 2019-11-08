@@ -1,0 +1,58 @@
+
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+export const meta = {
+  date: '2019-11-08',
+  title: 'Next.js + MDX で数式を扱う',
+  url: '/blog/2019/11/08',
+  description: '2019-11-08 の日記'
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"/>
+
+## Next.js + MDX で数式を扱う
+#### 2019-11-08
+
+Next.js と MDX で構築されたこのブログで、TeX を扱えるようにしていきたいと思います。  
+まず、[@mdx-js/loader](https://github.com/mdx-js/mdx/tree/master/packages/loader) を入れます。
+これは `next.config.js` 内で MDX 向けのプラグインをカスタマイズするのに必要です。入っていなければ、
+
+```
+npm install @mdx-js/loader
+```
+
+してください。  
+
+  
+
+その後は、
+
+```
+npm install remark-math
+```
+```
+npm install rehype-katex
+```
+
+してから、[ドキュメンテーション](https://mdxjs.com/guides/math-blocks)通りに `next.config.js` を編集しましょう。
+このブログのリポジトリの[コミット](https://github.com/7ma7X/mywebsite/commit/e300f2d14e0d7bf692048b65015df2a27a5aa3bd)も参考にしてください。
+これで TeX を使う準備が整います。  
+MDX 内で KaTeX CSS を挿入する必要があることにも注意しましょう（数式をブログでよく使う人は、
+ブログのテンプレートにCSSの部分も加えた方がいいかもしれませんね！）。
+
+$$
+L = \frac{1}{2} \rho v^2 S C_L
+$$
+
+$$
+f(x) = \int_{-\infty}^\infty
+    \hat f(\xi)\,e^{2 \pi i \xi x}
+    \,d\xi
+$$
+
+これで無事に $\TeX$ が使えるようになりましたね！
+
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />

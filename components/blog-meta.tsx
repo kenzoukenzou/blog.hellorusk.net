@@ -12,7 +12,8 @@ export const internalLink = (date: MetaDate) => {
 }
 
 export const encodeCharacterForLink = (str: MetaTitle) => {
-  return str.replace(/#/g, "%23");
+  return str.replace(/#/g, "%23")
+            .replace(/\+/g, "%2B");
 };
 
 export const removeTrailingSlash = (url: MetaUrl) => {
