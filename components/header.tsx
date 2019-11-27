@@ -2,8 +2,8 @@ export default () => (
   <div className="header">
     <div className="bio">
       <picture>
-        <source type="image/webp" srcSet="/static/mika.webp"/>
-        <img src="/static/mika.png" alt="mika"/><br/>
+        <source type="image/webp" srcSet="/mika.webp"/>
+        <img src="/mika.png" alt="mika"/><br/>
       </picture>
         HelloRusk<br/>
       <span>

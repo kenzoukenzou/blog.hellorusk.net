@@ -18,7 +18,7 @@ export default ({ meta }: MetaLayout) => {
   return (
     <div>
       <div className="tweet">
-        <a href={tweetlink} target="_blank"><img src="/static/twitter.svg" height="40" alt="tweet" /></a>
+        <a href={tweetlink} target="_blank"><img src="/twitter.svg" height="40" alt="tweet" /></a>
         <style jsx>{`
           .tweet {
             text-align: right;
@@ -38,6 +38,18 @@ export default ({ meta }: MetaLayout) => {
           p img {
             display: block;
             margin: 0 auto;
+          }
+
+          .hatena {
+            border: 0; 
+            width: 100%; 
+            height: 190px;
+            max-width: 400px;
+          }
+
+          .github {
+            height: 140px; 
+            padding-bottom: 0;
           }
 
           @media screen and (min-width: 657px) {

@@ -2,31 +2,20 @@ const fs = require("fs");
 const util = require("util");
 const remarkMath = require("remark-math");
 const rehypeKatex = require("rehype-katex");
+const rehypePrism = require("@mapbox/rehype-prism");
 const withMDX = require("@zeit/next-mdx")({
   options: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex]
+    rehypePlugins: [rehypeKatex, rehypePrism],
   }
 });
 
-const stat = util.promisify(fs.stat);
-const mkdir = util.promisify(fs.mkdir);
 const readdir = util.promisify(fs.readdir);
-const copyFile = util.promisify(fs.copyFile);
 
 module.exports = withMDX({
   pageExtensions: ["tsx", "mdx"],
 
   exportPathMap: async function () {
-    try {
-      await stat("./out");
-    } catch (e) {
-      await mkdir("./out");
-    }
-    
-    await copyFile("./static/keybase.txt", "./out/keybase.txt");
-    await copyFile("./static/sitemap.xml", "./out/sitemap.xml");
-
     const pathMap = {};
     pathMap["/"] = { page: "/" };
     pathMap["/whoami"] = { page: "/whoami" };

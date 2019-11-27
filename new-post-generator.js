@@ -17,6 +17,10 @@ const template = `
 import BlogLayout from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css' rel='stylesheet'/>
+
 export const meta = {
   date: '${Y}-${M}-${D}',
   title: 'ここにタイトルを記入してください',

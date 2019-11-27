@@ -103,12 +103,19 @@ const PageLayout = (props: LayoutProps) => (
         color: #808080;
       }
 
+      pre {
+        overflow-x: scroll;
+        font-size: 0.9em;
+        background-color: #F0F0F0;
+        padding: 0.1em;
+        border-radius: 0.3em;
+      }
+
       code {
         color: #000000;
         font-family: consolas, monaco;
         font-size: 0.9em;
         background-color: #F0F0F0;
-        padding: 0.2em;
         border-radius: 0.3em;
       }
       
