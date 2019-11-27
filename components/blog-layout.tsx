@@ -47,6 +47,11 @@ export default ({ meta }: MetaLayout) => {
             max-width: 400px;
           }
 
+          .github {
+            height: 140px; 
+            padding-bottom: 0;
+          }
+
           @media screen and (min-width: 657px) {
             p img {
               width: 650px;

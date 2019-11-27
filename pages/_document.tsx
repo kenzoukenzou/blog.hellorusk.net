@@ -19,6 +19,7 @@ export default class MyDocument extends Document {
               __html: "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-136305100-1');"
             }}
           />
+          <script src="//cdn.iframe.ly/embed.js" async></script>
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="theme-color" content="#000000" />
