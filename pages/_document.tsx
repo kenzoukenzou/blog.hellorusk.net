@@ -24,10 +24,7 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="HelloRusk Official Website." />
-          <meta property="og:image" content="https://hellorusk.net/mika_square.png" />
-          <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@HelloRusk" />
-          <meta name="twitter:image" content="https://hellorusk.net/mika_square.png" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300&display=swap" />
         </Head>
         <body>

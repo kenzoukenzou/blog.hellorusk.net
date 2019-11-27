@@ -31,6 +31,9 @@ export default () => (
       <meta property="og:title" content="HelloRusk Profile" /> 
       <meta property="og:url" content="/whoami" /> 
       <meta property="og:description" content="HelloRuskとは何者か？" />
+      <meta name="twitter:card" content="summary" />
+      <meta property="og:image" content="https://hellorusk.net/mika_square.png" />
+      <meta name="twitter:image" content="https://hellorusk.net/mika_square.png" />
     </Meta>
     <div className="whoami">
       <div className="icon">

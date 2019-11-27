@@ -28,6 +28,9 @@ const Index: React.FC<LayoutProps> = props => {
         <meta property="og:title" content="HelloRusk Official Website" /> 
         <meta property="og:url" content="/" /> 
         <meta property="og:description" content="HelloRuskの公式ウェブサイト" />
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://hellorusk.net/mika_square.png" />
+        <meta name="twitter:image" content="https://hellorusk.net/mika_square.png" />
       </Meta>
       <PersistGate loading={null} persistor={persistor}>
         <Switch

@@ -43,13 +43,13 @@ export default ({ meta }: MetaHead) => {
       <meta property="og:description" content={meta.description} />
       {(meta.img) ?
         <meta name="twitter:card" content="summary_large_image" key="twitter_card" />
-      : null}
+      : <meta name="twitter:card" content="summary" />}
       {(meta.img) ?
         <meta property="og:image" content={"https://hellorusk.net" + meta.img} key="og_image" />
-      : null}
+      : <meta property="og:image" content="https://hellorusk.net/mika_square.png" />}
       {(meta.img) ?
         <meta name="twitter:image" content={"https://hellorusk.net" + meta.img} key="twitter_image" />
-      : null}
+      : <meta name="twitter:image" content="https://hellorusk.net/mika_square.png" />}
     </Meta>
   )
 };
