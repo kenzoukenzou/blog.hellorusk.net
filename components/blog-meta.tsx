@@ -4,6 +4,7 @@ export type MetaDate = string;
 export type MetaTitle = string;
 export type MetaUrl = string;
 export type MetaDescription = string;
+export type MetaImg = string;
 
 export const internalLink = (date: MetaDate) => {
   return date.replace(/^(\d{4})-(\d{2})-(\d{2})$/, (match, p1, p2, p3) => {
@@ -26,7 +27,8 @@ interface MetaHead {
   meta: {
     title: MetaTitle,
     url: MetaUrl,
-    description: MetaDescription
+    description: MetaDescription,
+    img: MetaImg,
   }
 }
 
@@ -39,6 +41,15 @@ export default ({ meta }: MetaHead) => {
       <meta property="og:title" content={meta.title} /> 
       <meta property="og:url" content={normalizedUrl} /> 
       <meta property="og:description" content={meta.description} />
+      {(meta.img) ?
+        <meta name="twitter:card" content="summary_large_image" key="twitter_card" />
+      : null}
+      {(meta.img) ?
+        <meta property="og:image" content={"https://hellorusk.net" + meta.img} key="og_image" />
+      : null}
+      {(meta.img) ?
+        <meta name="twitter:image" content={"https://hellorusk.net" + meta.img} key="twitter_image" />
+      : null}
     </Meta>
   )
 };
