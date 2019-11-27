@@ -116,7 +116,6 @@ const PageLayout = (props: LayoutProps) => (
         font-family: consolas, monaco;
         font-size: 0.9em;
         background-color: #F0F0F0;
-        padding: 0.2em;
         border-radius: 0.3em;
       }
       
