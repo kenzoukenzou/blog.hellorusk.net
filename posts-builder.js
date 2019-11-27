@@ -41,7 +41,7 @@ fs.writeFile("./components/posts.json", JSON.stringify({ "postsDateList": posts 
 
   sitemap += "</urlset>";
 
-  fs.writeFile("./static/sitemap.xml", sitemap, "utf-8", err => {
+  fs.writeFile("./public/sitemap.xml", sitemap, "utf-8", err => {
     if (err) throw err;
 
     console.log("Successfully generated: sitemap.xml");

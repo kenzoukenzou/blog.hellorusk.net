@@ -35,8 +35,8 @@ export default () => (
     <div className="whoami">
       <div className="icon">
         <picture>
-          <source type="image/webp" srcSet="/static/mika.webp"/>
-          <img src="/static/mika.png" alt="mika"/><br/>
+          <source type="image/webp" srcSet="/mika.webp"/>
+          <img src="/mika.png" alt="mika"/><br/>
         </picture>
         <span>HN: HelloRusk</span>
       </div>
