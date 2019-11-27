@@ -40,6 +40,13 @@ export default ({ meta }: MetaLayout) => {
             margin: 0 auto;
           }
 
+          .hatena {
+            border: 0; 
+            width: 100%; 
+            height: 190px;
+            max-width: 400px;
+          }
+
           @media screen and (min-width: 657px) {
             p img {
               width: 650px;
