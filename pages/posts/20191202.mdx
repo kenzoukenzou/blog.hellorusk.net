@@ -1,0 +1,210 @@
+
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+export const meta = {
+  date: '2019-12-02',
+  title: 'CPU実験で Circle CI を活用する',
+  url: '/blog/2019/12/02',
+  description: '2019-12-02 の日記'
+}
+
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css' rel='stylesheet'/>
+
+## CPU実験で Circle CI を活用する
+#### 2019-12-02
+
+[ISer Advent Calendar 2019](https://adventar.org/calendars/4520) 2日目の記事です。
+
+---
+
+早いもので、もう2019年が終わろうとしていますね。  
+個人的には、2019年はアイドルマスターシャイニーカラーズ（シャニマス）がアツい1年でした。
+1st Live や SUMMER PARTY に現地参加しましたが、283プロダクションの一層輝かしい将来を予見させるものでした。  
+今後はユニットメンバーとしての姿だけでなく、より個々のアイドルに焦点を絞ったシナリオや楽曲が登場していくのだろうか、などと勝手に想像を膨らませております。
+
+---
+
+さて、今回はCPU実験において CI (継続的インテグレーション) ツールを使うことをオススメする記事を書きます。  
+以前15erの方が、[CPU実験でTravis CIを使ってみた](http://lv4.hateblo.jp/entry/2015/12/15/104931)という記事を書かれており、
+そちらと合わせてお読みいただくと良いのではないかと思います。
+
+<br/>
+
+### \# なぜ CPU 実験で CI を使うのか？
+
+CI は、一般的にはソフトウェア開発の文脈で使用されるものだと思います。
+その使用目的については、AWS の記事がわかりやすいので、貼っておきます: https://aws.amazon.com/jp/devops/continuous-integration/   
+ツールとしては、**Travis CI** や **Circle CI** あたりが有名だと思います。さらに今年に入ってから、
+このようなサードパーティのツールに加え **GitHub Actions** という GitHub 内で完結するCIも登場し、話題になりました。  
+  
+  
+CPU実験自体はソフトウェア開発では全然ありませんが、大まかには
+
+1. 班独自のコンパイラ（+アセンブラ）でレイトレのプログラムを機械語にする
+2. 班独自のシミュレータで機械語を（PC上で）動かす
+3. 班独自のコアで機械語を（FPGA上で）動かす
+4. 2 と 3 の出力結果の diff をなくす
+
+という流れであり、1. と 2. をしっかりやることが、メインの 3. をやる前提として重要なので、
+この 1. と 2. の経路を担保する上で、CI が有益であると考えています（より具体的なメリットについては、この記事の末尾で書きます）。
+
+<br/>
+
+### \# Circle CI の使用例
+
+今回は、私の過去の使用経験から Circle CI を独断で選択しました。（当然）普通に使う範囲では無料であり、
+Docker イメージを使うのが特徴のツールです。  
+  
+まず、元々コア、コンパイラ等々のソースコードを置いている GitHub Organization 上に、
+新しく CI 用のリポジトリを作ります。以下の通りです。
+
+https://github.com/cpuex-19-6/rytr_test
+
+<br/>
+
+Circle CI では `.circleci` というディレクトリを作り、その中に `config.yml` という設定ファイルを書きます。
+私はこんな風に設定してみました。
+
+```yml
+version: 2
+jobs:
+  build:
+    working_directory: ~/rytr_test
+    docker:
+      - image: circleci/buildpack-deps
+    steps:
+      - checkout:
+      - run:
+          command: |
+            sudo apt install ocaml
+            bash install.sh
+      - run:
+          name: contest.sld のテスト
+          command: |
+            cd simulator
+            ./sim -t rytl.bin -dt sld/contest.sld -ob contest.ppm -st setup
+          no_output_timeout: 2h
+      - store_artifacts:
+          path: ~/rytr_test/simulator/contest.ppm
+workflows:
+  version: 2
+  normal_workflow:
+    jobs:
+      - build
+  schedule_workflow:
+    triggers:
+      - schedule:
+          cron: "0 * * * *" # 1時間に1回
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
+```
+
+まず、テストを行うためには、最低限の（git などが入った）Ubuntu と、
+min-caml をビルドするための OCaml 程度が入っていればよいので、ここでは Docker イメージとして `circleci/buildpack-deps` を使いました。  
+メジャーな言語であれば、`circleci/ruby` という風に、各種言語がインストール済の Docker 
+イメージが存在するのですが、OCaml はマイナーなので（悲しい）、存在しませんでした。しかし、Linux 環境さえあれば、あとで `sudo apt install ocaml` コマンドを走らせればいいので、特に問題無いです。
+
+`sudo apt install ocaml` を走らせたあとは、コンパイラ、アセンブラ、シミュレータのリポジトリをクローンして、`make` する作業が続きます。
+これは、`bash install.sh` という風に、一つのシェルスクリプトにまとめました。
+  
+そうしたら、実際にレイトレをシミュレータで動かしてみます。レイトレは時間がかかるので、`no_output_timeout: 2h` と
+テストで10分以上無出力でも大丈夫なように設定を変更するのが良いと思います。
+
+<br/>
+
+![pic1](/static/20191202/pic1.jpg "テストが回る様子")
+
+<br/>
+
+上手くいくとこんな感じでテストが回ってくれます。
+  
+レイトレプログラムを回して出力を確認するだけでなく、レイトレの結果の画像もダウンロードできるようにしたい、という場合は
+`store_artifacts` という項目を設定できます。
+
+```yaml
+- store_artifacts:
+    path: ~/rytr_test/simulator/contest.ppm
+```
+
+このように書いておけば、`contest.ppm` をダウンロードできるようになります。
+
+さらに、CIは、デフォルトではリポジトリにpushが起こる時のみにテストが回る仕組みですが、
+`schedule_workflow` を設定することで定期的にテストを回すこともできます。
+
+```yaml
+schedule_workflow:
+  triggers:
+    - schedule:
+        cron: "0 * * * *" # 1時間に1回
+        filters:
+          branches:
+            only:
+              - master
+  jobs:
+    - build
+```
+
+このように書いておけば、1時間に1回テストが回るようになります。
+
+<br/>
+
+### \# CPU実験で CI を使うメリット
+
+改めて、CI を使うメリットについて考えてみます。
+
+<br/>
+
+**面倒なレイトレの実行を勝手にやってくれる**
+
+レイトレプログラムは、まずそれ自体が動かすのに時間がかかります。128 × 128 サイズならまだましですが、
+512 × 512 サイズとなると10分では済まないと思います。  
+さらに、（これは班によって異なるかもしれませんが、）コンパイラとシミュレータは独立に開発されているものでしょう。  
+例として私の班では、コンパイラ係がコンパイラを作り、シミュレータ係がシミュレータを作り、FPU係がアセンブラを作り、
+それらは全て別のリポジトリで作業していました。  
+したがって、レイトレプログラムは、コンパイラのディレクトリでコンパイルした後、
+アセンブラのディレクトリに移してからアセンブルして、それからシミュレータのディレクトリに移してシミュレートする、
+というようなことになっていました。これは本当に面倒な作業で、自動化したいと思わずにはいられないものでした。  
+退屈なことは CI にやらせましょう。
+
+<br/>
+
+**リグレッション（デグレーション）の原因を特定しやすい**
+
+コンパイラの最適化や、シミュレータの性能向上など、画期的な変更を加えた結果、
+それが逆に新たなバグを埋め込むことが起こり得ます。そもそも CI とは、それを防止するツールです。  
+私の使用例では、個々の（コンパイラなどの）リポジトリとCIが直接紐づいているわけではないので、どのコミットが原因か
+一意に定まるわけではないのですが、それでも1時間に1回テストを回しているため、原因特定はしやすいです。
+その気になれば、間隔を10分に1回に変更してもいいでしょう。
+
+<br/>
+
+**導入は簡単**
+
+15erの方の記事を読むと、Travis CI で OCaml を使えるようにするため、手間取ったようです。 
+（15er の方は Python でテストスクリプトを書いている（！）などと私の場合より手が込んでいるという事情もあると思います）   
+しかし、今回 Circle CI を使ってみて、導入コストは全く感じませんでした。CI は気軽に導入できます。
+Circle CI は Docker をベースにしているのも手軽さの一因かと思います。
+
+<br/>
+
+**楽しい**
+
+Slack とインテグレーションさせることもできるそうです（私はやっていませんが、Circle CI でもできるはずです）。
+
+<blockquote className="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">CPU実験、コンパイラ/アセンブラ/シミュレータの結合テストをTravis CIで実現したので、Githubにpushしてテスト結果がSlackに流れるのがめちゃくちゃ楽しい<a href="https://t.co/ZlcR99hQPl">https://t.co/ZlcR99hQPl</a></p>&mdash; Han Bao (@levelfour_) <a href="https://twitter.com/levelfour_/status/656043900017086464?ref_src=twsrc%5Etfw">2015年10月19日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+
+<br/>
+
+CI が回ると楽しいですね。
+
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />

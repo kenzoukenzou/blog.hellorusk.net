@@ -2,10 +2,11 @@ const fs = require("fs");
 const util = require("util");
 const remarkMath = require("remark-math");
 const rehypeKatex = require("rehype-katex");
+const rehypePrism = require("@mapbox/rehype-prism");
 const withMDX = require("@zeit/next-mdx")({
   options: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex]
+    rehypePlugins: [rehypeKatex, rehypePrism],
   }
 });
 
