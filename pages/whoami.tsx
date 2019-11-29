@@ -62,7 +62,7 @@ export default () => (
         .icon span {
           font-size: 0.9em;
           font-style: italic;
-          color: #505050;
+          color: #A0A0A0;
         }
       `}</style>
       <style jsx global>{`

@@ -45,7 +45,7 @@ export default () => (
 
       .date {
         font-size: 0.9em;
-        color: #666666;
+        color: #A0A0A0;
         font-style: italic;
         margin-top: 1em;
       }

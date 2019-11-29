@@ -24,11 +24,11 @@ export default () => (
       
       .bio span {
         font-size: 0.9em;
-        color: #808080;
+        color: #A0A0A0;
       }
 
       .bio span a {
-        color: #808080;
+        color: #A0A0A0;
       }
       
       .bio img {

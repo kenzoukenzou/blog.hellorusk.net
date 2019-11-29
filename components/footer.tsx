@@ -4,7 +4,7 @@ export default () => (
     <style jsx>{`
       .footer {
         text-align: center;
-        color: #808080;
+        color: #A0A0A0;
       }
       
       .footer span {
