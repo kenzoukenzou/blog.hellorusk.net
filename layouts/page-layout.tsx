@@ -28,6 +28,11 @@ const PageLayout = (props: LayoutProps) => (
         -moz-osx-font-smoothing: grayscale;
       }
 
+      h1 {
+        font-weight: 300;
+        font-size: 1.4em;
+      }     
+
       h2 {
         font-weight: 300;
         font-size: 1.3em;
