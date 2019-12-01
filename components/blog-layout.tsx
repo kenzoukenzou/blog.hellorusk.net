@@ -1,12 +1,17 @@
 import Link from "next/link";
 import Footer from "./footer";
-import { MetaUrl, MetaTitle, removeTrailingSlash, encodeCharacterForLink } from "./blog-meta";
+import {
+  MetaUrl,
+  MetaTitle,
+  removeTrailingSlash,
+  encodeCharacterForLink
+} from "./blog-meta";
 
 interface MetaLayout {
   meta: {
-    title: MetaTitle,
-    url: MetaUrl
-  }
+    title: MetaTitle;
+    url: MetaUrl;
+  };
 }
 
 export default ({ meta }: MetaLayout) => {
@@ -18,14 +23,16 @@ export default ({ meta }: MetaLayout) => {
   return (
     <div>
       <div className="tweet">
-        <a href={tweetlink} target="_blank"><img src="/twitter.svg" height="40" alt="tweet" /></a>
+        <a href={tweetlink} target="_blank">
+          <img src="/twitter.svg" height="40" alt="tweet" />
+        </a>
         <style jsx>{`
           .tweet {
             text-align: right;
           }
         `}</style>
       </div>
-      <br/>
+      <br />
       <div className="jump">
         <Link scroll={false} href="/blog">
           <a>back</a>
@@ -41,14 +48,14 @@ export default ({ meta }: MetaLayout) => {
           }
 
           .hatena {
-            border: 0; 
-            width: 100%; 
+            border: 0;
+            width: 100%;
             height: 190px;
             max-width: 400px;
           }
 
           .github {
-            height: 140px; 
+            height: 140px;
             padding-bottom: 0;
           }
 
@@ -57,7 +64,7 @@ export default ({ meta }: MetaLayout) => {
               width: 650px;
             }
           }
-          
+
           @media screen and (max-width: 656px) {
             p img {
               width: 100%;

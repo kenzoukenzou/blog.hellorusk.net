@@ -24,7 +24,7 @@ const nightState: ModeState = {
   linkcolor: "#00FFFF",
   boxshadow: "none",
   border: "0.2px solid #FFFFFF"
-}
+};
 
 const reducer = (state: ModeState = initialState, action: ActionTypes) => {
   switch (action.type) {

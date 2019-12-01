@@ -2,20 +2,20 @@ export const DARKMODE = "DARKMODE";
 export const WHITEMODE = "WHITEMODE";
 
 interface DarkAction {
-  type: typeof DARKMODE
+  type: typeof DARKMODE;
 }
 
 interface WhiteAction {
-  type: typeof WHITEMODE
+  type: typeof WHITEMODE;
 }
 
-export type ActionTypes = DarkAction | WhiteAction
+export type ActionTypes = DarkAction | WhiteAction;
 
 export interface ModeState {
-  isDarkMode: boolean,
-  textcolor: string,
-  backgroundcolor: string,
-  linkcolor: string,
-  boxshadow: string,
-  border: string
+  isDarkMode: boolean;
+  textcolor: string;
+  backgroundcolor: string;
+  linkcolor: string;
+  boxshadow: string;
+  border: string;
 }

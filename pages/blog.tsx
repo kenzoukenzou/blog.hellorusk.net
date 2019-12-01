@@ -7,22 +7,28 @@ export default () => (
   <div>
     <Meta>
       <title key="title">blog - HelloRusk Official Website</title>
-      <meta property="og:title" content="HelloRusk Blog" /> 
-      <meta property="og:url" content="/blog" /> 
+      <meta property="og:title" content="HelloRusk Blog" />
+      <meta property="og:url" content="/blog" />
       <meta property="og:description" content="HelloRuskの生活の記録" />
       <meta name="twitter:card" content="summary" />
-      <meta property="og:image" content="https://hellorusk.net/mika_square.png" />
-      <meta name="twitter:image" content="https://hellorusk.net/mika_square.png" />
+      <meta
+        property="og:image"
+        content="https://hellorusk.net/mika_square.png"
+      />
+      <meta
+        name="twitter:image"
+        content="https://hellorusk.net/mika_square.png"
+      />
     </Meta>
     <PostsPreviewer />
-    <br/>
+    <br />
     <div className="jump">
       <Link scroll={false} href="/">
         <a>home</a>
       </Link>
     </div>
     <Footer />
-    <style jsx>{`      
+    <style jsx>{`
       .blog {
         text-align: left;
         display: inline-block;
@@ -45,7 +51,7 @@ export default () => (
 
       .date {
         font-size: 0.9em;
-        color: #A0A0A0;
+        color: #a0a0a0;
         font-style: italic;
         margin-top: 1em;
       }

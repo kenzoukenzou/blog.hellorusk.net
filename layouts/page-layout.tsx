@@ -4,9 +4,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
 
 interface LayoutProps {
-  textcolor: string,
-  backgroundcolor: string,
-  linkcolor: string
+  textcolor: string;
+  backgroundcolor: string;
+  linkcolor: string;
 }
 
 const PageLayout = (props: LayoutProps) => (
@@ -15,13 +15,13 @@ const PageLayout = (props: LayoutProps) => (
       body {
         color: ${props.textcolor};
         background-color: ${props.backgroundcolor};
-        font-family: 'Noto Sans JP', sans-serif;
+        font-family: "Noto Sans JP", sans-serif;
         font-display: swap;
         font-weight: 300;
-        word-break : break-all;
+        word-break: break-all;
         max-width: 656px;
         margin-right: auto;
-        margin-left: auto; 
+        margin-left: auto;
         padding: 0 2%;
         -webkit-text-size-adjust: 100%;
         -webkit-font-smoothing: antialiased;
@@ -31,7 +31,7 @@ const PageLayout = (props: LayoutProps) => (
       h1 {
         font-weight: 300;
         font-size: 1.4em;
-      }     
+      }
 
       h2 {
         font-weight: 300;
@@ -46,15 +46,16 @@ const PageLayout = (props: LayoutProps) => (
       h4 {
         font-weight: 300;
         font-size: 0.9em;
-        color: #A0A0A0;
+        color: #a0a0a0;
         font-style: italic;
       }
-      
+
       a {
         text-decoration: none;
       }
 
-      a:link, a:visited {
+      a:link,
+      a:visited {
         color: ${props.linkcolor};
       }
 
@@ -65,7 +66,7 @@ const PageLayout = (props: LayoutProps) => (
       .title a:visited {
         color: ${props.textcolor};
       }
-      
+
       p {
         text-align: left;
       }
@@ -111,19 +112,19 @@ const PageLayout = (props: LayoutProps) => (
       pre {
         overflow-x: scroll;
         font-size: 0.9em;
-        background-color: #F0F0F0;
+        background-color: #f0f0f0;
         padding: 0.1em;
         border-radius: 0.3em;
       }
 
       code {
         color: #000000;
-        font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-size: 0.9em;
-        background-color: #F0F0F0;
+        background-color: #f0f0f0;
         border-radius: 0.3em;
       }
-      
+
       .jump {
         text-align: center;
       }

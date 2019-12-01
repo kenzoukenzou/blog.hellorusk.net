@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "../store/store";
 
 export default class MyApp extends App {
-  render () {
+  render() {
     const { Component, pageProps, router } = this.props;
 
     return (

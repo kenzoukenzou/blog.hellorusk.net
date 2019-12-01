@@ -5,8 +5,7 @@
     "export": "next export",
     "clean": "rm -rf .next out",
     "deploy": "npm run clean && npm run build && npm run export",
-    "blog": "node new-post-generator.js",
-    "lint": "./node_modules/.bin/eslint . --fix"
+    "blog": "node new-post-generator.js"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.3.1",
@@ -29,8 +28,13 @@
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.4",
     "@types/react-redux": "7.1.5",
-    "eslint": "6.6.0",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "7.16.0",
+    "prettier": "^1.19.1",
     "typescript": "3.7.2"
   }
 }

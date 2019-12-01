@@ -4,9 +4,9 @@ export default () => (
     <style jsx>{`
       .footer {
         text-align: center;
-        color: #A0A0A0;
+        color: #a0a0a0;
       }
-      
+
       .footer span {
         margin: 10px;
         font-size: 0.9em;

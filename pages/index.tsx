@@ -10,9 +10,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
 
 interface LayoutProps {
-  isDarkMode: boolean,
-  whitemode: () => ActionTypes,
-  darkmode: () => ActionTypes
+  isDarkMode: boolean;
+  whitemode: () => ActionTypes;
+  darkmode: () => ActionTypes;
 }
 
 const Index: React.FC<LayoutProps> = props => {
@@ -23,14 +23,23 @@ const Index: React.FC<LayoutProps> = props => {
   return (
     <div>
       <Meta>
-        <meta name="google-site-verification" content="NukXzTqPewV5uTImQdXdiNq4ZKc6d3I65Bq9amzEM1s" />
+        <meta
+          name="google-site-verification"
+          content="NukXzTqPewV5uTImQdXdiNq4ZKc6d3I65Bq9amzEM1s"
+        />
         <title key="title">HelloRusk Official Website</title>
-        <meta property="og:title" content="HelloRusk Official Website" /> 
-        <meta property="og:url" content="/" /> 
+        <meta property="og:title" content="HelloRusk Official Website" />
+        <meta property="og:url" content="/" />
         <meta property="og:description" content="HelloRuskの公式ウェブサイト" />
         <meta name="twitter:card" content="summary" />
-        <meta property="og:image" content="https://hellorusk.net/mika_square.png" />
-        <meta name="twitter:image" content="https://hellorusk.net/mika_square.png" />
+        <meta
+          property="og:image"
+          content="https://hellorusk.net/mika_square.png"
+        />
+        <meta
+          name="twitter:image"
+          content="https://hellorusk.net/mika_square.png"
+        />
       </Meta>
       <PersistGate loading={null} persistor={persistor}>
         <Switch
@@ -50,7 +59,7 @@ const Index: React.FC<LayoutProps> = props => {
 
 const mapStateToProps = (state: ModeState) => {
   return {
-    isDarkMode: state.isDarkMode,
+    isDarkMode: state.isDarkMode
   };
 };
 

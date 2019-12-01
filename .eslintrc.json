@@ -4,7 +4,11 @@
     "es6": true,
     "commonjs": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 9,
     "ecmaFeatures": {
@@ -12,7 +16,7 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "indent": [
       2,
@@ -35,7 +39,7 @@
       2,
       "as-needed"
     ],
-    "react/jsx-uses-vars": [2],
-    "no-console": 0
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }

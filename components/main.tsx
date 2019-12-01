@@ -8,21 +8,27 @@ import { persistor } from "../store/store";
 const renderInfo = (num: number) => {
   const elements = [
     <div className="about">
-      <Link scroll={false} href="/whoami"><a>Profile</a></Link><br/>
-      <Link scroll={false} href="/blog"><a>Blog</a></Link><br/>
+      <Link scroll={false} href="/whoami">
+        <a>Profile</a>
+      </Link>
+      <br />
+      <Link scroll={false} href="/blog">
+        <a>Blog</a>
+      </Link>
+      <br />
       <style jsx>{`
         .about {
           display: inline-block;
           text-align: left;
           animation: fadein 0.2s linear;
         }
-      
+
         @keyframes fadein {
           from {
             opacity: 0;
             transform: translate3d(0, 5px, 0);
           }
-        
+
           to {
             opacity: 1;
             transform: translate3d(0, 0, 0);
@@ -33,16 +39,24 @@ const renderInfo = (num: number) => {
     <div className="links">
       <ul>
         <li>
-          <a href="https://github.com/7ma7X" target="_blank">GitHub</a>
+          <a href="https://github.com/7ma7X" target="_blank">
+            GitHub
+          </a>
         </li>
         <li>
-          <a href="https://keybase.io/hellorusk" target="_blank">Keybase</a>
+          <a href="https://keybase.io/hellorusk" target="_blank">
+            Keybase
+          </a>
         </li>
         <li>
-          <a href="https://twitter.com/hellorusk" target="_blank">Twitter</a>
+          <a href="https://twitter.com/hellorusk" target="_blank">
+            Twitter
+          </a>
         </li>
         <li>
-          <a href="https://www.last.fm/ja/user/HelloRusk" target="_blank">Last.fm</a>
+          <a href="https://www.last.fm/ja/user/HelloRusk" target="_blank">
+            Last.fm
+          </a>
         </li>
         <li>
           <a href="https://tech.hellorusk.net" target="_blank">
@@ -50,7 +64,9 @@ const renderInfo = (num: number) => {
           </a>
         </li>
         <li>
-          <a href="https://bookmeter.com/users/849928" target="_blank">Book Meter</a>
+          <a href="https://bookmeter.com/users/849928" target="_blank">
+            Book Meter
+          </a>
         </li>
       </ul>
       <style jsx>{`
@@ -89,8 +105,8 @@ const renderInfo = (num: number) => {
 };
 
 interface LayoutProps {
-  boxshadow: string,
-  border: string
+  boxshadow: string;
+  border: string;
 }
 
 const Main = (props: LayoutProps) => {
@@ -121,14 +137,14 @@ const Main = (props: LayoutProps) => {
           padding-top: 15px;
           text-align: center;
         }
-        
+
         @media screen and (min-width: 501px) {
           .buttonContainer {
             min-width: 500px;
             width: 50%;
           }
         }
-        
+
         @media screen and (max-width: 500px) {
           .buttonContainer {
             width: 100%;
@@ -136,7 +152,8 @@ const Main = (props: LayoutProps) => {
         }
       `}</style>
       <style jsx global>{`
-        .button, .button2 {
+        .button,
+        .button2 {
           font-size: 1.1em;
           display: inline-block;
           width: 30%;
@@ -146,25 +163,25 @@ const Main = (props: LayoutProps) => {
           border: ${props.border};
           box-shadow: ${props.boxshadow};
         }
-        
+
         .button {
           background-color: #000000;
-          color: #FFFFFF;
+          color: #ffffff;
         }
-        
+
         .button2 {
-          background-color: #FFFFFF;
+          background-color: #ffffff;
           color: #000000;
-          transition: .4s;
+          transition: 0.4s;
         }
 
         .button2:hover {
           background-color: #000000;
-          color: #FFFFFF;
+          color: #ffffff;
         }
       `}</style>
       <div className="info">{renderInfo(num)}</div>
-      <style jsx>{`          
+      <style jsx>{`
         .info {
           margin: 0 auto;
           margin-top: 10px;

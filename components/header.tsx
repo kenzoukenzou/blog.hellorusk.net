@@ -2,10 +2,12 @@ export default () => (
   <div className="header">
     <div className="bio">
       <picture>
-        <source type="image/webp" srcSet="/mika.webp"/>
-        <img src="/mika.png" alt="mika"/><br/>
+        <source type="image/webp" srcSet="/mika.webp" />
+        <img src="/mika.png" alt="mika" />
+        <br />
       </picture>
-        HelloRusk<br/>
+      HelloRusk
+      <br />
       <span>
         <a href="mailto:k@hellorusk.net">k＠hellorusk.net</a>
       </span>
@@ -21,16 +23,16 @@ export default () => (
         display: inline-block;
         height: 150px;
       }
-      
+
       .bio span {
         font-size: 0.9em;
-        color: #A0A0A0;
+        color: #a0a0a0;
       }
 
       .bio span a {
-        color: #A0A0A0;
+        color: #a0a0a0;
       }
-      
+
       .bio img {
         height: 110px;
         margin-bottom: 0.2em;
@@ -40,6 +42,6 @@ export default () => (
         filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
         -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
       }
-    `}</style> 
+    `}</style>
   </div>
 );

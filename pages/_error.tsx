@@ -8,7 +8,7 @@ export default () => (
       <title key="title">error - HelloRusk Official Website</title>
     </Meta>
     <div className="error">
-      <br/>
+      <br />
       <span>ERROR!!</span>
       <style jsx>{`
         .error {
@@ -17,7 +17,7 @@ export default () => (
         }
       `}</style>
     </div>
-    <br/>
+    <br />
     <div className="jump">
       <Link scroll={false} href="/">
         <a>home</a>

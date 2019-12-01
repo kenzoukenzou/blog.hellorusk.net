@@ -10,14 +10,16 @@ export default () => (
       <title key="title">form - HelloRusk Official Website</title>
     </Meta>
     <div className="form-container">
-      <form name="contact" action="/" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form
+        name="contact"
+        action="/"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
-        <TextField
-          name="name"
-          label="Name (Optional)"
-          margin="normal"
-        />
+        <TextField name="name" label="Name (Optional)" margin="normal" />
         <br />
         <TextField
           name="message"
@@ -48,7 +50,7 @@ export default () => (
     <style jsx>{`
       .form-container {
         text-align: center;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         border-radius: 1em;
       }
 
