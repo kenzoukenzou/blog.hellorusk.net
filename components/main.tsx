@@ -186,7 +186,7 @@ const Main = (props: LayoutProps) => {
           margin: 0 auto;
           margin-top: 10px;
           text-align: center;
-          height: 220px;
+          height: 235px;
         }
       `}</style>
     </PersistGate>
