@@ -169,7 +169,7 @@ const Main = (props: LayoutProps) => {
           margin: 0 auto;
           margin-top: 10px;
           text-align: center;
-          height: 270px;
+          height: 220px;
         }
       `}</style>
     </PersistGate>
