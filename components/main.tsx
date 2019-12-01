@@ -42,26 +42,15 @@ const renderInfo = (num: number) => {
           <a href="https://twitter.com/hellorusk" target="_blank">Twitter</a>
         </li>
         <li>
-          <a href="https://www.instagram.com/8ma8x/" target="_blank">Instagram</a>
-        </li>
-        <li>
           <a href="https://www.last.fm/ja/user/HelloRusk" target="_blank">Last.fm</a>
         </li>
         <li>
           <a href="https://tech.hellorusk.net" target="_blank">
-            はてなブログ
+            Hatena Blog
           </a>
         </li>
         <li>
-          <a href="https://b.hatena.ne.jp/HelloRusk/" target="_blank">はてなブックマーク</a>
-        </li>
-        <li>
-          <a href="https://bookmeter.com/users/849928" target="_blank">読書メーター</a>
-        </li>
-        <li>
-          <a href="https://www.eventernote.com/users/8ma8X/" target="_blank">
-            イベンターノート
-          </a>
+          <a href="https://bookmeter.com/users/849928" target="_blank">Book Meter</a>
         </li>
       </ul>
       <style jsx>{`
@@ -74,7 +63,7 @@ const renderInfo = (num: number) => {
         .links ul {
           margin: 0 40px 0 0;
           list-style-type: none;
-          padding-inline-start: 3em;
+          padding-inline-start: 2.5em;
         }
 
         .links li {
