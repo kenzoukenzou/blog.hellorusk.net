@@ -40,7 +40,7 @@ const PageLayout = (props: LayoutProps) => (
 
       h3 {
         font-weight: 300;
-        font-size: 1.1em;
+        font-size: 1.2em;
       }
 
       h4 {
