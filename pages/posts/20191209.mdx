@@ -1,0 +1,99 @@
+
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css' rel='stylesheet'/>
+
+export const meta = {
+  date: '2019-12-09',
+  title: 'Next.js + MDX でブログを書いています',
+  url: '/blog/2019/12/09',
+  description: '2019-12-09 の日記'
+}
+
+# Next.js + MDX でブログを書いています
+#### 2019-12-09
+
+[Next.js Advent Calendar 2019](https://qiita.com/advent-calendar/2019/next-js) 9日目の記事です。
+
+---
+
+今年の2月に Next.js + MDX でブログシステムを構築しました。  
+今あなたが見ているこのブログ、このウェブサイトが  Next.js 製です。  
+リポジトリは以下の通りです👇
+
+https://github.com/7ma7X/hellorusk.net
+
+<br/>
+
+こだわりポイントとしては
+
+- デザイン含めスクラッチ（WordPress や Hugo, Hexo 等を使っていない）
+- TypeScript
+- [next-page-transitions](https://github.com/illinois/next-page-transitions) で「フワッ」としたページ遷移を実現
+- Redux + [redux-persist](https://github.com/rt2zz/redux-persist) でダークモード切替（切り替えるトグルがトップページにあります）
+- ブログ部分は MDX *（この記事の本題）*
+
+などでしょうか。  
+  
+日本においては Next.js でブログやポートフォリオを作成している方は同じ React Framework の GatsbyJS などと比較するとあまり居らず、
+ましてや Next.js + MDX でブログを書いている方は全然居ないという状況です。  
+私もこのブログを作り始めた頃は、日本語の記事がほぼ皆無という状況の中で、海外の流行の最先端を追うような気持ち（？）で英語のドキュメントやリポジトリを読み漁ったものでした。
+    
+Next.js は（他の Now などの ZEIT のプロダクトと同様）シンプルさを売りにしているため、その分フレキシブルに楽しくブログをカスタマイズしていくことができます。  
+今回 Next.js + MDX でのブログの書き心地を紹介していくことで、日本でも Next.js や MDX を使う人が少しでも増えればと願っております。
+
+---
+
+### \# MDX をブログで使う
+
+[MDX](https://mdxjs.com/) は Markdown に**直接 JSX を挿入できる**フォーマットです。拡張子は `.mdx` 。
+
+例えば、こんな見た目をしています。
+
+```md
+import Button from '../components/button.js'
+
+# MDX + Next.js
+
+Look, a button! 👇
+
+<Button>👋 Hello</Button>
+```
+
+Markdown の中で、普通に React の `import` 文が書けたり、Component が使えたりするということですね。  
+私のこのブログにおいては、以下のような MDX ファイルをテンプレートとして用意しています。
+
+```md
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css' rel='stylesheet'/>
+
+export const meta = {
+  date: '2019-12-09',
+  title: 'Next.js + MDX でブログを書いています',
+  url: '/blog/2019/12/09',
+  description: '2019-12-09 の日記'
+}
+
+# Next.js + MDX でブログを書いています
+#### 2019-12-09
+
+ここにブログの本文があります
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
+```
+
+まず、先ほどの例と同様に `import` 文を使っています。  
+`BlogLayout` はブログのレイアウトの CSS を styled-jsx で記述したファイルです。
+もちろん、Emotion などの他の CSS in JS ライブラリでも直CSSでもいいと思いますが、まあ styled-jsx に慣れてしまったので。  
+`BlogMeta` は端的には OGP の部分ですね。
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
