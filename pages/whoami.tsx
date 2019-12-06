@@ -33,7 +33,7 @@ const About = () => (
     を用いて構築されています。
     <br />
     Netlify によって
-    <a href="https://github.com/7ma7X/mywebsite" target="_blank">
+    <a href="https://github.com/7ma7X/hellorusk.net" target="_blank">
       {" "}
       GitHub のリポジトリ
     </a>
