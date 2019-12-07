@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Router from "next/router";
 import Footer from "./footer";
 import {

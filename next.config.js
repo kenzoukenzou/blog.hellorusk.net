@@ -26,10 +26,6 @@ module.exports = withMDX({
     const posts = await readdir("./pages/posts");
     const pageNum = Math.ceil(posts.length / 10);
 
-    for (let i = 1; i <= pageNum; ++i) {
-      pathMap[`/blog/page/${i}`] = { page: "/blog", query: { page: i } };
-    }
-
     for (const post of posts) {
       const postPath = post.replace(
         /(\d{4})(\d{2})(\d{2})\.mdx/,
