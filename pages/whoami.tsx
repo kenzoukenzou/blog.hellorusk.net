@@ -5,13 +5,11 @@ import Link from "next/link";
 const Profile = () => (
   <div>
     <div className="title">Profile</div>
-    横浜市に在住する大学生です。大学では計算機科学を学んでいます。
+    横浜在住の大学生。コンピュータサイエンスを学んでいます。
     <br />
     おもにプログラミングと読書をして日々を過ごしています。
     <br />
     アルバイトや趣味で Web 開発も多少やります。
-    <br />
-    音楽の話をするのが好きです。聴くのは概ねアニソンか邦ロック。
     <br />
     好きなアーティストは UNISON SQUARE GARDEN と fhána。
     <br />
