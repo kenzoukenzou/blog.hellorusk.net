@@ -1,5 +1,6 @@
 import Link from "next/link";
 import data from "./posts.json";
+import { useState } from "react";
 import { internalLink, removeTrailingSlash } from "./blog-meta";
 import { ModeState } from "../store/types";
 import { connect } from "react-redux";
@@ -46,7 +47,9 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_prev">
           {prev_cri ? (
             <p>
-              <a href={`/blog?page=${page - 1}`}>Prev</a>
+              <Link href={`/blog?page=${page - 1}`} prefetch={false}>
+                <a>Prev</a>
+              </Link>
             </p>
           ) : null}
           <style jsx>{`
@@ -67,7 +70,9 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_next">
           {next_cri ? (
             <p>
-              <a href={`/blog?page=${page + 1}`}>Prev</a>
+              <Link href={`/blog?page=${page + 1}`} prefetch={false}>
+                <a>Next</a>
+              </Link>
             </p>
           ) : null}
           <style jsx>{`
