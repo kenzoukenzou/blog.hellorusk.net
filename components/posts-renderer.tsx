@@ -113,7 +113,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
 
   return (
     <div>
-      {postsComponentList.slice((page - 1) * 10, page * 10)}
+      {page >= 1 ? postsComponentList.slice((page - 1) * 10, page * 10) : null}
       {show_more()}
     </div>
   );
