@@ -47,12 +47,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_prev">
           {prev_cri ? (
             <p>
-              <Link
-                href={`/blog?page=${page - 1}`}
-                as={`/blog/page/${page - 1}`}
-              >
-                <a>Prev</a>
-              </Link>
+              <a href={`/blog/page/${page - 1}`}>Prev</a>
             </p>
           ) : null}
           <style jsx>{`
@@ -73,12 +68,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_next">
           {next_cri ? (
             <p>
-              <Link
-                href={`/blog?page=${page + 1}`}
-                as={`/blog/page/${page + 1}`}
-              >
-                <a>Next</a>
-              </Link>
+              <a href={`/blog/page/${page + 1}`}>Prev</a>
             </p>
           ) : null}
           <style jsx>{`
