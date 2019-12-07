@@ -22,7 +22,7 @@ export default class MyApp extends App {
             transition: opacity 300ms;
           }
           .page-transition-exit {
-            opacity: 1;
+            opacity: 0;
           }
           .page-transition-exit-active {
             opacity: 0;
