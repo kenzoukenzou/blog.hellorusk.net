@@ -59,6 +59,11 @@ const PageLayout = (props: LayoutProps) => (
         color: ${props.linkcolor};
       }
 
+      a.back {
+        color: ${props.linkcolor};
+        cursor: pointer;
+      }
+
       .title a:link {
         color: ${props.textcolor};
       }

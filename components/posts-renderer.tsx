@@ -30,19 +30,29 @@ for (const date of postsDateList) {
 
 interface PostsRendererProps {
   linkcolor: string;
+  page: number;
 }
 
 const PostsRenderer = (props: PostsRendererProps) => {
-  const [offset, setOffset] = useState(0);
   const article_num = postsComponentList.length;
+  const page = props.page;
 
-  const show_more = (num: number) => {
+  const prev_cri = page > 1 && (page - 1) * 10 < article_num;
+  const next_cri = page >= 1 && page * 10 < article_num;
+  const inner_cri = (page - 1) * 10 < article_num && article_num <= page * 10;
+
+  const show_more = () => {
     return (
       <PersistGate loading={null} persistor={persistor}>
         <div className="post_prev">
-          {offset !== 0 ? (
+          {prev_cri ? (
             <p>
-              <a onClick={() => setOffset(num - 10)}>Prev</a>
+              <Link
+                href={`/blog?page=${page - 1}`}
+                as={`/blog/page/${page - 1}`}
+              >
+                <a>Prev</a>
+              </Link>
             </p>
           ) : null}
           <style jsx>{`
@@ -61,9 +71,14 @@ const PostsRenderer = (props: PostsRendererProps) => {
           `}</style>
         </div>
         <div className="post_next">
-          {offset + 10 < article_num ? (
+          {next_cri ? (
             <p>
-              <a onClick={() => setOffset(num + 10)}>Next</a>
+              <Link
+                href={`/blog?page=${page + 1}`}
+                as={`/blog/page/${page + 1}`}
+              >
+                <a>Next</a>
+              </Link>
             </p>
           ) : null}
           <style jsx>{`
@@ -81,14 +96,31 @@ const PostsRenderer = (props: PostsRendererProps) => {
             }
           `}</style>
         </div>
+        <div>
+          {!prev_cri && !next_cri && !inner_cri ? (
+            <div className="error">
+              <span>表示する記事がありません。</span>
+              <br />
+              <br />
+              <img src="/hitori.jpg" alt="hitori" />
+              <br />
+              <style jsx>{`
+                .error {
+                  padding-top: 15px;
+                  text-align: center;
+                }
+              `}</style>
+            </div>
+          ) : null}
+        </div>
       </PersistGate>
     );
   };
 
   return (
     <div>
-      {postsComponentList.slice(offset, offset + 10)}
-      {show_more(offset)}
+      {postsComponentList.slice((page - 1) * 10, page * 10)}
+      {show_more()}
     </div>
   );
 };

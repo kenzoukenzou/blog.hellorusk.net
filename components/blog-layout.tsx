@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Router from "next/router";
 import Footer from "./footer";
 import {
   MetaUrl,
@@ -34,9 +35,9 @@ export default ({ meta }: MetaLayout) => {
       </div>
       <br />
       <div className="jump">
-        <Link scroll={false} href="/blog">
-          <a>back</a>
-        </Link>
+        <a className="back" onClick={() => Router.back()}>
+          back
+        </a>
         <style jsx global>{`
           p {
             font-size: 0.9em;
