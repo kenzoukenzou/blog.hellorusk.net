@@ -96,7 +96,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
               <span>表示する記事がありません。</span>
               <br />
               <br />
-              <img src="/hitori.jpg" alt="hitori" />
+              <img src="/hitori.jpg" width="90%" alt="hitori" />
               <br />
               <style jsx>{`
                 .error {

@@ -13,7 +13,7 @@ export default () => (
       <span>お探しのページは見つかりませんでした。</span>
       <br />
       <br />
-      <img src="/hitori.jpg" alt="hitori" />
+      <img src="/hitori.jpg" width="90%" alt="hitori" />
       <br />
       <style jsx>{`
         .error {
