@@ -20,7 +20,7 @@ for (const date of postsDateList) {
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>
       <div className="title">
-        <Link scroll={false} href={normalizedLink} as={normalizedUrl}>
+        <Link href={normalizedLink} as={normalizedUrl}>
           <a>{meta.title}</a>
         </Link>
       </div>
