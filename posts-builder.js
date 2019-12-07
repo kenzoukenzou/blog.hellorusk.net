@@ -4,6 +4,18 @@ const posts = fs.readdirSync("./pages/posts");
 
 posts.sort((a, b) => (a < b ? 1 : -1));
 
+const postsHash = {};
+posts.forEach((str, index) => {
+  const date = str.replace(
+    /(\d{4})(\d{2})(\d{2})\.mdx/,
+    (match, p1, p2, p3) => {
+      return `${p1}-${p2}-${p3}`;
+    }
+  );
+
+  postsHash[date] = Math.ceil((index + 1) / 10);
+});
+
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
@@ -26,7 +38,7 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 
 fs.writeFile(
   "./components/posts.json",
-  JSON.stringify({ postsDateList: posts }),
+  JSON.stringify({ postsDateList: posts, postsIndexHash: postsHash }),
   err => {
     if (err) throw err;
     console.log("Successfully generated: posts.json");

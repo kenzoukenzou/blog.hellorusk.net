@@ -1,6 +1,5 @@
 import Link from "next/link";
 import data from "./posts.json";
-import { useState } from "react";
 import { internalLink, removeTrailingSlash } from "./blog-meta";
 import { ModeState } from "../store/types";
 import { connect } from "react-redux";
@@ -20,7 +19,7 @@ for (const date of postsDateList) {
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>
       <div className="title">
-        <Link href={normalizedLink} as={normalizedUrl}>
+        <Link scroll={false} href={normalizedLink} as={normalizedUrl}>
           <a>{meta.title}</a>
         </Link>
       </div>
@@ -47,7 +46,11 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_prev">
           {prev_cri ? (
             <p>
-              <Link href={`/blog?page=${page - 1}`} prefetch={false}>
+              <Link
+                scroll={false}
+                href={`/blog?page=${page - 1}`}
+                prefetch={false}
+              >
                 <a>Prev</a>
               </Link>
             </p>
@@ -70,7 +73,11 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_next">
           {next_cri ? (
             <p>
-              <Link href={`/blog?page=${page + 1}`} prefetch={false}>
+              <Link
+                scroll={false}
+                href={`/blog?page=${page + 1}`}
+                prefetch={false}
+              >
                 <a>Next</a>
               </Link>
             </p>

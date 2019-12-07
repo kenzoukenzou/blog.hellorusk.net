@@ -1,14 +1,19 @@
-import Router from "next/router";
+import Link from "next/link";
 import Footer from "./footer";
 import {
   MetaUrl,
   MetaTitle,
   removeTrailingSlash,
-  encodeCharacterForLink
+  encodeCharacterForLink,
+  MetaDate
 } from "./blog-meta";
+import data from "./posts.json";
+
+const postsIndexHash: any = data["postsIndexHash"];
 
 interface MetaLayout {
   meta: {
+    date: MetaDate;
     title: MetaTitle;
     url: MetaUrl;
   };
@@ -19,6 +24,8 @@ export default ({ meta }: MetaLayout) => {
   const normalizedTitle = encodeCharacterForLink(meta.title);
 
   const tweetlink = `https://twitter.com/intent/tweet?text=${normalizedTitle}%20-%20HelloRusk%20Official%20Website%0a&url=https://hellorusk.net${normalizedUrl}`;
+
+  const index = postsIndexHash[meta.date];
 
   return (
     <div>
@@ -34,9 +41,9 @@ export default ({ meta }: MetaLayout) => {
       </div>
       <br />
       <div className="jump">
-        <a className="back" onClick={() => Router.back()}>
-          back
-        </a>
+        <Link scroll={false} href={`/blog?page=${index}`}>
+          <a>back</a>
+        </Link>
         <style jsx global>{`
           p {
             font-size: 0.9em;
