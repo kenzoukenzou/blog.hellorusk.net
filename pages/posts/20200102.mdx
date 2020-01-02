@@ -1,0 +1,89 @@
+
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+export const meta = {
+  date: '2020-01-02',
+  title: 'ラムダ計算と再帰',
+  url: '/blog/2020/01/02',
+  description: '2020-01-02 の日記'
+}
+
+# ラムダ計算と再帰
+#### 2020-01-02
+
+まず、$(\lambda x. F(x x)) (\lambda x. F(x x))$ という式をβ簡約してみると、
+
+$$
+\begin{aligned}
+& (\lambda x. F(x x)) (\lambda x. F(x x)) \\
+\to &[(\lambda x. F(x x)) / x] F(x x) \\
+= & F ((\lambda x. F(x x)) (\lambda x. F(x x)))
+\end{aligned}
+$$
+
+となる。つまり $M_F = (\lambda x. F(x x)) (\lambda x. F(x x))$とおくと、$=_{\beta}$ 
+をβ簡約を含む最小の同値関係として、
+
+$$
+M_F =_{\beta} F (M_F)
+$$
+
+となるから、$M_F$ は関数 $F$ の不動点である。
+
+次に、$Y = \lambda f. M_f = \lambda f. (\lambda x. f(x x)) (\lambda x. f(x x))$ とすると、
+前の結果と同様に、
+
+$$
+Y F =_{\beta} F (Y F)
+$$
+
+このことから、$Y$ は任意の関数 $F$ を引数として受け取ってその $F$ の不動点を返すような関数（不動点演算子）になっていることがわかる。
+
+---
+
+不動点演算子 $Y$ を使うことで、ラムダ計算で再帰を表現することができる。  
+表現したい再帰関数 $F$ がある関数 $G$ の不動点になっていることが分かれば、$Y G$ によって $F$ を定められるという仕組みだ。
+  
+例えば、階乗を求める $fact$ をラムダ計算で表現したいとする。 $fact$ は等式
+
+$$
+f = \lambda n. \ \mathrm{if} \ n = 0 \ \mathrm{then} \ 1 \ \mathrm{else} \ n \cdot f (n - 1)
+$$
+
+を満たす。ここで、
+
+$$
+factgen = \lambda f. \lambda n. \ \mathrm{if} \ n = 0 \ \mathrm{then} \ 1 \ \mathrm{else} \ n \cdot f (n - 1)
+$$
+
+と定義してやれば、$fact$ は $f = factgen \ f$ を満たすことになるので、$fact$ は $factgen$ の不動点になっていることがわかる。  
+よって、不動点演算子を用いて $fact = Y \ factgen$ と書ける。
+
+---
+
+実際にプログラミング言語で実装してみよう。ただし、不動点演算子 $Y$（Yコンビネータと呼ばれる）をこの形のまま乗せることはできない
+（引数を評価しないまま式が再帰的に展開され、無限ループに陥ってしまうため）。そこで、
+η変換（$M \to \lambda x. M x$）を Yコンビネータに施した、
+
+$$
+\lambda f. (\lambda x. f(\lambda y. x x y)) (\lambda x. f(\lambda y.x x y))
+$$
+
+を代わりに使おう（これはZコンビネータと呼ばれる）。
+
+Python での実装例:
+
+```python
+Z = lambda f: (lambda x: f (lambda y: x(x)(y)))(lambda x: f (lambda y: x(x)(y)))
+
+factgen = lambda f: (lambda n: 1 if (n == 0) else n * f (n - 1))
+
+fact = Z (factgen)
+
+fact(10)
+# 3628800
+```
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
