@@ -61,9 +61,8 @@ export default ({ meta }: MetaLayout) => {
             max-width: 400px;
           }
 
-          .github {
-            height: 140px;
-            padding-bottom: 0;
+          .math {
+            overflow-x: scroll;
           }
 
           @media screen and (min-width: 657px) {
