@@ -1,0 +1,175 @@
+
+import BlogLayout from "../../components/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+
+export const meta = {
+  date: '2020-01-03',
+  title: 'ラムダ計算と自然数の演算',
+  url: '/blog/2020/01/03',
+  description: '2020-01-03 の日記'
+}
+
+# ラムダ計算と自然数の演算
+#### 2020-01-03
+
+### \# 自然数の表現
+
+基本構成子 $Z$ (zero) と $S$ (successor) を引数として受け取り、対応する値を返す関数として表現する。
+
+$$
+\begin{aligned}
+0 = \ & \lambda s. \lambda z. z \\
+1 = \ & \lambda s. \lambda z. s z \\
+2 = \ & \lambda s. \lambda z. s (s z) \\
+3 = \ & \lambda s. \lambda z. s (s (s z)) \\
+...
+\end{aligned}
+$$
+
+Python での実装例:
+
+```python
+zero  = lambda s: lambda z: z
+one   = lambda s: lambda z: s(z)
+two   = lambda s: lambda z: s(s(z))
+three = lambda s: lambda z: s(s(s(z)))
+```
+
+確認用に、ラムダ式で表された自然数を int に変換して表示する関数を定義しておく。
+
+```python 
+def print_nat(nat):
+    print(nat(lambda n: n+1)(0))
+
+print_nat(zero)
+# 0
+print_nat(three)
+# 3
+```
+
+### \# 足し算
+
+自然数 $m$ と $n$ が与えられたとき、$Z$ に $S$ を $n$ 回適用し、さらにそれに対して $S$ を $m$ 回適用すれば、
+$m+n$ が得られる。
+
+$$
+Plus = \lambda m. \lambda n. \lambda s. \lambda z. m s (n s z)
+$$
+
+```python 
+plus = lambda m: lambda n: lambda s: lambda z: m(s)(n(s)(z))
+
+print_nat(plus(two)(three))
+# 5
+```
+
+### \# かけ算
+
+自然数 $m$ と $n$ が与えられたとき、$0$ に $Plus \ \ m$ を $n$ 回適用すれば、 $m \times n$ が得られる。
+
+$$
+Mult = \lambda m. \lambda n. n (Plus \ m) \ 0
+$$
+
+```python 
+mult = lambda m: lambda n: n(plus(m))(zero)
+
+print_nat(mult(two)(three))
+# 6
+```
+
+### \# べき乗
+
+自然数 $m$ と $n$ が与えられたとき、$1$ に $Mult \ \ m$ を $n$ 回適用すれば、 $m^n$ が得られる。
+
+$$
+Exp = \lambda m. \lambda n. n (Mult \ m) \ 1
+$$
+
+```python 
+exp = lambda m: lambda n: n(mult(m))(one)
+
+print_nat(exp(two)(three))
+# 8
+```
+
+### \# 引き算
+
+準備として、まずラムダ計算で「組」を表すことを考える。組は
+
+$$
+\lambda f. f M N
+$$
+
+このように表す。つまり、組の要素にアクセスする関数 $f$ を受け取り、$M, N$ に適用する関数である。
+
+組からの要素の取り出しは
+
+$$
+Fst (P) = P (\lambda x. \lambda y. x) \\
+Snd (P) = P (\lambda x. \lambda y. y)
+$$
+
+となる。  
+以上を実際にプログラミング言語で実装してみよう。
+
+```python 
+fst = lambda p: p (lambda x: lambda y: x)
+snd = lambda p: p (lambda x: lambda y: y)
+
+example_pair = lambda f: f(2)(3)
+fst (example_pair)
+# 2
+snd (example_pair)
+# 3
+```
+
+さて、この組に対して、
+
+$$
+Next(x, y) = (x+1, x)
+$$
+
+というような、組を引数にとって組を返す関数 $Next$ を作る。  
+このとき、$Next$ を $n$ 回合成した $Next^n$ を考え、それに $(0, 0)$ を引数として与えると、
+
+$$
+Next^n (0, 0) = (n, n-1)
+$$
+
+となる。よって
+
+$$
+Pred = \lambda n. Snd (Next^n(0, 0))
+$$
+
+とすれば、$Pred$ は与えられた自然数から1を引く関数となる（ただし、0が与えられたら0を返す）。  
+
+$Pred$ を使うことで引き算 $Minus$ も構成できる。  
+自然数 $m$ と $n$ が与えられたとき、$m$ に $Pred$ を $n$ 回適用すれば、
+$m-n$ が得られる。
+
+$$
+Minus = \lambda m. \lambda n. n \ Pred \ m
+$$
+
+以上を実際にプログラミング言語で実装してみよう。
+
+```python 
+# next は予約語なので nex にする
+nex = lambda p: lambda f: f( plus(fst(p))(one) )(fst(p))
+# (0, 0)
+zero_zero = lambda f: f(zero)(zero)
+
+pred = lambda n: snd(n(nex)(zero_zero))
+
+minus = lambda m: lambda n: n(pred)(m)
+
+print_nat(minus(three)(one))
+# 2
+print_nat(minus(three)(two))
+# 1
+```
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
