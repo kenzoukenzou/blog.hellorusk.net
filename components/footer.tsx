@@ -12,5 +12,6 @@ export default () => (
         font-size: 0.9em;
       }
     `}</style>
+    <br />
   </div>
 );
