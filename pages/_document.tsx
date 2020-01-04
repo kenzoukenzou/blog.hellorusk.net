@@ -39,6 +39,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300&display=swap"
           />
           <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap"
+          ></link>
+          <link
             href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css"
             rel="stylesheet"
           />
