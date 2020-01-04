@@ -28,7 +28,8 @@ export default ({ meta }: MetaLayout) => {
   const index = postsIndexHash[meta.date];
 
   return (
-    <div>
+    <>
+      <br />
       <div className="tweet">
         <a href={tweetlink} target="_blank">
           <img src="/twitter.svg" height="40" alt="tweet" />
@@ -79,6 +80,11 @@ export default ({ meta }: MetaLayout) => {
         `}</style>
       </div>
       <Footer />
-    </div>
+    </>
   );
+};
+
+export const microLinkStyle = {
+  color: "#000000",
+  fontFamily: "Noto Sans JP, sans-serif"
 };

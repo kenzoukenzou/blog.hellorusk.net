@@ -1,6 +1,6 @@
-
-import BlogLayout from "../../components/blog-layout";
+import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
+import Microlink from '@microlink/react';
 
 export const meta = {
   date: '2019-05-18',
@@ -13,6 +13,11 @@ export const meta = {
 #### 2019-05-18
 
 株式会社ミクシィが主催する git challenge の第11回目に参加してきました。  
+  
+  
+<Microlink url={"https://mixi-git-challenge.github.io/publications/events/11.html"} style={microLinkStyle}/>
+  
+
 git challenge というイベントの存在自体は少し前から耳にしていて、前回は都合がつかず応募できなかったのですが、
 今回応募に通り無事参加することができました。
 

@@ -1,6 +1,6 @@
-
-import BlogLayout from "../../components/blog-layout";
+import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
+import Microlink from '@microlink/react';
 
 export const meta = {
   date: '2019-05-16',
@@ -17,6 +17,11 @@ export const meta = {
 私は Twitter をできるだけひっそりと運用していく方針でいるため、SNS よりも自分のウェブサイトを活用するのが良さそうだと考えました。  
 　 
 このフォームについてですが、[Netlify Forms](https://www.netlify.com/docs/form-handling/) によって実現しています。  
+  
+
+<Microlink url={"https://www.netlify.com/docs/form-handling/"} style={microLinkStyle}/>
+  
+
 Netlify Forms とは Netlify でホスティングしているサイトにおいて使えるフォームサービスです。基本的には、
 通常の html の `form` タグに `data-netlify="true"` と付記するだけで Netlify Forms として処理してくれるという、
 恐ろしく簡便なシステムです（GatsbyJS や Next.js 等のフレームワークを既に用いている場合は

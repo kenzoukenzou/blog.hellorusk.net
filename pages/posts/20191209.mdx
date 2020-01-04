@@ -1,6 +1,6 @@
-
-import BlogLayout from "../../components/blog-layout";
+import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
+import Microlink from '@microlink/react';
 
 export const meta = {
   date: '2019-12-09',
@@ -14,13 +14,18 @@ export const meta = {
 
 [Next.js Advent Calendar 2019](https://qiita.com/advent-calendar/2019/next-js) 9日目の記事です。
 
----
+
+<Microlink url={"https://qiita.com/advent-calendar/2019/next-js"} style={microLinkStyle}/>
+
+
 
 今年の2月に Next.js + MDX でブログシステムを構築しました。  
 あなたが今見ているこのブログは Next.js 製です。  
 リポジトリは以下の通りです👇
 
-https://github.com/7ma7X/hellorusk.net
+
+<Microlink url={"https://github.com/7ma7X/hellorusk.net"} style={microLinkStyle}/>
+
 
 <br/>
 
@@ -49,6 +54,10 @@ Next.js は（他の Now などの ZEIT のプロダクトと同様）シンプ�
 ### \# What is MDX ?
 
 [MDX](https://mdxjs.com/) は Markdown に**直接 JSX を挿入できる**フォーマットです。拡張子は `.mdx` 。
+
+
+<Microlink url={"https://github.com/mdx-js/mdx"} style={microLinkStyle}/>
+
 
 例えば、こんな見た目をしています。
 

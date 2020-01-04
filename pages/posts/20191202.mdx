@@ -1,6 +1,6 @@
-
-import BlogLayout from "../../components/blog-layout";
+import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
+import Microlink from '@microlink/react';
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
 export const meta = {
@@ -16,7 +16,9 @@ export const meta = {
 
 [ISer Advent Calendar 2019](https://adventar.org/calendars/4520) 2日目の記事です。
 
----
+
+<Microlink url={"https://adventar.org/calendars/4520"} style={microLinkStyle}/>
+
 
 早いもので、もう2019年が終わろうとしていますね。  
 個人的には、2019年はアイドルマスターシャイニーカラーズ（シャニマス）がアツい1年でした。
@@ -28,7 +30,9 @@ export const meta = {
 さて、今回はCPU実験において CI (継続的インテグレーション) ツールを使うことをオススメする記事を書きます。  
 以前15erの方が、
 
-<iframe src="https://hatenablog-parts.com/embed?url=http%3A%2F%2Flv4.hateblo.jp%2Fentry%2F2015%2F12%2F15%2F104931" className="hatena" allowFullScreen scrolling="no"></iframe>
+
+<Microlink url={"http://lv4.hateblo.jp/entry/2015/12/15/104931"} style={microLinkStyle}/>
+
 
 という記事を書かれており、
 そちらと合わせてお読みいただくと良いのではないかと思います。
@@ -38,7 +42,12 @@ export const meta = {
 ### \# なぜ CPU 実験で CI を使うのか？
 
 CI は、一般的にはソフトウェア開発の文脈で使用されるものだと思います。
-その使用目的については、AWS の記事がわかりやすいので、貼っておきます: https://aws.amazon.com/jp/devops/continuous-integration/   
+その使用目的については、AWS の記事がわかりやすいので、貼っておきます: 
+
+
+<Microlink url={"https://aws.amazon.com/jp/devops/continuous-integration/"} style={microLinkStyle}/>
+
+
 ツールとしては、**Travis CI** や **Circle CI** あたりが有名だと思います。さらに今年に入ってから、
 このようなサードパーティのツールに加え **GitHub Actions** という GitHub 内で完結するCIも登場し、話題になりました。  
   
@@ -63,7 +72,10 @@ Docker イメージを使うのが特徴のツールです。
 まず、元々コア、コンパイラ等々のソースコードを置いている GitHub Organization 上に、
 新しく CI 用のリポジトリを作ります。以下の通りです。
 
-https://github.com/cpuex-19-6/rytr_test
+
+<Microlink url={"https://github.com/cpuex-19-6/rytr_test"} style={microLinkStyle}/>
+
+
 
 <br/>
 
