@@ -118,7 +118,7 @@ const PageLayout = (props: LayoutProps) => (
         overflow-x: scroll;
         font-size: 0.9em;
         background-color: #f0f0f0;
-        padding: 0.1em;
+        padding: 0.6em !important;
         border-radius: 0.3em;
       }
 
