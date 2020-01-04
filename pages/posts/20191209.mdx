@@ -9,6 +9,12 @@ export const meta = {
   description: '2019-12-09 の日記'
 }
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" />
+
 # Next.js + MDX でブログを書いています
 #### 2019-12-09
 
@@ -152,8 +158,8 @@ const withMDX = require("@zeit/next-mdx")({
 このように編集しています。  
 
 具体的な色付けは [Prism.js](https://prismjs.com/) の CDN を入れることで行います。  
-直接 MDX に書いてもいいとは思いますが、
-面倒なので `_document.js`（私の場合は TypeScript 化しているので `_document.tsx`）に
+直接 MDX に書いてもいいですし、
+`_document.js`（私の場合は TypeScript 化しているので `_document.tsx`）に
 
 ```html
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" rel="stylesheet"/>
@@ -161,7 +167,7 @@ const withMDX = require("@zeit/next-mdx")({
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css" rel="stylesheet"/>
 ```
 
-を追加しました。
+を追加するのでも良いかと思います（私は当初は後者を採用していましたが、パフォーマンスの観点から前者に切り替えました）。
 
 <br/>
 

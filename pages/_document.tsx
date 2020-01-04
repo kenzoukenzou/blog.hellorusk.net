@@ -38,26 +38,6 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300&display=swap"
           />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap"
-          ></link>
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css"
-            rel="stylesheet"
-          />
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css"
-            rel="stylesheet"
-          />
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css"
-            rel="stylesheet"
-          />
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
-          />
         </Head>
         <body>
           <Main />
