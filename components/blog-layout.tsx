@@ -45,6 +45,7 @@ export default ({ meta }: MetaLayout) => {
         <Link scroll={false} href={`/blog?page=${index}`}>
           <a>back</a>
         </Link>
+        <br />
         <style jsx global>{`
           p {
             font-size: 0.9em;
