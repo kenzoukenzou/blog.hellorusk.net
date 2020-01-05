@@ -1,6 +1,7 @@
 import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import Microlink from '@microlink/react';
+import LazyLoad from "react-lazyload";
 
 export const meta = {
   date: '2019-05-18',
@@ -42,7 +43,11 @@ git challenge の問題で出てくるシチュエーションは、実際の開
   
 その後は、おいしいご飯を食べたりお酒を飲んだり、他の学生やエンジニアの方と雑談をしたりしていました。ミクシィさん楽しいイベントありがとうございました。
 
-![pic1](/20190518/pic1.jpg "眺めの良いオフィスでした")
+<LazyLoad>
+  <p>
+    <img src="/20190518/pic1.jpg" alt="pic1" title="眺めの良いオフィスでした" />
+  </p>
+</LazyLoad>
 
 <BlogLayout meta={meta} />
 <BlogMeta meta={meta} />

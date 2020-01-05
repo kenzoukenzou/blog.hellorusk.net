@@ -15,7 +15,8 @@ const D = zeroPadding(date.getDate());
 
 const template = `import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
-import Microlink from '@microlink/react';
+import Microlink from "@microlink/react";
+import LazyLoad from "react-lazyload";
 
 export const meta = {
   date: '${Y}-${M}-${D}',

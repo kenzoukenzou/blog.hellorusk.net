@@ -1,6 +1,7 @@
 import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import Microlink from '@microlink/react';
+import LazyLoad from "react-lazyload";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
 export const meta = {
@@ -139,7 +140,12 @@ min-caml をビルドするための OCaml 程度が入っていればよいの�
 
 <br/>
 
-![pic1](/20191202/pic1.jpg "テストが回る様子")
+<LazyLoad>
+  <p>
+    <img src="/20191202/pic1.jpg" alt="pic1" title="テストが回る様子" />
+  </p>
+</LazyLoad>
+
 
 <br/>
 
@@ -183,7 +189,11 @@ schedule_workflow:
 
 **面倒なレイトレの実行を勝手にやってくれる**
 
-![pic2](/20191202/pic2.jpg "レイトレが終わらん")
+<LazyLoad>
+  <p>
+    <img src="/20191202/pic2.jpg" alt="pic2" title="レイトレが終わらん" />
+  </p>
+</LazyLoad>
 
 レイトレプログラムは、まずそれ自体が動かすのに時間がかかります。128 × 128 サイズならともかく、
 512 × 512 サイズとなると10分では済まないでしょう。  
@@ -227,8 +237,11 @@ Slack とインテグレーションさせることもできるそうです。
 
 <br/>
 
-![pic3](/20191202/pic3.jpg "レイトレはCIに任せた")
-
+<LazyLoad>
+  <p>
+    <img src="/20191202/pic3.jpg" alt="pic3" title="レイトレはCIに任せた" />
+  </p>
+</LazyLoad>
 
 <BlogLayout meta={meta} />
 <BlogMeta meta={meta} />
