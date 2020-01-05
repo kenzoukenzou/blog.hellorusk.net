@@ -63,7 +63,7 @@ export default ({ meta }: MetaLayout) => {
           }
 
           .math {
-            overflow-x: scroll;
+            overflow-x: auto;
           }
 
           @media screen and (min-width: 657px) {

@@ -115,7 +115,7 @@ const PageLayout = (props: LayoutProps) => (
       }
 
       pre {
-        overflow-x: scroll;
+        overflow-x: auto;
         font-size: 0.9em;
         background-color: #f0f0f0;
         padding: 0.6em !important;
