@@ -6,10 +6,14 @@ const renderInfo = (num: number) => {
     <div className="about">
       <ul>
         <li>
-          <a href="/whoami">Profile</a>
+          <Link href="/whoami">
+            <a>Profile</a>
+          </Link>
         </li>
         <li>
-          <a href="/blog">Blog</a>
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
         </li>
       </ul>
       <style jsx>{`
