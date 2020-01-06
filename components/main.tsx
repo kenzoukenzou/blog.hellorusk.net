@@ -11,12 +11,12 @@ const renderInfo = (num: number) => {
       <Link href="/blog">
         <a>Blog</a>
       </Link>
-      <br />
       <style jsx>{`
         .about {
           display: inline-block;
           font-size: 1.1em;
           text-align: left;
+          line-height: 180%;
           animation: fadein 0.2s linear;
         }
 

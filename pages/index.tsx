@@ -28,7 +28,9 @@ export default () => {
       </Meta>
       <ModeSwitch />
       <Header />
-      <Main />
+      <main role="main">
+        <Main />
+      </main>
       <Footer />
     </div>
   );
