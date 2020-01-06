@@ -16,9 +16,7 @@ const Profile = () => (
     <br />
     <br />
     何か御用ありましたら
-    <Link href="/form">
-      <a>フォーム</a>
-    </Link>
+    <a href="/form">フォーム</a>
     または<a href="mailto:k@hellorusk.net">メール</a>から気軽にどうぞ。
   </div>
 );

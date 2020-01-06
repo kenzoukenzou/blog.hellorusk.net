@@ -37,13 +37,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300&display=swap"
           />
-          <style>{`
-          body {
-            background-color: rgb(21, 32, 43);
-          }
-          `
-          // not so good....
-          }</style>
+          <style>{"body { background-color: rgb(21, 32, 43); }"}</style>
         </Head>
         <body>
           <Main />
