@@ -126,7 +126,7 @@ const PageLayout = (props: LayoutProps) => (
         color: #f08d49;
         font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-size: 0.9em;
-        background-color: #2d2d2d;
+        background-color: ${props.backgroundcolor};
         border-radius: 0.1em;
       }
 
