@@ -33,12 +33,14 @@ interface PostsRendererProps {
 }
 
 const PostsRenderer = (props: PostsRendererProps) => {
+  const N = 7;
+
   const article_num = postsComponentList.length;
   const page = props.page;
 
-  const prev_cri = page > 1 && (page - 1) * 10 < article_num;
-  const next_cri = page >= 1 && page * 10 < article_num;
-  const inner_cri = (page - 1) * 10 < article_num && article_num <= page * 10;
+  const prev_cri = page > 1 && (page - 1) * N < article_num;
+  const next_cri = page >= 1 && page * N < article_num;
+  const inner_cri = (page - 1) * N < article_num && article_num <= page * N;
 
   const show_more = () => {
     return (
@@ -47,7 +49,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
           {prev_cri ? (
             <p>
               <Link href={`/blog?page=${page - 1}`} prefetch={false}>
-                <a>Prev</a>
+                <a>&lt; PREV</a>
               </Link>
             </p>
           ) : null}
@@ -70,7 +72,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
           {next_cri ? (
             <p>
               <Link href={`/blog?page=${page + 1}`} prefetch={false}>
-                <a>Next</a>
+                <a>NEXT &gt;</a>
               </Link>
             </p>
           ) : null}
@@ -112,7 +114,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
 
   return (
     <div>
-      {page >= 1 ? postsComponentList.slice((page - 1) * 10, page * 10) : null}
+      {page >= 1 ? postsComponentList.slice((page - 1) * N, page * N) : null}
       {show_more()}
     </div>
   );
