@@ -1,13 +1,13 @@
 import Link from "next/link";
-import Footer from "./footer";
+import Footer from "../components/footer";
 import {
   MetaUrl,
   MetaTitle,
   removeTrailingSlash,
   encodeCharacterForLink,
   MetaDate
-} from "./blog-meta";
-import data from "./posts.json";
+} from "../components/blog-meta";
+import data from "../components/posts.json";
 
 const postsIndexHash: any = data["postsIndexHash"];
 

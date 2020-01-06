@@ -1,4 +1,4 @@
-import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
+import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import Microlink from '@microlink/react';
 
@@ -84,7 +84,7 @@ Markdown の中で、普通に React の `import` 文が書けたり、Component
 私のこのブログにおいては、以下のような MDX ファイルをテンプレートとして用意しています。
 
 ```md
-import BlogLayout from "../../components/blog-layout";
+import BlogLayout from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 
 export const meta = {

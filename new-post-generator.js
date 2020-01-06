@@ -13,7 +13,7 @@ const Y = zeroPadding(date.getFullYear());
 const M = zeroPadding(date.getMonth() + 1);
 const D = zeroPadding(date.getDate());
 
-const template = `import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
+const template = `import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import Microlink from "@microlink/react";
 import LazyLoad from "react-lazyload";
