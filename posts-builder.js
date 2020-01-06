@@ -13,7 +13,7 @@ posts.forEach((str, index) => {
     }
   );
 
-  postsHash[date] = Math.ceil((index + 1) / 10);
+  postsHash[date] = Math.ceil((index + 1) / 7);
 });
 
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
