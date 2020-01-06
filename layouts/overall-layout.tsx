@@ -127,7 +127,7 @@ const PageLayout = (props: LayoutProps) => (
         font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-size: 0.9em;
         background-color: #f0f0f0;
-        border-radius: 0.3em;
+        border-radius: 0.1em;
       }
 
       .jump {
