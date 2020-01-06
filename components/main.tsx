@@ -15,6 +15,7 @@ const renderInfo = (num: number) => {
       <style jsx>{`
         .about {
           display: inline-block;
+          font-size: 1.1em;
           text-align: left;
           animation: fadein 0.2s linear;
         }
@@ -55,13 +56,13 @@ const renderInfo = (num: number) => {
           </a>
         </li>
         <li>
-          <a href="https://tech.hellorusk.net" target="_blank">
-            Hatena Blog
+          <a href="https://bookmeter.com/users/849928" target="_blank">
+            Book Meter
           </a>
         </li>
         <li>
-          <a href="https://bookmeter.com/users/849928" target="_blank">
-            Book Meter
+          <a href="https://yamap.com/users/1227557" target="_blank">
+            YAMAP
           </a>
         </li>
       </ul>

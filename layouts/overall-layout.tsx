@@ -131,6 +131,7 @@ const PageLayout = (props: LayoutProps) => (
       }
 
       .jump {
+        font-size: 1.1em;
         text-align: center;
       }
     `}</style>

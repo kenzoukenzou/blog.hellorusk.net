@@ -30,7 +30,7 @@ export default () => {
       <PostsRenderer page={page} />
       <br />
       <div className="jump">
-        <a href="/">home</a>
+        <a href="/">HOME</a>
       </div>
       <Footer />
       <style jsx>{`

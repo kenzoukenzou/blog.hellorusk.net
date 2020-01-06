@@ -47,7 +47,7 @@ export default () => (
     <br />
     <div className="jump">
       <Link href="/">
-        <a>home</a>
+        <a>HOME</a>
       </Link>
     </div>
     <Footer />

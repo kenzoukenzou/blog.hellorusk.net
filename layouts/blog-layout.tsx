@@ -42,7 +42,7 @@ export default ({ meta }: MetaLayout) => {
       </div>
       <div className="jump">
         <Link href={`/blog?page=${index}`}>
-          <a>back</a>
+          <a>BACK</a>
         </Link>
         <br />
         <style jsx global>{`
