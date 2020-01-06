@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "node posts-builder.js && next",
-    "build": "node posts-builder.js && next build",
+    "build": "node posts-builder.js && NODE_ENV=production next build",
     "export": "next export",
     "clean": "rm -rf .next out",
     "deploy": "npm run clean && npm run build && npm run export",

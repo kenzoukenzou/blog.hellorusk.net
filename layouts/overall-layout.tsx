@@ -28,28 +28,6 @@ const PageLayout = (props: LayoutProps) => (
         -moz-osx-font-smoothing: grayscale;
       }
 
-      h1 {
-        font-weight: 300;
-        font-size: 1.4em;
-      }
-
-      h2 {
-        font-weight: 300;
-        font-size: 1.3em;
-      }
-
-      h3 {
-        font-weight: 300;
-        font-size: 1.2em;
-      }
-
-      h4 {
-        font-weight: 300;
-        font-size: 0.9em;
-        color: #a0a0a0;
-        font-style: italic;
-      }
-
       a {
         text-decoration: none;
       }
@@ -72,6 +50,14 @@ const PageLayout = (props: LayoutProps) => (
         color: ${props.textcolor};
       }
 
+      code {
+        color: #f08d49;
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        font-size: 0.9em;
+        background-color: ${props.backgroundcolor};
+        border-radius: 0.1em;
+      }
+
       p {
         text-align: left;
       }
@@ -90,44 +76,6 @@ const PageLayout = (props: LayoutProps) => (
 
       hr {
         border-width: 0.5px;
-      }
-
-      table {
-        border-collapse: collapse;
-      }
-
-      th {
-        padding: 0.2em 1em;
-        font-size: 0.9em;
-      }
-
-      td {
-        border-top: 1px solid #ddd;
-        padding: 0.2em 1em;
-        font-size: 0.9em;
-      }
-
-      blockquote {
-        margin: 0;
-        padding-left: 0.8em;
-        border-left-style: solid;
-        color: #808080;
-      }
-
-      pre {
-        overflow-x: auto;
-        font-size: 0.9em;
-        background-color: #f0f0f0;
-        padding: 0.6em !important;
-        border-radius: 0.3em;
-      }
-
-      code {
-        color: #f08d49;
-        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-        font-size: 0.9em;
-        background-color: ${props.backgroundcolor};
-        border-radius: 0.1em;
       }
 
       .jump {
