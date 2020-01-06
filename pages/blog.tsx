@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import PostsRenderer from "../components/posts-renderer";
+import ModeSwitch from "../components/mode-switch";
 
 export default () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default () => {
           content="https://hellorusk.net/mika_square.png"
         />
       </Meta>
+      <ModeSwitch />
       <PostsRenderer page={page} />
       <br />
       <div className="jump">

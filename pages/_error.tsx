@@ -1,12 +1,14 @@
 import Meta from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
+import ModeSwitch from "../components/mode-switch";
 
 export default () => (
   <div>
     <Meta>
       <title key="title">Not Found - HelloRusk Official Website</title>
     </Meta>
+    <ModeSwitch />
     <div className="error">
       <span>404 Not Found</span>
       <br />

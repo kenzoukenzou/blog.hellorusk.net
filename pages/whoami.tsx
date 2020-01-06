@@ -1,6 +1,7 @@
 import Meta from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
+import ModeSwitch from "../components/mode-switch";
 
 const Profile = () => (
   <div>
@@ -56,6 +57,7 @@ export default () => (
         content="https://hellorusk.net/mika_square.png"
       />
     </Meta>
+    <ModeSwitch />
     <div className="whoami">
       <div className="icon">
         <picture>

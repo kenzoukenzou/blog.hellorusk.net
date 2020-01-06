@@ -2,24 +2,9 @@ import Meta from "next/head";
 import Header from "../components/header";
 import Main from "../components/main";
 import Footer from "../components/footer";
-import { whitemode, darkmode } from "../store/actions";
-import Switch from "@material-ui/core/Switch";
-import { connect } from "react-redux";
-import { ModeState, ActionTypes } from "../store/types";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor } from "../store/store";
+import ModeSwitch from "../components/mode-switch";
 
-interface LayoutProps {
-  isDarkMode: boolean;
-  whitemode: () => ActionTypes;
-  darkmode: () => ActionTypes;
-}
-
-const Index: React.FC<LayoutProps> = props => {
-  const handleChange = () => {
-    props.isDarkMode ? props.whitemode() : props.darkmode();
-  };
-
+export default () => {
   return (
     <div>
       <Meta>
@@ -41,31 +26,10 @@ const Index: React.FC<LayoutProps> = props => {
           content="https://hellorusk.net/mika_square.png"
         />
       </Meta>
-      <PersistGate loading={null} persistor={persistor}>
-        <Switch
-          className="modechange"
-          checked={props.isDarkMode}
-          onChange={() => handleChange()}
-          value="checked"
-          color="primary"
-        />
-      </PersistGate>
+      <ModeSwitch />
       <Header />
       <Main />
       <Footer />
     </div>
   );
 };
-
-const mapStateToProps = (state: ModeState) => {
-  return {
-    isDarkMode: state.isDarkMode
-  };
-};
-
-const mapDispatchToProps = {
-  whitemode,
-  darkmode
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Index);

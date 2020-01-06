@@ -10,7 +10,11 @@ export default class MyApp extends App {
 
     return (
       <Provider store={store}>
-        <PageTransition timeout={300} classNames="page-transition">
+        <PageTransition
+          timeout={300}
+          classNames="page-transition"
+          monkeyPatchScrolling={true}
+        >
           <Component {...pageProps} key={router.route} />
         </PageTransition>
         <style jsx global>{`

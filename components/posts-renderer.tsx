@@ -12,14 +12,16 @@ const postsComponentList: JSX.Element[] = [];
 for (const date of postsDateList) {
   const { meta } = require(`../pages/posts/${date}`);
 
-  // const normalizedLink = internalLink(meta.date);
+  const normalizedLink = internalLink(meta.date);
   const normalizedUrl = removeTrailingSlash(meta.url);
 
   postsComponentList.push(
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>
       <div className="title">
-        <a href={normalizedUrl}>{meta.title}</a>
+        <Link scroll={false} href={normalizedLink} as={normalizedUrl}>
+          <a>{meta.title}</a>
+        </Link>
       </div>
     </div>
   );

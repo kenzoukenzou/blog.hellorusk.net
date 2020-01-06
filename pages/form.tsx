@@ -1,6 +1,7 @@
 import Meta from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
+import ModeSwitch from "../components/mode-switch";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
@@ -9,6 +10,9 @@ export default () => (
     <Meta>
       <title key="title">form - HelloRusk Official Website</title>
     </Meta>
+    <ModeSwitch />
+    <br />
+    <br />
     <div className="form-container">
       <form
         name="contact"
