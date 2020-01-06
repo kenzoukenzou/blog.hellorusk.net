@@ -10,7 +10,7 @@ export const meta = {
 }
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" />
@@ -22,7 +22,7 @@ Next.js と MDX で構築されたこのブログで、TeX を扱えるように
 まず、[@mdx-js/loader](https://github.com/mdx-js/mdx/tree/master/packages/loader) を入れます。
 これは `next.config.js` 内で MDX 向けのプラグインをカスタマイズするのに必要です。入っていなければ、
 
-```
+```bash
 npm install @mdx-js/loader
 ```
 
@@ -32,7 +32,7 @@ npm install @mdx-js/loader
 
 その後は、
 
-```
+```bash
 npm install remark-math
 npm install rehype-katex
 ```
