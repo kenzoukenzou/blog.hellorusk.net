@@ -26,9 +26,7 @@ export default () => (
     </div>
     <br />
     <div className="jump">
-      <Link href="/">
-        <a>home</a>
-      </Link>
+      <a href="/">home</a>
     </div>
     <Footer />
   </div>

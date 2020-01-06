@@ -19,9 +19,7 @@ for (const date of postsDateList) {
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>
       <div className="title">
-        <Link href={normalizedLink} as={normalizedUrl}>
-          <a>{meta.title}</a>
-        </Link>
+        <a href={normalizedUrl}>{meta.title}</a>
       </div>
     </div>
   );
