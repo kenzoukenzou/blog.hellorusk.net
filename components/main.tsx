@@ -4,20 +4,30 @@ import { useState } from "react";
 const renderInfo = (num: number) => {
   const elements = [
     <div className="about">
-      <Link href="/whoami">
-        <a>Profile</a>
-      </Link>
-      <br />
-      <Link href="/blog">
-        <a>Blog</a>
-      </Link>
+      <ul>
+        <li>
+          <Link href="/whoami">
+            <a>Profile</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
+        </li>
+      </ul>
       <style jsx>{`
         .about {
           display: inline-block;
-          font-size: 1.1em;
+          font-size: 1.2em;
           text-align: left;
-          line-height: 180%;
           animation: fadein 0.2s linear;
+        }
+
+        .about ul {
+          margin: 0 40px 0 0;
+          list-style-type: none;
+          padding-inline-start: 2em;
         }
 
         @keyframes fadein {
