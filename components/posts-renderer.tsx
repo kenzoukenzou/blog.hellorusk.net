@@ -19,7 +19,7 @@ for (const date of postsDateList) {
     <div className="blog" key={meta.date}>
       <div className="date">{meta.date}</div>
       <div className="title">
-        <Link scroll={false} href={normalizedLink} as={normalizedUrl}>
+        <Link href={normalizedLink} as={normalizedUrl}>
           <a>{meta.title}</a>
         </Link>
       </div>
@@ -46,11 +46,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_prev">
           {prev_cri ? (
             <p>
-              <Link
-                scroll={false}
-                href={`/blog?page=${page - 1}`}
-                prefetch={false}
-              >
+              <Link href={`/blog?page=${page - 1}`} prefetch={false}>
                 <a>Prev</a>
               </Link>
             </p>
@@ -73,11 +69,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
         <div className="post_next">
           {next_cri ? (
             <p>
-              <Link
-                scroll={false}
-                href={`/blog?page=${page + 1}`}
-                prefetch={false}
-              >
+              <Link href={`/blog?page=${page + 1}`} prefetch={false}>
                 <a>Next</a>
               </Link>
             </p>

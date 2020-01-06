@@ -16,7 +16,7 @@ const Profile = () => (
     <br />
     <br />
     何か御用ありましたら
-    <Link scroll={false} href="/form">
+    <Link href="/form">
       <a>フォーム</a>
     </Link>
     または<a href="mailto:k@hellorusk.net">メール</a>から気軽にどうぞ。
@@ -101,7 +101,7 @@ export default () => (
       `}</style>
     </div>
     <div className="jump">
-      <Link scroll={false} href="/">
+      <Link href="/">
         <a>home</a>
       </Link>
     </div>

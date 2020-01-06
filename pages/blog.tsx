@@ -30,7 +30,7 @@ export default () => {
       <PostsRenderer page={page} />
       <br />
       <div className="jump">
-        <Link scroll={false} href="/">
+        <Link href="/">
           <a>home</a>
         </Link>
       </div>

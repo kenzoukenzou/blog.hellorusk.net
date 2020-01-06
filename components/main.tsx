@@ -4,11 +4,11 @@ import { useState } from "react";
 const renderInfo = (num: number) => {
   const elements = [
     <div className="about">
-      <Link scroll={false} href="/whoami">
+      <Link href="/whoami">
         <a>Profile</a>
       </Link>
       <br />
-      <Link scroll={false} href="/blog">
+      <Link href="/blog">
         <a>Blog</a>
       </Link>
       <br />
