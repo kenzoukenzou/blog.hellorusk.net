@@ -1,6 +1,6 @@
 import App from "next/app";
 import { PageTransition } from "next-page-transitions";
-import Layout from "../layouts/page-layout";
+import Layout from "../layouts/overall-layout";
 import { Provider } from "react-redux";
 import store from "../store/store";
 
