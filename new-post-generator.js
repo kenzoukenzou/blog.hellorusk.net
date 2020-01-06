@@ -15,8 +15,10 @@ const D = zeroPadding(date.getDate());
 
 const template = `import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
-import Microlink from "@microlink/react";
+import Microlink from '@microlink/react';
+import ModeSwitch from "../../components/mode-switch";
 import LazyLoad from "react-lazyload";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 export const meta = {
   date: '${Y}-${M}-${D}',
@@ -28,6 +30,8 @@ export const meta = {
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" />
+
+<ModeSwitch />
 
 # ここにタイトルを記入してください
 #### ${Y}-${M}-${D}
