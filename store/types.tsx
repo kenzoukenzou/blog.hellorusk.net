@@ -16,6 +16,4 @@ export interface ModeState {
   textcolor: string;
   backgroundcolor: string;
   linkcolor: string;
-  boxshadow: string;
-  border: string;
 }

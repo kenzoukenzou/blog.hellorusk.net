@@ -1,9 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { connect } from "react-redux";
-import { ModeState } from "../store/types";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor } from "../store/store";
 
 const renderInfo = (num: number) => {
   const elements = [
@@ -104,12 +100,7 @@ const renderInfo = (num: number) => {
   return elements[num];
 };
 
-interface LayoutProps {
-  boxshadow: string;
-  border: string;
-}
-
-const Main = (props: LayoutProps) => {
+const Main = () => {
   const [num, setNum] = useState(0);
 
   const idList = ["About", "Links"];
@@ -129,7 +120,7 @@ const Main = (props: LayoutProps) => {
   });
 
   return (
-    <PersistGate loading={null} persistor={persistor}>
+    <>
       <div className="buttonContainer">{buttonElements}</div>
       <style jsx>{`
         .buttonContainer {
@@ -160,8 +151,7 @@ const Main = (props: LayoutProps) => {
           margin: 0 10px;
           padding: 5px 0;
           cursor: pointer;
-          border: ${props.border};
-          box-shadow: ${props.boxshadow};
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
         }
 
         .button {
@@ -189,15 +179,8 @@ const Main = (props: LayoutProps) => {
           height: 235px;
         }
       `}</style>
-    </PersistGate>
+    </>
   );
 };
 
-const mapStateToProps = (state: ModeState) => {
-  return {
-    boxshadow: state.boxshadow,
-    border: state.border
-  };
-};
-
-export default connect(mapStateToProps)(Main);
+export default Main;

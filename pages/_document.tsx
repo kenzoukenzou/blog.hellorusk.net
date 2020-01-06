@@ -25,7 +25,6 @@ export default class MyDocument extends Document {
                 "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-136305100-1');"
             }}
           />
-          <script src="//cdn.iframe.ly/embed.js" async></script>
           <link rel="shortcut icon" href="/favicon.ico" />
           <meta
             name="viewport"
@@ -38,6 +37,13 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300&display=swap"
           />
+          <style>{`
+          body {
+            background-color: rgb(21, 32, 43);
+          }
+          `
+          // not so good....
+          }</style>
         </Head>
         <body>
           <Main />

@@ -8,30 +8,26 @@ const persistConfig = {
   storage
 };
 
-const initialState: ModeState = {
+const whiteState: ModeState = {
   isDarkMode: false,
   textcolor: "#000000",
   backgroundcolor: "#FFFFFF",
-  linkcolor: "#1529DC",
-  boxshadow: "0 2px 4px rgba(0, 0, 0, 0.25)",
-  border: "none"
+  linkcolor: "#1529DC"
 };
 
 const nightState: ModeState = {
   isDarkMode: true,
   textcolor: "#FFFFFF",
-  backgroundcolor: "#000000",
-  linkcolor: "#00FFFF",
-  boxshadow: "none",
-  border: "0.2px solid #FFFFFF"
+  backgroundcolor: "rgb(21, 32, 43)", // Twitter Lite Color
+  linkcolor: "rgb(29, 181, 262)"
 };
 
-const reducer = (state: ModeState = initialState, action: ActionTypes) => {
+const reducer = (state: ModeState = nightState, action: ActionTypes) => {
   switch (action.type) {
     case "DARKMODE":
       return nightState;
     case "WHITEMODE":
-      return initialState;
+      return whiteState;
     default:
       return state;
   }
