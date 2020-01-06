@@ -123,11 +123,11 @@ const PageLayout = (props: LayoutProps) => (
       }
 
       code {
-        color: #000000;
+        color: #f08d49;
         font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
         font-size: 0.9em;
-        background-color: #f0f0f0;
-        border-radius: 0.3em;
+        background-color: #2d2d2d;
+        border-radius: 0.1em;
       }
 
       .jump {

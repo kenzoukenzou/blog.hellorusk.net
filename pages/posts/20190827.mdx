@@ -1,4 +1,4 @@
-import BlogLayout, { microLinkStyle } from "../../components/blog-layout";
+import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import Microlink from '@microlink/react';
 
@@ -10,9 +10,7 @@ export const meta = {
 }
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/plugins/line-highlight/prism-line-highlight.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" />
 
 # Next.js の Route Masking
@@ -73,6 +71,12 @@ prefetch が正しく行われるようになったからです。
 そもそも何故これまでコンソールエラーに気づけなかったのかを調べると、どうやらエラーが明示されるようになったのは
 Next.js が 9 系のバージョンに上がってからのようでした。
 やはり、ツールを最新バージョンにアップデートしていくのは非常に重要なことだと思います。
+
+---
+
+2020.01.06 追記
+
+当ブログでは、パフォーマンスのため、ブログ一覧ページでは Next.js の `<Link>` ではなく、直接 `<a>` タグを使うようにしました。
 
 <BlogLayout meta={meta} />
 <BlogMeta meta={meta} />

@@ -1,13 +1,13 @@
 import Link from "next/link";
-import Footer from "./footer";
+import Footer from "../components/footer";
 import {
   MetaUrl,
   MetaTitle,
   removeTrailingSlash,
   encodeCharacterForLink,
   MetaDate
-} from "./blog-meta";
-import data from "./posts.json";
+} from "../components/blog-meta";
+import data from "../components/posts.json";
 
 const postsIndexHash: any = data["postsIndexHash"];
 
@@ -41,9 +41,7 @@ export default ({ meta }: MetaLayout) => {
         `}</style>
       </div>
       <div className="jump">
-        <Link scroll={false} href={`/blog?page=${index}`}>
-          <a>back</a>
-        </Link>
+        <a href={`/blog?page=${index}`}>back</a>
         <br />
         <style jsx global>{`
           p {
