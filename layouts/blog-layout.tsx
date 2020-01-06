@@ -41,9 +41,7 @@ export default ({ meta }: MetaLayout) => {
         `}</style>
       </div>
       <div className="jump">
-        <Link scroll={false} href={`/blog?page=${index}`}>
-          <a>back</a>
-        </Link>
+        <a href={`/blog?page=${index}`}>back</a>
         <br />
         <style jsx global>{`
           p {
