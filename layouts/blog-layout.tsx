@@ -146,5 +146,6 @@ const GlobalStyle = () => (
 export const microLinkStyle = {
   color: "#000000",
   fontFamily:
-    "-apple-system-body,BlinkMacSystemFont,Helvetica Neue,Hiragino Sans,Hiragino Kaku Gothic ProN,Noto Sans Japanese,游ゴシック Medium,Yu Gothic Medium,メイリオ,meiryo,sans-serif"
+    // eslint-disable-next-line prettier/prettier
+    "-apple-system-body,BlinkMacSystemFont,\"Helvetica Neue\",\"Hiragino Sans\",\"Hiragino Kaku Gothic ProN\",\"Noto Sans Japanese\",\"游ゴシック Medium\",\"Yu Gothic Medium\",\"メイリオ\",meiryo,sans-serif"
 };
