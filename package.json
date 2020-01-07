@@ -1,13 +1,15 @@
 {
   "scripts": {
     "dev": "node posts-builder.js && next",
-    "build": "node posts-builder.js && NODE_ENV=production next build",
+    "build": "node posts-builder.js && next build",
     "export": "next export",
     "clean": "rm -rf .next out",
     "deploy": "npm run clean && npm run build && npm run export",
     "blog": "node new-post-generator.js"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "@mapbox/rehype-prism": "0.4.0",
     "@material-ui/core": "4.8.2",
     "@mdx-js/loader": "1.5.3",

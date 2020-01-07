@@ -1,15 +1,15 @@
 import Meta from "next/head";
 import Footer from "../components/footer";
-import Link from "next/link";
 import ModeSwitch from "../components/mode-switch";
+import styled from "@emotion/styled";
 
 export default () => (
-  <div>
+  <>
     <Meta>
       <title key="title">Not Found - HelloRusk Official Website</title>
     </Meta>
     <ModeSwitch />
-    <div className="error">
+    <Error>
       <span>404 Not Found</span>
       <br />
       <span>お探しのページは見つかりませんでした。</span>
@@ -17,17 +17,16 @@ export default () => (
       <br />
       <img src="/hitori.jpg" width="90%" alt="hitori" />
       <br />
-      <style jsx>{`
-        .error {
-          padding-top: 15px;
-          text-align: center;
-        }
-      `}</style>
-    </div>
+    </Error>
     <br />
     <div className="jump">
       <a href="/">HOME</a>
     </div>
     <Footer />
-  </div>
+  </>
 );
+
+const Error = styled.div`
+  padding-top: 15px;
+  text-align: center;
+`;

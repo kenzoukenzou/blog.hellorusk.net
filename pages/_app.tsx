@@ -3,6 +3,7 @@ import { PageTransition } from "next-page-transitions";
 import Layout from "../layouts/overall-layout";
 import { Provider } from "react-redux";
 import store from "../store/store";
+import { Global, css } from "@emotion/core";
 
 export default class MyApp extends App {
   render() {
@@ -17,22 +18,24 @@ export default class MyApp extends App {
         >
           <Component {...pageProps} key={router.route} />
         </PageTransition>
-        <style jsx global>{`
-          .page-transition-enter {
-            opacity: 0;
-          }
-          .page-transition-enter-active {
-            opacity: 1;
-            transition: opacity 300ms;
-          }
-          .page-transition-exit {
-            opacity: 1;
-          }
-          .page-transition-exit-active {
-            opacity: 0;
-            transition: opacity 300ms;
-          }
-        `}</style>
+        <Global
+          styles={css`
+            .page-transition-enter {
+              opacity: 0;
+            }
+            .page-transition-enter-active {
+              opacity: 1;
+              transition: opacity 300ms;
+            }
+            .page-transition-exit {
+              opacity: 1;
+            }
+            .page-transition-exit-active {
+              opacity: 0;
+              transition: opacity 300ms;
+            }
+          `}
+        />
         <Layout />
       </Provider>
     );

@@ -1,19 +1,20 @@
+import styled from "@emotion/styled";
+
 export default () => (
   <>
-    <div className="footer">
+    <Footer>
       <span>© 2020 HelloRusk</span>
-      <style jsx>{`
-        .footer {
-          text-align: center;
-          color: #a0a0a0;
-        }
-
-        .footer span {
-          margin: 10px;
-          font-size: 0.9em;
-        }
-      `}</style>
-    </div>
+    </Footer>
     <br />
   </>
 );
+
+const Footer = styled.div`
+  text-align: center;
+  color: #a0a0a0;
+
+  & span {
+    margin: 10px;
+    font-size: 0.9em;
+  }
+`;

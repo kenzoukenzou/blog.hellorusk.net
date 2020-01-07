@@ -6,7 +6,7 @@ import ModeSwitch from "../components/mode-switch";
 
 export default () => {
   return (
-    <div>
+    <>
       <Meta>
         <meta
           name="google-site-verification"
@@ -32,6 +32,6 @@ export default () => {
         <Main />
       </main>
       <Footer />
-    </div>
+    </>
   );
 };

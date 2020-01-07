@@ -4,16 +4,16 @@ import Link from "next/link";
 import ModeSwitch from "../components/mode-switch";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import styled from "@emotion/styled";
 
 export default () => (
-  <div>
+  <>
     <Meta>
       <title key="title">form - HelloRusk Official Website</title>
     </Meta>
     <ModeSwitch />
     <br />
-    <br />
-    <div className="form-container">
+    <FormContainer>
       <form
         name="contact"
         action="/"
@@ -43,7 +43,7 @@ export default () => (
       </form>
       <br />
       <br />
-    </div>
+    </FormContainer>
     <br />
     <div className="jump">
       <Link href="/">
@@ -51,18 +51,17 @@ export default () => (
       </Link>
     </div>
     <Footer />
-    <style jsx>{`
-      .form-container {
-        text-align: center;
-        background-color: #ffffff;
-        border-radius: 1em;
-      }
-
-      form {
-        display: inline-block;
-        text-align: left;
-        width: 300px;
-      }
-    `}</style>
-  </div>
+  </>
 );
+
+const FormContainer = styled.div`
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 1em;
+
+  & form {
+    display: inline-block;
+    text-align: left;
+    width: 300px;
+  }
+`;
