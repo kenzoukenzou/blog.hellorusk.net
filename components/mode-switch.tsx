@@ -4,6 +4,7 @@ import { persistor } from "../store/store";
 import { whitemode, darkmode } from "../store/actions";
 import { connect } from "react-redux";
 import { ModeState, ActionTypes } from "../store/types";
+import styled from "@emotion/styled";
 
 interface LayoutProps {
   isDarkMode: boolean;
@@ -18,21 +19,22 @@ const ModeSwitch: React.FC<LayoutProps> = (props: LayoutProps) => {
 
   return (
     <PersistGate loading={null} persistor={persistor}>
-      <Switch
-        className="modechange"
-        checked={props.isDarkMode}
-        onChange={() => handleChange()}
-        value="checked"
-        color="primary"
-      />
-      <style jsx global>{`
-        .modechange {
-          margin-left: -10px;
-        }
-      `}</style>
+      <SwitchContainer>
+        <Switch
+          className="modechange"
+          checked={props.isDarkMode}
+          onChange={() => handleChange()}
+          value="checked"
+          color="primary"
+        />
+      </SwitchContainer>
     </PersistGate>
   );
 };
+
+const SwitchContainer = styled.div`
+  margin-left: -10px;
+`;
 
 const mapStateToProps = (state: ModeState) => {
   return {

@@ -2,10 +2,11 @@ import Meta from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
 import ModeSwitch from "../components/mode-switch";
+import styled from "@emotion/styled";
 
 const Profile = () => (
   <div>
-    <div className="title">Profile</div>
+    <Title>Profile</Title>
     横浜在住の大学生。コンピュータサイエンスを学んでいます。
     <br />
     おもにプログラミングと読書をして日々を過ごしています。
@@ -23,7 +24,7 @@ const Profile = () => (
 
 const About = () => (
   <div>
-    <div className="title">About this site</div>
+    <Title>About this site</Title>
     <a href="https://nextjs.org/" target="_blank">
       Next.js
     </a>{" "}
@@ -39,7 +40,7 @@ const About = () => (
 );
 
 export default () => (
-  <div>
+  <>
     <Meta>
       <title key="title">whoami - HelloRusk Official Website</title>
       <meta property="og:title" content="HelloRusk Profile" />
@@ -57,46 +58,21 @@ export default () => (
     </Meta>
     <ModeSwitch />
     <div className="whoami">
-      <div className="icon">
+      <Icon>
         <picture>
           <source type="image/webp" srcSet="/mika.webp" />
           <img src="/mika.png" alt="mika" />
           <br />
         </picture>
         <span>HN: HelloRusk</span>
-      </div>
-      <div className="detail">
+      </Icon>
+      <Detail>
         <Profile />
         <br />
         <About />
         <br />
         <br />
-      </div>
-      <style jsx>{`
-        .detail {
-          text-align: left;
-          display: inline-block;
-        }
-
-        .icon img {
-          margin-top: 20px;
-          height: 70px;
-        }
-
-        .icon span {
-          font-size: 0.9em;
-          font-style: italic;
-          color: #a0a0a0;
-        }
-      `}</style>
-      <style jsx global>{`
-        .title {
-          font-size: 1.5em;
-          margin-top: 1em;
-          margin-bottom: 0.5em;
-          text-shadow: 4px 4px 4px #c0c0c0;
-        }
-      `}</style>
+      </Detail>
     </div>
     <div className="jump">
       <Link href="/">
@@ -104,5 +80,30 @@ export default () => (
       </Link>
     </div>
     <Footer />
-  </div>
+  </>
 );
+
+const Title = styled.div`
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  text-shadow: 4px 4px 4px #c0c0c0;
+`;
+
+const Detail = styled.div`
+  text-align: left;
+  display: inline-block;
+`;
+
+const Icon = styled.div`
+  & img {
+    margin-top: 20px;
+    height: 70px;
+  }
+
+  & span {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #a0a0a0;
+  }
+`;

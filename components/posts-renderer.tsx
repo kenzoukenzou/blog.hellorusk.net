@@ -5,6 +5,8 @@ import { ModeState } from "../store/types";
 import { connect } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
+import styled from "@emotion/styled";
+import { Global, css } from "@emotion/core";
 
 const postsDateList = data["postsDateList"];
 const postsComponentList: JSX.Element[] = [];
@@ -43,15 +45,8 @@ const PostsRenderer = (props: PostsRendererProps) => {
   const show_more = () => {
     return (
       <PersistGate loading={null} persistor={persistor}>
-        <div className="post_prev">
-          {prev_cri ? (
-            <p>
-              <Link href={`/blog?page=${page - 1}`} prefetch={false}>
-                <a>&lt; PREV</a>
-              </Link>
-            </p>
-          ) : null}
-          <style jsx>{`
+        <Global
+          styles={css`
             .post_prev {
               display: inline-block;
               width: 50%;
@@ -64,17 +59,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
               color: ${props.linkcolor};
               font-size: 1.1em;
             }
-          `}</style>
-        </div>
-        <div className="post_next">
-          {next_cri ? (
-            <p>
-              <Link href={`/blog?page=${page + 1}`} prefetch={false}>
-                <a>NEXT &gt;</a>
-              </Link>
-            </p>
-          ) : null}
-          <style jsx>{`
+
             .post_next {
               display: inline-block;
               width: 50%;
@@ -87,23 +72,35 @@ const PostsRenderer = (props: PostsRendererProps) => {
               color: ${props.linkcolor};
               font-size: 1.1em;
             }
-          `}</style>
+          `}
+        ></Global>
+        <div className="post_prev">
+          {prev_cri ? (
+            <p>
+              <Link href={`/blog?page=${page - 1}`} prefetch={false}>
+                <a>&lt; PREV</a>
+              </Link>
+            </p>
+          ) : null}
+        </div>
+        <div className="post_next">
+          {next_cri ? (
+            <p>
+              <Link href={`/blog?page=${page + 1}`} prefetch={false}>
+                <a>NEXT &gt;</a>
+              </Link>
+            </p>
+          ) : null}
         </div>
         <div>
           {!prev_cri && !next_cri && !inner_cri ? (
-            <div className="error">
+            <Error>
               <span>表示する記事がありません。</span>
               <br />
               <br />
               <img src="/hitori.jpg" width="90%" alt="hitori" />
               <br />
-              <style jsx>{`
-                .error {
-                  padding-top: 15px;
-                  text-align: center;
-                }
-              `}</style>
-            </div>
+            </Error>
           ) : null}
         </div>
       </PersistGate>
@@ -125,3 +122,8 @@ const mapStateToProps = (state: ModeState) => {
 };
 
 export default connect(mapStateToProps)(PostsRenderer);
+
+const Error = styled.div`
+  padding-top: 15px;
+  text-align: center;
+`;
