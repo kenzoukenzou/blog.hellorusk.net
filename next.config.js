@@ -24,7 +24,6 @@ module.exports = withMDX({
     pathMap["404.html"] = { page: "/_error" };
 
     const posts = await readdir("./pages/posts");
-    const pageNum = Math.ceil(posts.length / 7);
 
     for (const post of posts) {
       const postPath = post.replace(
