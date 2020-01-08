@@ -8,15 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
+      - name: set Node version
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: npm install, build
+      - name: build
         run: |
           npm install
-          npm run build
+          npm run deploy
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.3.x
-          lhci autorun --upload.target=temporary-public-storage --staticDistDir=./out || echo "LHCI failed!"
+          npm install -g @lhci/cli
+          lhci collect --staticDistDir=./out
+          lhci autorun --upload.target=temporary-public-storage
