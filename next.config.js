@@ -6,7 +6,7 @@ const rehypePrism = require("@mapbox/rehype-prism");
 const withMDX = require("@zeit/next-mdx")({
   options: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex, rehypePrism]
+    rehypePlugins: [[rehypeKatex, { strict: false }], rehypePrism]
   }
 });
 
