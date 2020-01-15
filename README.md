@@ -15,3 +15,15 @@ npm run deploy
 # add new post
 npm run blog
 ```
+
+## Feature
+
+- 構成
+  - Next.js + Netlify
+  - TypeScript & ESLint
+  - ブログ部分の記述は [MDX](https://mdxjs.com/) を採用
+  - CSS in JS として [Emotion](https://emotion.sh/docs/introduction) を採用
+
+- ダークモード対応（[redux-persist](https://github.com/rt2zz/redux-persist) を用いて Redux と LocalStorage でダークモード On/Off を連携）
+- [Renovate](https://github.com/renovatebot/renovate) によるモジュールの自動更新
+- [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) + GitHub Actions によるサイトパフォーマンスの自動計測
