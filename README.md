@@ -20,7 +20,7 @@ npm run blog
 
 - 構成
   - Next.js + Netlify
-  - TypeScript & ESLint
+  - TypeScript & ESLint & Prettier
   - ブログ部分の記述は [MDX](https://mdxjs.com/) を採用
   - CSS in JS として [Emotion](https://emotion.sh/docs/introduction) を採用
 
