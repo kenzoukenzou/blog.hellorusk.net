@@ -1,7 +1,7 @@
 import Link from "next/link";
 import data from "./posts.json";
 import { internalLink, removeTrailingSlash } from "./blog-meta";
-import { ModeState } from "../store/types";
+import { ModeType } from "../store/types";
 import { connect } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
@@ -115,7 +115,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
   );
 };
 
-const mapStateToProps = (state: ModeState) => {
+const mapStateToProps = (state: ModeType) => {
   return {
     linkcolor: state.linkcolor
   };

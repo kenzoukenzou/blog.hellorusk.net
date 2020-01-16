@@ -1,20 +1,20 @@
 import Switch from "@material-ui/core/Switch";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
-import { whitemode, darkmode } from "../store/actions";
+import { lightmode, darkmode } from "../store/actions";
 import { connect } from "react-redux";
-import { ModeState, ActionTypes } from "../store/types";
+import { ModeType, ActionTypes } from "../store/types";
 import styled from "@emotion/styled";
 
 interface LayoutProps {
   isDarkMode: boolean;
-  whitemode: () => ActionTypes;
+  lightmode: () => ActionTypes;
   darkmode: () => ActionTypes;
 }
 
 const ModeSwitch: React.FC<LayoutProps> = (props: LayoutProps) => {
   const handleChange = () => {
-    props.isDarkMode ? props.whitemode() : props.darkmode();
+    props.isDarkMode ? props.lightmode() : props.darkmode();
   };
 
   return (
@@ -36,14 +36,14 @@ const SwitchContainer = styled.div`
   margin-left: -10px;
 `;
 
-const mapStateToProps = (state: ModeState) => {
+const mapStateToProps = (state: ModeType) => {
   return {
     isDarkMode: state.isDarkMode
   };
 };
 
 const mapDispatchToProps = {
-  whitemode,
+  lightmode,
   darkmode
 };
 

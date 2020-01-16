@@ -1,33 +1,33 @@
 import { createStore } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { ActionTypes, ModeState } from "./types";
+import { ActionTypes, ModeType } from "./types";
 
 const persistConfig = {
   key: "HelloRuskMode",
   storage
 };
 
-const whiteState: ModeState = {
+const lightMode: ModeType = {
   isDarkMode: false,
   textcolor: "#000000",
   backgroundcolor: "#FFFFFF",
   linkcolor: "#1529DC"
 };
 
-const nightState: ModeState = {
+const darkMode: ModeType = {
   isDarkMode: true,
   textcolor: "#FFFFFF",
   backgroundcolor: "rgb(21, 32, 43)", // Twitter Lite Color
   linkcolor: "rgb(29, 181, 262)"
 };
 
-const reducer = (state: ModeState = nightState, action: ActionTypes) => {
+const reducer = (state: ModeType = darkMode, action: ActionTypes) => {
   switch (action.type) {
     case "DARKMODE":
-      return nightState;
+      return darkMode;
     case "WHITEMODE":
-      return whiteState;
+      return lightMode;
     default:
       return state;
   }

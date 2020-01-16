@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { ModeState } from "../store/types";
+import { ModeType } from "../store/types";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
 import { css, Global } from "@emotion/core";
@@ -89,7 +89,7 @@ const PageLayout = (props: LayoutProps) => (
   </PersistGate>
 );
 
-const mapStateToProps = (state: ModeState) => {
+const mapStateToProps = (state: ModeType) => {
   return {
     textcolor: state.textcolor,
     backgroundcolor: state.backgroundcolor,

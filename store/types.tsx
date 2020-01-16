@@ -5,13 +5,13 @@ interface DarkAction {
   type: typeof DARKMODE;
 }
 
-interface WhiteAction {
+interface LightAction {
   type: typeof WHITEMODE;
 }
 
-export type ActionTypes = DarkAction | WhiteAction;
+export type ActionTypes = DarkAction | LightAction;
 
-export interface ModeState {
+export interface ModeType {
   isDarkMode: boolean;
   textcolor: string;
   backgroundcolor: string;
