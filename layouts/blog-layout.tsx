@@ -34,7 +34,7 @@ export default ({ meta }: MetaLayout) => {
       <GlobalStyle />
       <br />
       <Tweet>
-        <a href={tweetlink} target="_blank">
+        <a href={tweetlink} target="_blank" rel="noopener">
           <img src="/twitter.svg" height="40" alt="tweet" />
         </a>
       </Tweet>
