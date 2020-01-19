@@ -8,6 +8,7 @@ interface LayoutProps {
   textcolor: string;
   backgroundcolor: string;
   linkcolor: string;
+  codecolor: string;
 }
 
 const PageLayout = (props: LayoutProps) => (
@@ -53,11 +54,18 @@ const PageLayout = (props: LayoutProps) => (
         }
 
         code {
-          color: #f08d49;
+          color: ${props.codecolor};
           font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
           font-size: 0.9em;
           background-color: ${props.backgroundcolor};
           border-radius: 0.1em;
+        }
+
+        p > code::before {
+          content: \"\`\";
+        }
+        p > code::after {
+          content: \"\`\";
         }
 
         p {
@@ -93,7 +101,8 @@ const mapStateToProps = (state: ModeType) => {
   return {
     textcolor: state.textcolor,
     backgroundcolor: state.backgroundcolor,
-    linkcolor: state.linkcolor
+    linkcolor: state.linkcolor,
+    codecolor: state.codecolor
   };
 };
 
