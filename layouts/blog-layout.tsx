@@ -102,26 +102,12 @@ const GlobalStyle = () => (
         margin: 0 auto;
       }
 
-      blockquote {
-        margin: 0;
-        padding-left: 0.8em;
-        border-left-style: solid;
-        color: #808080;
-      }
-
       pre {
         overflow-x: auto;
         font-size: 0.9em;
         background-color: #f0f0f0;
         padding: 0.6em !important;
         border-radius: 0.3em;
-      }
-
-      .hatena {
-        border: 0;
-        width: 100%;
-        height: 190px;
-        max-width: 400px;
       }
 
       .math {

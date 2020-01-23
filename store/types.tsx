@@ -17,4 +17,5 @@ export interface ModeType {
   backgroundcolor: string;
   linkcolor: string;
   codecolor: string;
+  quotecolor: string;
 }

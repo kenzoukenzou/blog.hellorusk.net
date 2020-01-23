@@ -9,6 +9,7 @@ interface LayoutProps {
   backgroundcolor: string;
   linkcolor: string;
   codecolor: string;
+  quotecolor: string;
 }
 
 const PageLayout = (props: LayoutProps) => (
@@ -61,6 +62,13 @@ const PageLayout = (props: LayoutProps) => (
           border-radius: 0.1em;
         }
 
+        blockquote {
+          margin: 0;
+          padding-left: 0.8em;
+          border-left-style: solid;
+          color: ${props.quotecolor};
+        }
+
         p > code::before {
           content: \"\`\";
         }
@@ -102,7 +110,8 @@ const mapStateToProps = (state: ModeType) => {
     textcolor: state.textcolor,
     backgroundcolor: state.backgroundcolor,
     linkcolor: state.linkcolor,
-    codecolor: state.codecolor
+    codecolor: state.codecolor,
+    quotecolor: state.quotecolor
   };
 };
 

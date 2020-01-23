@@ -13,7 +13,8 @@ const lightMode: ModeType = {
   textcolor: "#000000",
   backgroundcolor: "#FFFFFF",
   linkcolor: "#1529DC",
-  codecolor: "brown"
+  codecolor: "brown",
+  quotecolor: "#808080"
 };
 
 const darkMode: ModeType = {
@@ -21,7 +22,8 @@ const darkMode: ModeType = {
   textcolor: "#FFFFFF",
   backgroundcolor: "rgb(21, 32, 43)", // Twitter Lite Color
   linkcolor: "rgb(29, 181, 262)",
-  codecolor: "#f08d49"
+  codecolor: "#f08d49",
+  quotecolor: "#daa520"
 };
 
 const reducer = (state: ModeType = darkMode, action: ActionTypes) => {
