@@ -1,6 +1,6 @@
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
-import { cyan, grey } from "@material-ui/core/colors";
+import { cyan } from "@material-ui/core/colors";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../store/store";
 import { lightmode, darkmode } from "../store/actions";
@@ -26,7 +26,7 @@ const CyanSwitch = withStyles({
   },
   checked: {},
   track: {
-    border: `1px solid ${grey[500]}`,
+    border: "1px solid rgb(21, 32, 43)",
     borderRadius: 16 / 2,
     opacity: 1,
     backgroundColor: "#FFFFFF"
