@@ -114,13 +114,13 @@ const GlobalStyle = () => (
         overflow-x: auto;
       }
 
-      @media screen and (min-width: 657px) {
+      @media screen and (min-width: 671px) {
         p img {
           width: 650px;
         }
       }
 
-      @media screen and (max-width: 656px) {
+      @media screen and (max-width: 670px) {
         p img {
           width: 100%;
         }
