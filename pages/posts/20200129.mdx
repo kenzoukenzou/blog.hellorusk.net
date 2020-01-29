@@ -1,0 +1,42 @@
+import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+import Microlink from '@microlink/react';
+import ModeSwitch from "../../components/mode-switch";
+import LazyLoad from "react-lazyload";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+
+export const meta = {
+  date: '2020-01-29',
+  title: 'ブロック一括解除 for Twitter Lite',
+  url: '/blog/2020/01/29',
+  description: '2020-01-29 の日記'
+}
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" />
+
+<ModeSwitch />
+
+# ブロック一括解除 for Twitter Lite
+#### 2020-01-29
+
+「Twitter ブロック 一括解除」でググると、上位にこの記事が出てきます。
+
+<Microlink url={"https://www.ncaq.net/2017/08/21/"} style={microLinkStyle}/>
+
+ここに書かれてある通り、デベロッパーツールでブロック解除ボタンをクリックするスクリプトを書くのが早いです。
+ただ、記載されているコードが今の Twitter（Twitter Lite と呼ばれる PWA）では使えませんでした。  
+  
+そこで、2020年1月現在使えるコードを代わりにシェアします。
+
+```js
+document.querySelectorAll("div[aria-label=\"ブロック中\"]").forEach(b => b.click());
+```
+
+これもサイトの構造が変化したら使えなくなるかもしれません。もし使えなくて困っている方がいましたら、
+[Issue](https://github.com/7ma7X/hellorusk.net/issues) や [フォーム](/form) でお知らせください。
+
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
