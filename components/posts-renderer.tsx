@@ -28,7 +28,7 @@ for (const date of postsDateList) {
 }
 
 interface PostsRendererProps {
-  linkcolor: string;
+  linkColor: string;
   page: number;
 }
 
@@ -56,7 +56,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
               text-align: left;
               font-style: italic;
               cursor: pointer;
-              color: ${props.linkcolor};
+              color: ${props.linkColor};
               font-size: 1.1em;
             }
 
@@ -69,7 +69,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
               text-align: right;
               font-style: italic;
               cursor: pointer;
-              color: ${props.linkcolor};
+              color: ${props.linkColor};
               font-size: 1.1em;
             }
           `}
@@ -117,7 +117,7 @@ const PostsRenderer = (props: PostsRendererProps) => {
 
 const mapStateToProps = (state: ModeType) => {
   return {
-    linkcolor: state.linkcolor
+    linkColor: state.linkColor
   };
 };
 

@@ -10,20 +10,22 @@ const persistConfig = {
 
 const lightMode: ModeType = {
   isDarkMode: false,
-  textcolor: "#000000",
-  backgroundcolor: "#FFFFFF",
-  linkcolor: "#1529DC",
-  codecolor: "brown",
-  quotecolor: "#808080"
+  textColor: "#000000",
+  backgroundColor: "#FFFFFF",
+  linkColor: "#1529DC",
+  codeColor: "brown",
+  quoteColor: "#808080",
+  syntaxStyle: "prism"
 };
 
 const darkMode: ModeType = {
   isDarkMode: true,
-  textcolor: "#FFFFFF",
-  backgroundcolor: "rgb(21, 32, 43)", // Twitter Lite Color
-  linkcolor: "rgb(29, 181, 262)",
-  codecolor: "#f08d49",
-  quotecolor: "#daa520"
+  textColor: "#FFFFFF",
+  backgroundColor: "rgb(21, 32, 43)", // Twitter Lite Color
+  linkColor: "rgb(29, 181, 262)",
+  codeColor: "#f08d49",
+  quoteColor: "#daa520",
+  syntaxStyle: "prism-tomorrow"
 };
 
 const reducer = (state: ModeType = darkMode, action: ActionTypes) => {

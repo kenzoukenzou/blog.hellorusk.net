@@ -10,10 +10,16 @@ import {
 import data from "../components/posts.json";
 import styled from "@emotion/styled";
 import { css, Global } from "@emotion/core";
+import Meta from "next/head";
+import { ModeType } from "../store/types";
+import { connect } from "react-redux";
+import { persistor } from "../store/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const postsIndexHash: any = data["postsIndexHash"];
 
-interface MetaLayout {
+interface LayoutProps {
+  syntaxStyle: string;
   meta: {
     date: MetaDate;
     title: MetaTitle;
@@ -21,16 +27,34 @@ interface MetaLayout {
   };
 }
 
-export default ({ meta }: MetaLayout) => {
-  const normalizedUrl = removeTrailingSlash(meta.url);
-  const normalizedTitle = encodeCharacterForLink(meta.title);
+const BlogLayout = (props: LayoutProps) => {
+  const normalizedUrl = removeTrailingSlash(props.meta.url);
+  const normalizedTitle = encodeCharacterForLink(props.meta.title);
 
   const tweetlink = `https://twitter.com/intent/tweet?text=${normalizedTitle}%20-%20HelloRusk%20Official%20Website%0a&url=https://hellorusk.net${normalizedUrl}`;
 
-  const index = postsIndexHash[meta.date];
+  const index = postsIndexHash[props.meta.date];
+
+  console.log(props.syntaxStyle);
 
   return (
     <>
+      <PersistGate loading={null} persistor={persistor}>
+        <Meta>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href={`https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/${props.syntaxStyle}.min.css`}
+          />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+          />
+        </Meta>
+      </PersistGate>
       <GlobalStyle />
       <br />
       <Tweet>
@@ -135,3 +159,11 @@ export const microLinkStyle = {
     // eslint-disable-next-line prettier/prettier
     "-apple-system-body,BlinkMacSystemFont,\"Helvetica Neue\",\"Hiragino Sans\",\"Hiragino Kaku Gothic ProN\",\"Noto Sans Japanese\",\"游ゴシック Medium\",\"Yu Gothic Medium\",\"メイリオ\",meiryo,sans-serif"
 };
+
+const mapStateToProps = (state: ModeType) => {
+  return {
+    syntaxStyle: state.syntaxStyle
+  };
+};
+
+export default connect(mapStateToProps)(BlogLayout);

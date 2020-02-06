@@ -5,11 +5,11 @@ import { persistor } from "../store/store";
 import { css, Global } from "@emotion/core";
 
 interface LayoutProps {
-  textcolor: string;
-  backgroundcolor: string;
-  linkcolor: string;
-  codecolor: string;
-  quotecolor: string;
+  textColor: string;
+  backgroundColor: string;
+  linkColor: string;
+  codeColor: string;
+  quoteColor: string;
 }
 
 const PageLayout = (props: LayoutProps) => (
@@ -17,8 +17,8 @@ const PageLayout = (props: LayoutProps) => (
     <Global
       styles={css`
         body {
-          color: ${props.textcolor};
-          background-color: ${props.backgroundcolor};
+          color: ${props.textColor};
+          background-color: ${props.backgroundColor};
           font-family: "Noto Sans JP", sans-serif;
           font-display: swap;
           font-weight: 300;
@@ -38,27 +38,27 @@ const PageLayout = (props: LayoutProps) => (
 
         a:link,
         a:visited {
-          color: ${props.linkcolor};
+          color: ${props.linkColor};
         }
 
         a.back {
-          color: ${props.linkcolor};
+          color: ${props.linkColor};
           cursor: pointer;
         }
 
         .title a:link {
-          color: ${props.textcolor};
+          color: ${props.textColor};
         }
 
         .title a:visited {
-          color: ${props.textcolor};
+          color: ${props.textColor};
         }
 
         code {
-          color: ${props.codecolor};
+          color: ${props.codeColor};
           font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
           font-size: 0.9em;
-          background-color: ${props.backgroundcolor};
+          background-color: ${props.backgroundColor};
           border-radius: 0.1em;
         }
 
@@ -66,7 +66,7 @@ const PageLayout = (props: LayoutProps) => (
           margin: 0;
           padding-left: 0.8em;
           border-left-style: solid;
-          color: ${props.quotecolor};
+          color: ${props.quoteColor};
         }
 
         p > code::before {
@@ -107,11 +107,11 @@ const PageLayout = (props: LayoutProps) => (
 
 const mapStateToProps = (state: ModeType) => {
   return {
-    textcolor: state.textcolor,
-    backgroundcolor: state.backgroundcolor,
-    linkcolor: state.linkcolor,
-    codecolor: state.codecolor,
-    quotecolor: state.quotecolor
+    textColor: state.textColor,
+    backgroundColor: state.backgroundColor,
+    linkColor: state.linkColor,
+    codeColor: state.codeColor,
+    quoteColor: state.quoteColor
   };
 };
 

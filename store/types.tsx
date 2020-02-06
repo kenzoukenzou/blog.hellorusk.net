@@ -13,9 +13,10 @@ export type ActionTypes = DarkAction | LightAction;
 
 export interface ModeType {
   isDarkMode: boolean;
-  textcolor: string;
-  backgroundcolor: string;
-  linkcolor: string;
-  codecolor: string;
-  quotecolor: string;
+  textColor: string;
+  backgroundColor: string;
+  linkColor: string;
+  codeColor: string;
+  quoteColor: string;
+  syntaxStyle: string;
 }

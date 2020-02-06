@@ -27,10 +27,6 @@ export const meta = {
   description: '${Y}-${M}-${D} の日記'
 }
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" />
-
 <ModeSwitch />
 
 # ここにタイトルを記入してください
