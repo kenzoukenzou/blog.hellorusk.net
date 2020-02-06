@@ -30,7 +30,7 @@ const reducer = (state: ModeType = darkMode, action: ActionTypes) => {
   switch (action.type) {
     case "DARKMODE":
       return darkMode;
-    case "WHITEMODE":
+    case "LIGHTMODE":
       return lightMode;
     default:
       return state;

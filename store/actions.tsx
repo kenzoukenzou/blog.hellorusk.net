@@ -1,4 +1,4 @@
-import { ActionTypes, DARKMODE, WHITEMODE } from "./types";
+import { ActionTypes, DARKMODE, LIGHTMODE } from "./types";
 
 export const darkmode = (): ActionTypes => ({ type: DARKMODE });
-export const lightmode = (): ActionTypes => ({ type: WHITEMODE });
+export const lightmode = (): ActionTypes => ({ type: LIGHTMODE });

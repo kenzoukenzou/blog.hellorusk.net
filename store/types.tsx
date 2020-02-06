@@ -1,12 +1,12 @@
 export const DARKMODE = "DARKMODE";
-export const WHITEMODE = "WHITEMODE";
+export const LIGHTMODE = "LIGHTMODE";
 
 interface DarkAction {
   type: typeof DARKMODE;
 }
 
 interface LightAction {
-  type: typeof WHITEMODE;
+  type: typeof LIGHTMODE;
 }
 
 export type ActionTypes = DarkAction | LightAction;
