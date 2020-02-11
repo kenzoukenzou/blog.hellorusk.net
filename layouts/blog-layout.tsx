@@ -35,8 +35,6 @@ const BlogLayout = (props: LayoutProps) => {
 
   const index = postsIndexHash[props.meta.date];
 
-  console.log(props.syntaxStyle);
-
   return (
     <>
       <PersistGate loading={null} persistor={persistor}>
