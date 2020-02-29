@@ -7,9 +7,11 @@ import { lightmode, darkmode } from "../store/actions";
 import { connect } from "react-redux";
 import { ModeType, ActionTypes } from "../store/types";
 import styled from "@emotion/styled";
+import { css, Global } from "@emotion/core";
 
 interface LayoutProps {
   isDarkMode: boolean;
+  textColor: string;
   lightmode: () => ActionTypes;
   darkmode: () => ActionTypes;
 }
@@ -26,7 +28,7 @@ const CyanSwitch = withStyles({
   },
   checked: {},
   track: {
-    border: "1px solid rgb(21, 32, 43)",
+    border: "1.5px solid rgb(21, 32, 43)",
     borderRadius: 16 / 2,
     opacity: 1,
     backgroundColor: "#FFFFFF"
@@ -40,7 +42,18 @@ const ModeSwitch: React.FC<LayoutProps> = (props: LayoutProps) => {
 
   return (
     <PersistGate loading={null} persistor={persistor}>
-      <SwitchContainer>
+      <Container>
+        <a href="/">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            id="home_icon"
+          >
+            <path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z" />
+          </svg>
+        </a>
         <CyanSwitch
           className="modechange"
           checked={props.isDarkMode}
@@ -48,18 +61,36 @@ const ModeSwitch: React.FC<LayoutProps> = (props: LayoutProps) => {
           value="checked"
           color="primary"
         />
-      </SwitchContainer>
+      </Container>
+      <Global
+        styles={css`
+          #home_icon {
+            fill: ${props.textColor};
+          }
+        `}
+      ></Global>
     </PersistGate>
   );
 };
 
-const SwitchContainer = styled.div`
-  margin-left: -10px;
+const Container = styled.div`
+  margin-left: -5px;
+  display: flex;
+
+  svg {
+    margin: 5px;
+  }
+
+  .modechange {
+    left: -8px;
+    top: -1px;
+  }
 `;
 
 const mapStateToProps = (state: ModeType) => {
   return {
-    isDarkMode: state.isDarkMode
+    isDarkMode: state.isDarkMode,
+    textColor: state.textColor
   };
 };
 
