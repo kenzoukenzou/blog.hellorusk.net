@@ -28,7 +28,7 @@ const darkMode: ModeType = {
   syntaxStyle: "prism-tomorrow"
 };
 
-const reducer = (state: ModeType = darkMode, action: ActionTypes) => {
+const reducer = (state: ModeType = lightMode, action: ActionTypes) => {
   switch (action.type) {
     case "DARKMODE":
       return darkMode;
