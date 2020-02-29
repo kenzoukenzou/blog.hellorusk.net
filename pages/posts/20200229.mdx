@@ -1,0 +1,137 @@
+import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+import Microlink from '@microlink/react';
+import ModeSwitch from "../../components/mode-switch";
+import LazyLoad from "react-lazyload";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+
+export const meta = {
+  date: '2020-02-29',
+  title: '隠れマルコフモデルのパラメータ推定',
+  url: '/blog/2020/02/29',
+  description: '2020-02-29 の日記'
+}
+
+<ModeSwitch />
+
+# 隠れマルコフモデルのパラメータ推定
+#### 2020-02-29
+
+単語列のような系列データのラベリング問題を考える. 入力としてある記号列が与えられた際, 適切なラベル列を出力したい.  
+このような問題に対して HMM（隠れマルコフモデル）というモデルを仮定することが多い. ここでは隠れマルコフモデルにおけるパラメータ推定についてまとめておく.
+
+### 問題設定
+
+$S$: 状態の集合  
+$\Sigma$: 出力記号の集合   
+$\pi_i$: 文頭が状態 $i$ になる確率  
+$a_{i, j}$: 状態 $i$ から $j$ への遷移確率  
+$b_{i, o}$: 状態 $i$ における記号 $o$ の出力確率
+
+とする. ただし, $\sum_{i \in S} \pi_i = 1, \sum_{j \in S} a_{i, j} = 1, \sum_{o \in \Sigma} b_{i, o} = 1$. 
+
+<br />
+
+もし仮に $\pi_i, a_{i, j}, b_{i, o}$ が分かってしまえば, 入力の記号列から, 最も生成確率の高い状態列（ラベル列）を推定するのは容易である.  
+これには Viterbi アルゴリズムという名前の付いた動的計画法を使う. その原理は, 時刻 $t+1$ において状態 $k$ にいたる状態列のうち, 
+もっとも確率の高くなるものを $q_{t+1}(k)$ とすると, 
+
+$$
+q_{t+1}(k) = \max_{i} [q_{t}(i)a_{i, k}] b_{k, o_{t+1}}
+$$
+
+と再起的に書けることによる.
+
+<br />
+
+ここでは, 学習データからパラメータ $\pi_i, a_{i, j}, b_{i, o}$ を上手く求めることを考えていきたい.
+
+### 最尤推定
+
+学習データが $D=\{\textbf{o}^{(k)}, \textbf{s}^{(k)}\}_{k=1}^{N}$ という形で書けるような, ラベルを含む教師付きデータである場合は, 直接最尤推定法を使うことができる.  
+
+学習データのある1つの入力列とラベル列の組に対して, その生成確率の対数は
+
+$$
+  \log \pi_{s_1} \prod_{t=1}^{T} a_{s_t, s_{t+1}} b_{s_t, o_t} = \log \pi_{s_1} + \sum_{t=1}^{T} \log a_{s_t, s_{t+1}} + \sum_{t=1}^{T} \log b_{s_t, o_t}
+$$
+
+という形で書ける.  
+よって, 制約にも注意すると, ラグランジュ関数は
+
+$$
+  L = \sum_{k=1}^{N} \left(\log \pi_{s_1} + \sum_{t=1}^{T} \log a_{s_t, s_{t+1}} + \sum_{t=1}^{T} \log b_{s_t, o_t}\right) \\
+  + \lambda_{\pi} (1 - \sum_{i \in S} \pi_i) 
+  + \sum_{i \in S} \lambda_{a_i} (1 - \sum_{j \in S} a_{i, j})
+  + \sum_{o \in S} \lambda_{b_i} (1 - \sum_{o \in \Sigma} b_{i, o})
+$$
+
+というように書ける（実際には $s_i$ や $T$ は各データのインデックス $k$ に依存しているので, この式は不正確）.  
+パラメータについて偏微分を取ると
+
+$$
+  \dfrac{\partial L}{\partial \pi_{i}} = \dfrac{C(s_1 = i)}{\pi_{i}} - \lambda_{\pi} \\
+  \dfrac{\partial L}{\partial a_{i, j}} = \dfrac{C(i, j)}{a_{i, j}} - \lambda_{a_i} \\
+  \dfrac{\partial L}{\partial b_{i, o}} = \dfrac{C(i, o)}{b_{i, o}} - \lambda_{b_i}
+$$
+
+ただし, $C(i, j)$ は $D$ 中の $i \to j$ の出現回数.  
+  
+
+これらについて $=0$ を取ったもの, 及び制約を合わせて考えると, パラメータを求めることができる. 数式は省くが, 具体的には,
+
+$\pi_i$:（状態 $i$ から始まるデータの個数）/（全データ個数）  
+$a_{i, j}$:（状態 $i \to j$ の遷移の総数）/（状態 $i$ から始まる遷移の総数）  
+$b_{i, o}$:（状態 $i$ が記号 $o$ を出力する総数）/（状態 $i$ の総数）
+
+となる.
+
+
+### Baum-Welch アルゴリズム
+
+学習データが $D=\{\textbf{o}^{(k)}\}_{k=1}^{N}$ という形で書けるような, ラベルを含まない教師無しデータである場合を考える. ここでは, EM アルゴリズムの一種である Baum-Welch アルゴリズムについて述べる.   
+EM アルゴリズムは, 一般的には
+
+Eステップ: 前のMステップで求めたパラメータを用いて隠れ変数（期待値）を更新する    
+Mステップ: 前のEステップで求めた隠れ変数（期待値）を使ってパラメータを更新する
+
+という操作を繰り返す.  
+Baum-Welch アルゴリズムにおいては, 隠れ変数として
+
+「時刻 $t$ において状態が $i$ になる期待値」: $\gamma_t(i) = p(s_t = i | \theta^{old})$  
+「時刻 $t$ において, 次の遷移が $i \to j$ になる期待値」: $\xi_t(i, j) = p(s_t = i, s_{t+1} = j | \theta^{old})$
+
+を用いる. 
+
+まずMステップに関しては, 先ほどの最尤推定の結果を, 隠れ変数を使って代用することを考えて,
+
+$$
+\begin{aligned}
+\pi_{i}^{*} =& \gamma_1(i) \\
+a_{i, j}^{*} =& \dfrac{\sum_{t} \xi_t(i, j)}{\sum_{j \in S}  \sum_{t} \xi_t(i, j)} \\
+b_{i, o}^{*} =& \dfrac{\sum_{t \ \ s.t. o_t = o} \gamma_t(i)}{\sum_t \gamma_t(i)}
+\end{aligned}
+$$
+
+と計算できる. 
+  
+次にEステップについて考えよう. 全ての状態遷移から $s_t = i, s_{t+1} = j$ となる系列について考えると
+計算量が爆発してしまうので, ここでも動的計画法を活用する.  
+具体的には, 前のMステップで求めたパラメータから**前向き確率, 後ろ向き確率**を計算する. 前向き確率 $\alpha_t(i)$ は「時刻 $t$ に状態 $i$ に至る全ての系列の確率の和」, 
+後ろ向き確率 $\beta_t(i)$ は「時刻 $t$ の状態 $i$ から最後に至る全ての系列の確率の和」のことであり, 
+いずれも Viterbi アルゴリズムと同程度の計算量で求めることができる.
+
+前向き確率 $\alpha_t(i)$, 後ろ向き確率 $\beta_t(i)$ が求まれば, 
+
+$$
+\gamma_t^{*}(i) = \dfrac{\alpha_t(i) \beta_t(i)}{\sum_{k \in S} \alpha_T(k)} \\
+$$
+$$
+\xi_t^{*}(i, j) = \dfrac{\alpha_t(i) a_{i, j} b_{j, o_{t+1}} \beta_{t+1}(j)}{\sum_{k \in S} \alpha_T(k)}
+$$
+
+より $\gamma_t(i), \xi_t(i, j)$ も新しく求まり, これがEステップとなる.
+
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />

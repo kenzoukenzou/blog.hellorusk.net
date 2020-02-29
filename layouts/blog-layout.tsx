@@ -89,8 +89,15 @@ const GlobalStyle = () => (
       }
 
       h3 {
+        padding-top: 1em;
         font-weight: 300;
         font-size: 1.2em;
+      }
+
+      h3::before {
+        content: "# ";
+        color: #00aeef;
+        font-weight: 700;
       }
 
       h4 {
