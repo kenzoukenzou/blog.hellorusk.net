@@ -123,7 +123,7 @@ const GlobalStyle = () => (
       }
 
       p {
-        font-size: 0.9em;
+        font-size: 0.95em;
       }
 
       p img {
