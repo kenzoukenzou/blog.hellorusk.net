@@ -1,7 +1,6 @@
-import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogLayout, { Iframely } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import ModeSwitch from "../../components/mode-switch";
-import Microlink from '@microlink/react';
 
 export const meta = {
   date: '2019-12-09',
@@ -19,7 +18,7 @@ export const meta = {
 [Next.js Advent Calendar 2019](https://qiita.com/advent-calendar/2019/next-js) 9日目の記事です。
 
 
-<Microlink url={"https://qiita.com/advent-calendar/2019/next-js"} style={microLinkStyle}/>
+<Iframely href="https://qiita.com/advent-calendar/2019/next-js" url="//cdn.iframe.ly/E2j92Z2?iframe=card-small" />
 
 
 
@@ -28,7 +27,7 @@ export const meta = {
 リポジトリは以下の通りです👇
 
 
-<Microlink url={"https://github.com/7ma7X/hellorusk.net"} style={microLinkStyle}/>
+<Iframely href="https://github.com/7ma7X/hellorusk.net" url="//cdn.iframe.ly/fUisEXf" />
 
 
 <br/>
@@ -60,7 +59,7 @@ Next.js は（他の Now などの ZEIT のプロダクトと同様）シンプ�
 [MDX](https://mdxjs.com/) は Markdown に**直接 JSX を挿入できる**フォーマットです。拡張子は `.mdx` 。
 
 
-<Microlink url={"https://github.com/mdx-js/mdx"} style={microLinkStyle}/>
+<Iframely href="https://github.com/mdx-js/mdx" url="//cdn.iframe.ly/kxnLNYW" />
 
 
 例えば、こんな見た目をしています。
@@ -82,7 +81,7 @@ Markdown の中で、普通に React の `import` 文が書けたり、Component
 私のこのブログにおいては、以下のような MDX ファイルをテンプレートとして用意しています。
 
 ```md
-import BlogLayout from "../../components/blog-layout";
+import BlogLayout, { Iframely } from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 
 export const meta = {

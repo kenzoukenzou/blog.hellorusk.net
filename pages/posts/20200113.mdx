@@ -1,6 +1,5 @@
-import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogLayout, { Iframely } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
-import Microlink from '@microlink/react';
 import ModeSwitch from "../../components/mode-switch";
 import LazyLoad from "react-lazyload";
 import { TwitterTweetEmbed } from "react-twitter-embed";
@@ -20,7 +19,7 @@ export const meta = {
 
 https://stackoverflow.com/questions/19647658/what-is-pseudopolynomial-time-how-does-it-differ-from-polynomial-time
 
-<Microlink url={"https://stackoverflow.com/questions/19647658/what-is-pseudopolynomial-time-how-does-it-differ-from-polynomial-time"} style={microLinkStyle}/>
+<Iframely href="https://stackoverflow.com/questions/19647658/what-is-pseudopolynomial-time-how-does-it-differ-from-polynomial-time" url="//cdn.iframe.ly/tZJGB6q" />
 
 上記の記事が分かりやすかったので訳してみます。翻訳に問題がある場合は [Issue](https://github.com/7ma7X/hellorusk.net/issues) にてお願いいたします。
 

@@ -1,7 +1,6 @@
-import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogLayout, { Iframely } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import ModeSwitch from "../../components/mode-switch";
-import Microlink from '@microlink/react';
 
 export const meta = {
   date: '2019-11-08',
@@ -38,13 +37,10 @@ npm install rehype-katex
 してから、[ドキュメンテーション](https://mdxjs.com/guides/math-blocks)通りに `next.config.js` を編集しましょう。
 
 
-<Microlink url={"https://mdxjs.com/guides/math-blocks"} style={microLinkStyle}/>
-
-
 このブログのリポジトリの[コミット](https://github.com/7ma7X/hellorusk.net/commit/e300f2d14e0d7bf692048b65015df2a27a5aa3bd)も参考にしてください。
 
 
-<Microlink url={"https://github.com/7ma7X/hellorusk.net/commit/e300f2d14e0d7bf692048b65015df2a27a5aa3bd"} style={microLinkStyle}/>
+<Iframely href="https://github.com/7ma7X/hellorusk.net/commit/e300f2d14e0d7bf692048b65015df2a27a5aa3bd" url="//cdn.iframe.ly/C28T2bA" />
 
 
 これで TeX を使う準備が整います。  
