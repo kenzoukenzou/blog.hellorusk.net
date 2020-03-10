@@ -176,7 +176,10 @@ interface IframelyProps {
 export const Iframely = (props: IframelyProps) => (
   <div className="iframely-embed">
     <div className="iframely-responsive">
-      <a href={props.href} data-iframely-url={props.url}></a>
+      <a
+        href={props.href}
+        data-iframely-url={`${props.url}?lazy=1&iframe=1`}
+      ></a>
     </div>
   </div>
 );
