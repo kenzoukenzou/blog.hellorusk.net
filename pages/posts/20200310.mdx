@@ -1,0 +1,82 @@
+import BlogLayout, { Iframely } from "../../layouts/blog-layout";
+import BlogMeta from "../../components/blog-meta";
+import ModeSwitch from "../../components/mode-switch";
+import LazyLoad from "react-lazyload";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+
+export const meta = {
+  date: '2020-03-10',
+  title: 'Raspberry Pi Zero W で温度・湿度計測',
+  url: '/blog/2020/03/10',
+  description: '2020-03-10 の日記'
+}
+
+<ModeSwitch />
+
+# Raspberry Pi Zero W で温度・湿度計測
+#### 2020-03-10
+
+[前回の記事](/blog/2020/03/06)に引き続いて、ラズパイを使って部屋の温度・湿度の計測にチャレンジしてみた。  
+このたび新たに購入したのは DHT11 という温湿度センサー。
+
+<Iframely href="https://www.amazon.co.jp/KKHMF-%E6%B8%A9%E6%B9%BF%E5%BA%A6%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-%E3%83%87%E3%83%A5%E3%83%9D%E3%83%B3%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%81%8C%E4%BB%98%E3%81%8D-Arduino-Raspberry/dp/B082M3CTWG/ref=sr_1_5?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=dht11+raspberry&qid=1583850440&s=industrial&sr=1-5" url="//cdn.iframe.ly/d2plKFx" />
+
+自分が買ったタイプのものはジャンパー線が付属しており、また、抵抗も既に内蔵済みで、ただジャンパー線をラズパイに差し込むだけの楽なタイプだった。
+
+<LazyLoad>
+  <p>
+    <img src="/20200310/pic1.jpg" alt="pic1" title="DHT11" />
+  </p>
+</LazyLoad>
+
+配線にはそれなりに手間取った。  
+最終的には、センサーの端子のうち、「+」と書かれたものを「5V」ピン（Physical では 2 番）に、
+「out」と書かれたものを「GPIO 4」ピン（Physical では 7 番）に、「-」と書かれたものを「GND」ピン（Physical では 6 番）に接続すると、うまくいった。
+
+<Iframely href="https://images.app.goo.gl/onaVDemkK9KtDM7D7" url="//cdn.iframe.ly/ob3wLpl" />
+
+<LazyLoad>
+  <p>
+    <img src="/20200310/pic2.jpg" alt="pic2" title="DHT11をラズパイに接続する" />
+  </p>
+</LazyLoad>
+
+<LazyLoad>
+  <p>
+    <img src="/20200310/pic3.jpg" alt="pic3" title="DHT11をラズパイに接続する" />
+  </p>
+</LazyLoad>
+
+<br />
+
+温度・湿度計測は、以下のコードを clone して実行すればよい。
+
+<Iframely href="https://github.com/szazo/DHT11_Python" url="//cdn.iframe.ly/ncHREUu" />
+
+ただし、自分の場合は GPIO 4 ピンを使っているので、
+`dht11_example.py` 内を
+
+```diff
+- instance = dht11.DHT11(pin=14)
++ instance = dht11.DHT11(pin=4)
+```
+
+と変更しておく。  
+うまくいけば
+
+<LazyLoad>
+  <p>
+    <img src="/20200310/pic4.jpg" alt="pic3" title="計測の様子" />
+  </p>
+</LazyLoad>
+
+こんな感じで記録が取られる。
+
+---
+
+この温度・湿度データを slack や Web サイトなどで常時確認できるようなシステムの構築を検討している。
+
+
+
+<BlogLayout meta={meta} />
+<BlogMeta meta={meta} />
