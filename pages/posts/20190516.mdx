@@ -1,7 +1,6 @@
-import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogLayout, { Iframely } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import ModeSwitch from "../../components/mode-switch";
-import Microlink from '@microlink/react';
 
 export const meta = {
   date: '2019-05-16',
@@ -23,7 +22,7 @@ export const meta = {
 このフォームについてですが、[Netlify Forms](https://www.netlify.com/docs/form-handling/) によって実現しています。  
   
 
-<Microlink url={"https://www.netlify.com/docs/form-handling/"} style={microLinkStyle}/>
+<Iframely href="https://docs.netlify.com/forms/setup/" url="//cdn.iframe.ly/HTfFkdT?iframe=card-small" />
   
 
 Netlify Forms とは Netlify でホスティングしているサイトにおいて使えるフォームサービスです。基本的には、

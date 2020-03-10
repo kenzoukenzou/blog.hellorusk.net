@@ -1,6 +1,5 @@
-import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogLayout, { Iframely } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
-import Microlink from '@microlink/react';
 import ModeSwitch from "../../components/mode-switch";
 import LazyLoad from "react-lazyload";
 import { TwitterTweetEmbed } from "react-twitter-embed";
@@ -19,7 +18,7 @@ export const meta = {
 
 「Twitter ブロック 一括解除」でググると、上位にこの記事が出てきます。
 
-<Microlink url={"https://www.ncaq.net/2017/08/21/"} style={microLinkStyle}/>
+<Iframely href="https://www.ncaq.net/2017/08/21/" url="//cdn.iframe.ly/D6rRYY1" />
 
 ここに書かれてある通り、デベロッパーツールでブロック解除ボタンをクリックするスクリプトを書くのが早いです。
 ただ、記載されているコードが今の Twitter（Twitter Lite と呼ばれる PWA）では使えませんでした。  

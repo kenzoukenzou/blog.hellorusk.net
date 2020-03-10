@@ -1,7 +1,6 @@
-import BlogLayout, { microLinkStyle } from "../../layouts/blog-layout";
+import BlogLayout, { Iframely } from "../../layouts/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 import ModeSwitch from "../../components/mode-switch";
-import Microlink from '@microlink/react';
 
 export const meta = {
   date: '2019-08-27',
@@ -57,7 +56,7 @@ Next.js のドキュメントを引用すると、
 `<Link href="/posts/20190217" as="/blog/2019/02/17">` が正しかったのです。  
 すぐに[修正コミット](https://github.com/7ma7X/hellorusk.net/commit/d8a73174a39805c86a67738cda6dfadae0439740)を打ちました。 
   
-<Microlink url={"https://github.com/7ma7X/hellorusk.net/commit/d8a73174a39805c86a67738cda6dfadae0439740"} style={microLinkStyle}/>
+<Iframely href="https://github.com/7ma7X/hellorusk.net/commit/d8a73174a39805c86a67738cda6dfadae0439740" url="//cdn.iframe.ly/WovAjdu" />
   
 
 この結果、 `/blog` ページからそれぞれの post へのリンクを踏んで表示させるのに必要な時間が目に見えて短縮されました。

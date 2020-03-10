@@ -51,6 +51,11 @@ const BlogLayout = (props: LayoutProps) => {
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
           />
+          <script
+            type="text/javascript"
+            src="https://cdn.iframe.ly/embed.js"
+            charSet="utf-8"
+          />
         </Meta>
       </PersistGate>
       <GlobalStyle />
@@ -154,16 +159,27 @@ const GlobalStyle = () => (
           width: 100%;
         }
       }
+
+      .iframely-responsive {
+        height: 140px;
+        padding-bottom: 0;
+      }
     `}
   />
 );
 
-export const microLinkStyle = {
-  color: "#000000",
-  fontFamily:
-    // eslint-disable-next-line prettier/prettier
-    "-apple-system-body,BlinkMacSystemFont,\"Helvetica Neue\",\"Hiragino Sans\",\"Hiragino Kaku Gothic ProN\",\"Noto Sans Japanese\",\"游ゴシック Medium\",\"Yu Gothic Medium\",\"メイリオ\",meiryo,sans-serif"
-};
+interface IframelyProps {
+  href: string;
+  url: string;
+}
+
+export const Iframely = (props: IframelyProps) => (
+  <div className="iframely-embed">
+    <div className="iframely-responsive">
+      <a href={props.href} data-iframely-url={props.url}></a>
+    </div>
+  </div>
+);
 
 const mapStateToProps = (state: ModeType) => {
   return {
