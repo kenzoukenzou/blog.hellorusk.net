@@ -5,9 +5,10 @@ import ProfileLinks from "./profile-links";
 import BLOG from "../../blog.config";
 
 const avatarCard = () => {
-  return <Avatar isSquare size={45} alt="avatar" src="/assets/avatar.png" />;
+  return <Avatar isSquare alt="avatar" src="/assets/avatar.png" />;
 };
 
+// eslint-disable-next-line no-empty-pattern
 const Profile = React.memo(({}) => {
   const theme = useTheme();
   const [showText, setShowText] = useState(theme.type === "dark");
@@ -20,7 +21,7 @@ const Profile = React.memo(({}) => {
 
   return (
     <div className="profile">
-      <Row align="bottom" className="user-row">
+      <Row className="user-row">
         <Link href="/">
           <a>{avatarCard()}</a>
         </Link>

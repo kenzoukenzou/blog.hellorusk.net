@@ -1,7 +1,7 @@
 import ms from "ms";
 import BLOG from "../blog.config";
 
-export const msToString = (time) => {
+export const msToString = (time: number) => {
   const str = ms(time, { long: true });
   if (!BLOG.cn) return `${str} ago`;
   return (
@@ -16,7 +16,7 @@ export const msToString = (time) => {
   );
 };
 
-export const getDNSPrefetchValue = (domain) => {
+export const getDNSPrefetchValue = (domain: string) => {
   if (!domain) return null;
   if (domain.startsWith("http")) return domain.replace(/https?:/, "");
   if (domain.startsWith("//")) return domain;

@@ -1,19 +1,19 @@
 import React, { useMemo } from "react";
 import Link from "next/link";
 import { useTheme } from "@zeit-ui/react";
-import metadata from "../data/metadata";
+import metadata from "../data/metadata.json";
 import BLOG from "../../blog.config";
 
-const getFixes = (metas) => {
-  const data = metas.find((item) => item.name === "fixed");
+const getFixes = (metas: any) => {
+  const data = metas.find((item: any) => item.name === "fixed");
   return (data || {}).children || [];
 };
 
-const fillSpace = (name) => {
+const fillSpace = (name: string) => {
   return name.replace(/ /g, "_").replace(".mdx", "");
 };
 
-const makeLink = (data) => {
+const makeLink = (data: any) => {
   return (
     <Link href={data.url} key={data.url}>
       <a>{fillSpace(data.name)}</a>
@@ -27,7 +27,7 @@ const ProfileLinks = () => {
   return (
     <div className="link">
       {makeLink({ url: "/blog", name: BLOG.labels.default || "posts" })}
-      {links.map((link) => makeLink(link))}
+      {links.map((link: string) => makeLink(link))}
 
       <style jsx>{`
         .link :global(a) {

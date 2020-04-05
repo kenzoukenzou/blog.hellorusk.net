@@ -1,23 +1,22 @@
 import React, { useMemo } from "react";
-import ms from "ms";
 import { useTheme, Row, Text, Col, Spacer } from "@zeit-ui/react";
 import Link from "next/link";
 import BLOG from "../../blog.config";
 import { msToString } from "../date-transform";
-import metadata from "lib/data/metadata";
+import metadata from "../data/metadata.json";
 
-const getLatest = (data) => {
-  const postNode = data.find((item) => item.name === "posts");
+const getLatest = (data: any) => {
+  const postNode = data.find((item: any) => item.name === "posts");
   const posts = (postNode || {}).children || [];
   return posts;
 };
 
-const time = (date) => {
+const time = (date: string) => {
   const t = Date.now() - new Date(date).getTime();
   return msToString(t);
 };
 
-const makeLink = (post) => {
+const makeLink = (post: any) => {
   return (
     <Row key={post.url} className="item">
       <Col>
@@ -37,7 +36,7 @@ const List = () => {
   return (
     <section>
       <h2>{BLOG.labels.list || "All Posts"}</h2>
-      <div className="content">{posts.map((p) => makeLink(p))}</div>
+      <div className="content">{posts.map((p: any) => makeLink(p))}</div>
 
       <style jsx>{`
         section {

@@ -2,16 +2,16 @@ import React, { useMemo } from "react";
 import { useTheme, Row } from "@zeit-ui/react";
 import Link from "next/link";
 import BLOG from "../../blog.config";
-import metadata from "lib/data/metadata";
+import metadata from "../data/metadata.json";
 const latestLimit = BLOG.latestLimit || 5;
 
-const getLatest = (data) => {
-  const postNode = data.find((item) => item.name === "posts");
+const getLatest = (data: any) => {
+  const postNode = data.find((item: any) => item.name === "posts");
   const posts = (postNode || {}).children || [];
   return posts.slice(0, latestLimit);
 };
 
-const makeLink = (post) => {
+const makeLink = (post: any) => {
   return (
     <li key={post.url}>
       <Link href={post.url}>
@@ -21,7 +21,7 @@ const makeLink = (post) => {
   );
 };
 
-const makeMoreLink = (len) => {
+const makeMoreLink = (len: number) => {
   if (len < latestLimit) return null;
   return (
     <Link href="/blog">
@@ -37,7 +37,7 @@ const Latest = () => {
     <section>
       <h2>{BLOG.labels.latest || ""}</h2>
       <div className="content">
-        <ul>{posts.map((p) => makeLink(p))}</ul>
+        <ul>{posts.map((p: any) => makeLink(p))}</ul>
         <span className="more">{makeMoreLink(posts.length)}</span>
       </div>
 
