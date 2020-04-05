@@ -5,7 +5,7 @@ import ProfileLinks from "./profile-links";
 import BLOG from "../../blog.config";
 
 const avatarCard = () => {
-  return <Avatar isSquare alt="avatar" src="/assets/avatar.png" />;
+  return <Avatar isSquare size={45} alt="avatar" src="/assets/avatar.png" />;
 };
 
 // eslint-disable-next-line no-empty-pattern
@@ -21,7 +21,7 @@ const Profile = React.memo(({}) => {
 
   return (
     <div className="profile">
-      <Row className="user-row">
+      <Row align="bottom" className="user-row">
         <Link href="/">
           <a>{avatarCard()}</a>
         </Link>
