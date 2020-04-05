@@ -1,3 +1,7 @@
+const fs = require("fs");
+const util = require("util");
+const readdir = util.promisify(fs.readdir);
+
 const withMDX = require("@next/mdx")({
   extension: /\.(md|mdx)?$/,
   options: {
@@ -14,6 +18,33 @@ const nextConfig = {
   target: "serverless",
 
   pageExtensions: ["jsx", "js", "mdx", "md", "ts", "tsx"],
+
+  exportPathMap: async function () {
+    const pathMap = {};
+    pathMap["/"] = { page: "/" };
+    pathMap["/whoami"] = { page: "/fixed/profile" };
+    pathMap["/blog"] = { page: "/blog" };
+
+    const posts = await readdir("./pages/posts");
+
+    for (const post of posts) {
+      const postPath = post.replace(
+        /(\d{4})(\d{2})(\d{2})\.mdx/,
+        (match, p1, p2, p3) => {
+          return `/blog/${p1}/${p2}/${p3}`;
+        }
+      );
+      const pagePath = post.replace(
+        /(\d{4})(\d{2})(\d{2})\.mdx/,
+        (match, p1, p2, p3) => {
+          return `/posts/${p1}${p2}${p3}`;
+        }
+      );
+      pathMap[postPath] = { page: pagePath };
+    }
+
+    return pathMap;
+  },
 
   cssModules: true,
 
