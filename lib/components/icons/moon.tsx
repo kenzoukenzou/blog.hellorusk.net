@@ -2,8 +2,9 @@ import React from "react";
 import { useTheme } from "@zeit-ui/react";
 
 interface IconProps {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
+  onClick?: () => void;
 }
 
 const Moon: React.FC<IconProps> = (props) => {

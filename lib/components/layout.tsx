@@ -9,17 +9,17 @@ import BLOG from "../../blog.config";
 
 const ContactsWithNoSSR = dynamic(() => import("./contacts"), { ssr: false });
 
-const getDate = (date) => {
+const getDate = (date: any) => {
   const d = new Date(date);
   if (`${d}` === "Invalid Date") return "";
   const time = Date.now() - new Date(date).getTime();
   return `${d.toLocaleString()} - ${msToString(time)}`;
 };
 
-const Layout = ({ children, meta = {} }) => {
+const Layout = ({ children, meta }: any) => {
   const theme = useTheme();
   const { asPath } = useRouter();
-  const inDetailPage = useMemo(() => meta && meta.title, []);
+  const inDetailPage = useMemo(() => meta?.title, []);
   const date = useMemo(() => getDate((meta || {}).date), []);
   const url = useMemo(() => {
     const suffix = BLOG.cn ? " 阅读" : " views";
@@ -32,26 +32,26 @@ const Layout = ({ children, meta = {} }) => {
   return (
     <section>
       <Head>
-        {meta.title && (
+        {meta?.title && (
           <title>
-            {meta.title} - {BLOG.title}
+            {meta?.title} - {BLOG.title}
           </title>
         )}
-        {meta.description && (
-          <meta name="description" content={meta.description} />
+        {meta?.description && (
+          <meta name="description" content={meta?.description} />
         )}
-        {meta.description && (
-          <meta property="og:description" content={meta.description} />
+        {meta?.description && (
+          <meta property="og:description" content={meta?.description} />
         )}
-        {meta.title && <meta property="og:title" content={meta.title} />}
-        {meta.image && <meta property="og:image" content={meta.image} />}
-        {meta.image && <meta property="twitter:image" content={meta.image} />}
+        {meta?.title && <meta property="og:title" content={meta?.title} />}
+        {meta?.image && <meta property="og:image" content={meta?.image} />}
+        {meta?.image && <meta property="twitter:image" content={meta?.image} />}
       </Head>
       <div className="container">
         {inDetailPage && <Spacer />}
         <Profile />
         {inDetailPage && <Spacer y={1} />}
-        {inDetailPage && <Text h1>{meta.title}</Text>}
+        {inDetailPage && <Text h1>{meta?.title}</Text>}
         {inDetailPage && (
           <div className="date-box">
             <Text p className="date">

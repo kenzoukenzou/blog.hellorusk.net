@@ -66,24 +66,24 @@ const nextConfig = {
           destination: "/posts/:path*",
         },
         {
-          source: "/blog/2019/:m*/:d*/",
+          source: "/blog/2019/:month/:day/",
           permanent: true,
-          destination: "/posts/2019:m*:d*",
+          destination: "/posts/2019:month:day",
         },
         {
-          source: "/blog/2019/:m*/:d*",
+          source: "/blog/2019/:month/:day",
           permanent: true,
-          destination: "/posts/2019:m*:d*",
+          destination: "/posts/2019:month:day",
         },
         {
-          source: "/blog/2020/:m*/:d*/",
+          source: "/blog/2020/:month/:day/",
           permanent: true,
-          destination: "/posts/2020:m*:d*",
+          destination: "/posts/2020:month:day",
         },
         {
-          source: "/blog/2020/:m*/:d*",
+          source: "/blog/2020/:month/:day",
           permanent: true,
-          destination: "/posts/2020:m*:d*",
+          destination: "/posts/2020:month:day",
         },
         {
           source: "/whoami",

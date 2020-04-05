@@ -1,21 +1,22 @@
 import Head from "next/head";
 import React, { useCallback, useState, useEffect, useMemo } from "react";
 import { ZEITUIProvider, useTheme, CSSBaseline } from "@zeit-ui/react";
-import ThemeConfigProvider from "lib/components/theme-config-provider";
-import { getDNSPrefetchValue } from "lib/date-transform";
+import ThemeConfigProvider from "../lib/components/theme-config-provider";
+import { getDNSPrefetchValue } from "../lib/date-transform";
 import BLOG from "../blog.config";
 
-const Application = ({ Component, pageProps }) => {
+const Application = ({ Component, pageProps }: any) => {
   const theme = useTheme();
-  const [themeType, setThemeType] = useState("light");
+  const [themeType, setThemeType]: any = useState("light");
   const changeHandle = useCallback((isDark) => {
     const next = isDark ? "light" : "dark";
     setThemeType(next);
   }, []);
 
-  useEffect(() => {
+  useEffect((): any => {
     if (typeof localStorage !== "object") return null;
     const localType = localStorage.getItem("theme");
+    if (!localType) return null;
     if (!["light", "dark"].includes(localType)) return null;
     setThemeType(localType);
   }, []);
@@ -31,7 +32,6 @@ const Application = ({ Component, pageProps }) => {
       <Head>
         <title>{BLOG.title}</title>
         {domain && <link rel="dns-prefetch" href={domain} />}
-        <meta name="google" value="notranslate" />
         <meta name="referrer" content="strict-origin" />
         <meta name="description" content={BLOG.description} />
         <meta property="og:site_name" content={BLOG.title} />

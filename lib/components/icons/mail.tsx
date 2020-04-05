@@ -2,8 +2,8 @@ import React from "react";
 import { useTheme } from "@zeit-ui/react";
 
 interface IconProps {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 const Mail: React.FC<IconProps> = (props) => {
