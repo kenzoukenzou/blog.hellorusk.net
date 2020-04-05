@@ -10,7 +10,7 @@ import Moon from "./icons/moon";
 
 const Contacts = () => {
   const theme = useTheme();
-  const configs: any = useConfigs();
+  const configs = useConfigs();
   const isDark = useMemo(() => theme.type === "dark", [theme.type]);
   const email = useMemo(() => {
     if (!BLOG.email) return null;
