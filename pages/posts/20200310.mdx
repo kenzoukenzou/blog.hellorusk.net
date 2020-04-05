@@ -1,33 +1,23 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
-import LazyLoad from "react-lazyload";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+import Layout from 'lib/components/layout'
+import { Link, Display } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2020-03-10',
   title: 'Raspberry Pi Zero W で温度・湿度計測',
-  url: '/blog/2020/03/10',
-  description: '2020-03-10 の日記'
+  date: '2020-03-10T23:57:11+09:00',
+  description: '',
+  image: '',
 }
-
-<ModeSwitch />
-
-# Raspberry Pi Zero W で温度・湿度計測
-#### 2020-03-10
 
 [前回の記事](/blog/2020/03/06)に引き続いて、ラズパイを使って部屋の温度・湿度の計測にチャレンジしてみた。  
 このたび新たに購入したのは DHT11 という温湿度センサー。
 
-<Iframely href="https://www.amazon.co.jp/KKHMF-%E6%B8%A9%E6%B9%BF%E5%BA%A6%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-%E3%83%87%E3%83%A5%E3%83%9D%E3%83%B3%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%81%8C%E4%BB%98%E3%81%8D-Arduino-Raspberry/dp/B082M3CTWG/ref=sr_1_5?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=dht11+raspberry&qid=1583850440&s=industrial&sr=1-5" url="//cdn.iframe.ly/d2plKFx" />
+<Link href="https://www.amazon.co.jp/KKHMF-%E6%B8%A9%E6%B9%BF%E5%BA%A6%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-%E3%83%87%E3%83%A5%E3%83%9D%E3%83%B3%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%81%8C%E4%BB%98%E3%81%8D-Arduino-Raspberry/dp/B082M3CTWG/ref=sr_1_5?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&keywords=dht11+raspberry&qid=1583850440&s=industrial&sr=1-5" color target="_blank">Amazon.co.jp: KKHMF 2個 DHT11 温湿度センサーモジュール ピンオス/メス デュポンワイヤーが付き Arduino/Raspberry pi 用 「国内配送」: 産業・研究開発用品</Link>
 
 自分が買ったタイプのものはジャンパー線が付属しており、また、抵抗も既に内蔵済みで、ただジャンパー線をラズパイに差し込むだけの楽なタイプだった。
 
-<LazyLoad>
-  <p>
-    <img src="/20200310/pic1.jpg" alt="pic1" title="DHT11" />
-  </p>
-</LazyLoad>
+<Display shadow>
+  <img src="/20200310/pic1.jpg" alt="pic1" title="DHT11" />
+</Display>
 
 配線にはそれなりに手間取った。  
 最終的には、センサーの端子のうち、「+」と書かれたものを「5V」ピン（Physical では 2 番）に、
@@ -35,23 +25,19 @@ export const meta = {
 
 <Iframely href="https://images.app.goo.gl/onaVDemkK9KtDM7D7" url="//cdn.iframe.ly/ob3wLpl" />
 
-<LazyLoad>
-  <p>
-    <img src="/20200310/pic2.jpg" alt="pic2" title="DHT11をラズパイに接続する" />
-  </p>
-</LazyLoad>
+<Display shadow>
+  <img src="/20200310/pic2.jpg" alt="pic2" title="DHT11をラズパイに接続する" />
+</Display>
 
-<LazyLoad>
-  <p>
-    <img src="/20200310/pic3.jpg" alt="pic3" title="DHT11をラズパイに接続する" />
-  </p>
-</LazyLoad>
+<Display shadow caption="DHT11をラズパイに接続する">
+  <img src="/20200310/pic3.jpg" alt="pic3" title="DHT11をラズパイに接続する" />
+</Display>
 
 <br />
 
 温度・湿度計測は、以下のコードを clone して実行すればよい。
 
-<Iframely href="https://github.com/szazo/DHT11_Python" url="//cdn.iframe.ly/ncHREUu" />
+<Link href="https://github.com/szazo/DHT11_Python" color target="_blank">szazo/DHT11_Python: Pure Python library for reading DHT11 sensor on Raspberry Pi</Link>
 
 ただし、自分の場合は GPIO 4 ピンを使っているので、
 `dht11_example.py` 内を
@@ -64,11 +50,9 @@ export const meta = {
 と変更しておく。  
 うまくいけば
 
-<LazyLoad>
-  <p>
-    <img src="/20200310/pic4.jpg" alt="pic3" title="計測の様子" />
-  </p>
-</LazyLoad>
+<Display shadow caption="計測の様子">
+  <img src="/20200310/pic4.jpg" alt="pic3" title="計測の様子" />
+</Display>
 
 こんな感じで記録が取られる。
 
@@ -78,5 +62,7 @@ export const meta = {
 
 
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

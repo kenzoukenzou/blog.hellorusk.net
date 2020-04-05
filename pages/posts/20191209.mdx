@@ -1,25 +1,14 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2019-12-09',
   title: 'Next.js + MDX でブログを書いています',
-  url: '/blog/2019/12/09',
-  description: '2019-12-09 の日記'
+  date: '2019-12-09T00:02:14+09:00',
+  description: '',
+  image: '',
 }
 
-
-<ModeSwitch />
-
-# Next.js + MDX でブログを書いています
-#### 2019-12-09
-
 [Next.js Advent Calendar 2019](https://qiita.com/advent-calendar/2019/next-js) 9日目の記事です。
-
-
-<Iframely href="https://qiita.com/advent-calendar/2019/next-js" url="//cdn.iframe.ly/E2j92Z2" />
-
 
 
 今年の2月に Next.js + MDX でブログシステムを構築しました。  
@@ -27,20 +16,7 @@ export const meta = {
 リポジトリは以下の通りです👇
 
 
-<Iframely href="https://github.com/7ma7X/hellorusk.net" url="//cdn.iframe.ly/fUisEXf" />
-
-
-<br/>
-
-このブログのこだわりポイントとしては
-
-- デザイン含めスクラッチ（WordPress や Hugo, Hexo 等を使っていない）
-- TypeScript
-- [next-page-transitions](https://github.com/illinois/next-page-transitions) で「フワッ」としたページ遷移を実現
-- Redux + [redux-persist](https://github.com/rt2zz/redux-persist) でダークモード切替（切り替えるトグルがトップページにあります）
-- ブログ部分は MDX *（この記事の本題）*
-
-などでしょうか。 
+<Link href="https://github.com/7ma7X/hellorusk.net" color target="_blank">7ma7X/hellorusk.net: Blog (Next.js + MDX)</Link>
 
 <br />
 
@@ -54,12 +30,12 @@ Next.js は（他の Now などの ZEIT のプロダクトと同様）シンプ�
 
 ---
 
-### What is MDX ?
+## What is MDX ?
 
 [MDX](https://mdxjs.com/) は Markdown に**直接 JSX を挿入できる**フォーマットです。拡張子は `.mdx` 。
 
 
-<Iframely href="https://github.com/mdx-js/mdx" url="//cdn.iframe.ly/kxnLNYW" />
+<Link href="https://github.com/mdx-js/mdx" color target="_blank">mdx-js/mdx: JSX in Markdown for ambitious projects</Link>
 
 
 例えば、こんな見た目をしています。
@@ -81,7 +57,7 @@ Markdown の中で、普通に React の `import` 文が書けたり、Component
 私のこのブログにおいては、以下のような MDX ファイルをテンプレートとして用意しています。
 
 ```md
-import BlogLayout, { Iframely } from "../../components/blog-layout";
+import BlogLayout from "../../components/blog-layout";
 import BlogMeta from "../../components/blog-meta";
 
 export const meta = {
@@ -129,7 +105,7 @@ module.exports = withMDX({
 このように編集するだけです。
 
 
-### Next.js + MDX + Syntax Highlight
+## Next.js + MDX + Syntax Highlight
 
 既にお気づきになっているように、このブログにもシンタックスハイライトが効いているのが分かると思います。  
 これは
@@ -162,7 +138,7 @@ const withMDX = require("@zeit/next-mdx")({
 
 を追加するのでも良いかと思います（私は当初は後者を採用していましたが、パフォーマンスの観点から前者に切り替えました）。
 
-### Next.js + MDX + LaTeX
+## Next.js + MDX + LaTeX
 
 $\TeX$ が使えるとテンションが上がりますね。
 
@@ -222,7 +198,7 @@ $$
 
 <br />
 
-### Next.js + MDX + Embedded Tweet
+## Next.js + MDX + Embedded Tweet
 
 ツイートの埋め込みはやりたくなると思います。  
 が、そもそも論として、クライアントサイドで色々やる `<iframe>` とサーバーサイドの Node.js/React の相性は悪い...  
@@ -278,6 +254,14 @@ Next.js では
 ことを紹介しました。  
 この記事が Next.js + MDX を検討している方の参考に少しでもなれば幸いです。
 
+**2020.04.05 追記**
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+ブログシステムを自作のものから [unix/unix.bio](https://github.com/unix/unix.bio) に移管しました。  
+こちらも Next.js + MDX で構成されているブログシステムですが、作者の [witt](https://github.com/unix) 氏が ZEIT 社の UI コンポーネント [zeit-ui](https://github.com/zeit-ui) の設計を手掛けていることもあって、とても洗練されておりオススメです。
+
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

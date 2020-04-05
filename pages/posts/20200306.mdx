@@ -1,37 +1,27 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
-import LazyLoad from "react-lazyload";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+import Layout from 'lib/components/layout'
+import { Link, Display } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2020-03-06',
   title: 'Raspberry Pi Zero W を購入した',
-  url: '/blog/2020/03/06',
-  description: '2020-03-06 の日記'
+  date: '2020-03-06T00:26:13+09:00',
+  description: '',
+  image: '',
 }
-
-<ModeSwitch />
-
-# Raspberry Pi Zero W を購入した
-#### 2020-03-06
 
 前から欲しいと思っていたラズパイをついに買った。最低限のセットアップはできた気がするので、今後のためにメモしておく。ちなみに macOS を想定している。
 
-### 購入品
+## 購入品
 
 買ったのはこの Raspberry Pi Zero W というモデル。
 
-<Iframely href="https://www.amazon.co.jp/Raspberry-Pi-Zero-%E3%83%8F%E3%83%B3%E3%83%80%E4%BB%98%E3%81%91%E6%B8%88%E3%81%BF-%E3%83%A9%E3%82%BA%E3%83%99%E3%83%AA%E3%83%BC%E3%83%BB%E3%83%91%E3%82%A4/dp/B07446WLQV" url="//cdn.iframe.ly/sTNehe2" />
+<Link href="https://www.amazon.co.jp/Raspberry-Pi-Zero-%E3%83%8F%E3%83%B3%E3%83%80%E4%BB%98%E3%81%91%E6%B8%88%E3%81%BF-%E3%83%A9%E3%82%BA%E3%83%99%E3%83%AA%E3%83%BC%E3%83%BB%E3%83%91%E3%82%A4/dp/B07446WLQV" color target="_blank">Amazon | Raspberry Pi Zero W - ヘッダー ハンダ付け済み - ラズベリー・パイ ゼロ W ワイヤレス | Pi Zero | インターフェースカード 通販</Link>
 
 家に届いて、まずその小ささに驚いた。これがパソコンになるというのだからすごい。  
 CPU 実験とかで使っていた FPGA はこれよりもずっと大きかった。
 
-<LazyLoad>
-  <p>
-    <img src="/20200306/pic1.jpg" alt="pic1" title="色紙と比べてもこのサイズ" />
-  </p>
-</LazyLoad>
+<Display shadow caption="色紙と比べてもこのサイズ">
+  <img src="/20200306/pic1.jpg" alt="pic1" title="色紙と比べてもこのサイズ" />
+</Display>
 
 <br />
 
@@ -39,31 +29,32 @@ CPU 実験とかで使っていた FPGA はこれよりもずっと大きかっ�
 
 microSD
 
-<Iframely href="https://www.amazon.co.jp/10%E5%AF%BE%E5%BF%9C%E3%80%91Samsung-microSD%E3%82%AB%E3%83%BC%E3%83%8932GB-Nintendo-MB-MC32GA-ECO/dp/B06XSV23T1/ref=pd_bxgy_img_2/358-0870669-8543938?_encoding=UTF8&pd_rd_i=B06XSV23T1&pd_rd_r=ba12c541-0d5f-4e8a-94b4-dad799f3183d&pd_rd_w=7aTP1&pd_rd_wg=iORL2&pf_rd_p=587b16be-0f5e-4017-ba4e-8771a0be2909&pf_rd_r=XM79T5XEYWSMCHSTFA6F&psc=1&refRID=XM79T5XEYWSMCHSTFA6F" url="//cdn.iframe.ly/EUHnOeW" />
+<Link href="https://www.amazon.co.jp/10%E5%AF%BE%E5%BF%9C%E3%80%91Samsung-microSD%E3%82%AB%E3%83%BC%E3%83%8932GB-Nintendo-MB-MC32GA-ECO/dp/B06XSV23T1/ref=pd_bxgy_img_2/358-0870669-8543938?_encoding=UTF8&pd_rd_i=B06XSV23T1&pd_rd_r=ba12c541-0d5f-4e8a-94b4-dad799f3183d&pd_rd_w=7aTP1&pd_rd_wg=iORL2&pf_rd_p=587b16be-0f5e-4017-ba4e-8771a0be2909&pf_rd_r=XM79T5XEYWSMCHSTFA6F&psc=1&refRID=XM79T5XEYWSMCHSTFA6F" color target="_blank">Amazon | Samsung EVO Plus 32GB microSDHC UHS-I U1 95MB/s Full HD Nintendo Switch動作確認済 MB-MC32GA/ECO 国内正規保証品 | 日本サムスン | パソコン・周辺機器 通販</Link>
 
 Raspberry Pi 用に設計された電源ケーブル
 
-<Iframely href="https://www.amazon.co.jp/Raspberry-Pi%E7%94%A8%E9%9B%BB%E6%BA%90%E3%82%BB%E3%83%83%E3%83%88-5V-3-0A-%EF%BC%8DPi3%E3%83%95%E3%83%AB%E8%B2%A0%E8%8D%B7%E6%A4%9C%E8%A8%BC%E6%B8%88/dp/B01N8ZIJL8/ref=pd_bxgy_img_3/358-0870669-8543938?_encoding=UTF8&pd_rd_i=B01N8ZIJL8&pd_rd_r=ba12c541-0d5f-4e8a-94b4-dad799f3183d&pd_rd_w=7aTP1&pd_rd_wg=iORL2&pf_rd_p=587b16be-0f5e-4017-ba4e-8771a0be2909&pf_rd_r=XM79T5XEYWSMCHSTFA6F&psc=1&refRID=XM79T5XEYWSMCHSTFA6F" url="//cdn.iframe.ly/evmHTbD" />
+<Link href="https://www.amazon.co.jp/Raspberry-Pi%E7%94%A8%E9%9B%BB%E6%BA%90%E3%82%BB%E3%83%83%E3%83%88-5V-3-0A-%EF%BC%8DPi3%E3%83%95%E3%83%AB%E8%B2%A0%E8%8D%B7%E6%A4%9C%E8%A8%BC%E6%B8%88/dp/B01N8ZIJL8/ref=pd_bxgy_img_3/358-0870669-8543938?_encoding=UTF8&pd_rd_i=B01N8ZIJL8&pd_rd_r=ba12c541-0d5f-4e8a-94b4-dad799f3183d&pd_rd_w=7aTP1&pd_rd_wg=iORL2&pf_rd_p=587b16be-0f5e-4017-ba4e-8771a0be2909&pf_rd_r=XM79T5XEYWSMCHSTFA6F&psc=1&refRID=XM79T5XEYWSMCHSTFA6F" color target="_blank">Amazon | Raspberry Pi用電源セット(5V 3.0A) セパレート型－Pi3フル負荷検証済 | Physical Computing Lab | 電源ユニット 通販</Link>
 
 
 がある。  
   
 あとは、自分は microSD を Macbook に接続するハブを持っていなかったので、それも買った。
 
-<Iframely href="https://www.amazon.co.jp/gp/product/B01H00CFL4/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1" url="//cdn.iframe.ly/7LbDh2M" />
+<Link href="https://www.amazon.co.jp/gp/product/B01H00CFL4/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1" color target="_blank">Amazon | iBUFFALO USB3.0 microSD/SDカード専用カードリーダー ホワイト BSCR27U3WH | バッファロー | パソコン・周辺機器 通販</Link>
+
 
 さらに、Raspberry Pi を踏んづけて壊したりしないように、ケースも買うべきだろう。
 
-<Iframely href="https://www.amazon.co.jp/%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9-RPI-C-004-Raspberry-Zero-%E3%82%B1%E3%83%BC%E3%82%B9/dp/B07FDF6599/ref=pd_sbs_147_t_1/358-0870669-8543938?_encoding=UTF8&pd_rd_i=B07FDF6599&pd_rd_r=e40cf9de-40e6-4f5b-8d21-b3f920d359ce&pd_rd_w=WZMl9&pd_rd_wg=7DJWI&pf_rd_p=ca22fd73-0f1e-4b39-9917-c84a20b3f3a8&pf_rd_r=7J8TYGBW24B9SKF900VD&psc=1&refRID=7J8TYGBW24B9SKF900VD" url="//cdn.iframe.ly/dpVMT6D" />
+<Link href="https://www.amazon.co.jp/%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9-RPI-C-004-Raspberry-Zero-%E3%82%B1%E3%83%BC%E3%82%B9/dp/B07FDF6599/ref=pd_sbs_147_t_1/358-0870669-8543938?_encoding=UTF8&pd_rd_i=B07FDF6599&pd_rd_r=e40cf9de-40e6-4f5b-8d21-b3f920d359ce&pd_rd_w=WZMl9&pd_rd_wg=7DJWI&pf_rd_p=ca22fd73-0f1e-4b39-9917-c84a20b3f3a8&pf_rd_r=7J8TYGBW24B9SKF900VD&psc=1&refRID=7J8TYGBW24B9SKF900VD" color target="_blank">Amazon.co.jp： Raspberry Pi Zero ケース: おもちゃ</Link>
 
 余談だが、自分は別のモデルの Raspberry Pi に対応したケースを誤って買ってしまったが、全くもって「大は小を兼ね」なかったので、
 きちんとサイズに気をつけてケースを購入しよう。
 
-### microSD に Raspbian を格納する
+## microSD に Raspbian を格納する
 
 Raspbian とは Raspberry Pi に対応した OS (Raspberry + Debian = Raspbian) であり、いくつか種類がある。
 
-<Iframely href="https://www.raspberrypi.org/downloads/raspbian/" url="//cdn.iframe.ly/ACubEYC" />
+<Link href="https://www.raspberrypi.org/downloads/raspbian/" color target="_blank">Download Raspbian for Raspberry Pi</Link>
 
 デスクトップ（いわゆる「パソコンの画面」）で操作したい場合は "with desktop" と付いているものを選択しよう。  
 自分は SSH で通信できれば十分だったので Raspbian Buster Lite にした。  
@@ -73,11 +64,11 @@ Raspbian とは Raspberry Pi に対応した OS (Raspberry + Debian = Raspbian) 
 
 ダウンロードが完了したら、microSD をパソコンに繋げて、データを書き出す。書き出しは CLI でもできるが、誤ってパソコン本体のディスクを吹っ飛ばしたら大変なので、[balenaEtcher](https://www.balena.io/etcher/) という便利で安全なデスクトップアプリを使おう。
 
-<Iframely href="https://www.balena.io/etcher/" url="//cdn.iframe.ly/H7MePU6" />
+<Link href="https://www.balena.io/etcher/" color target="_blank">balenaEtcher - Flash OS images to SD cards &amp; USB drives</Link>
 
 microSD に Raspbian を入れるのはそんなに時間がかからないと思う。
 
-### Raspberry Pi の SSH 及び Wi-Fi を有効にする
+## Raspberry Pi の SSH 及び Wi-Fi を有効にする
 
 microSD 内に格納された Raspbian の中身に手を加える。  
 まず ssh という名前の空のファイルを作る。
@@ -109,25 +100,20 @@ network={
 を書き込む。  
 **なお、Raspberry Pi Zero W は 2.4GHz 帯の Wi-Fi にしか対応していないことに注意！**
 
-### Raspberry Pi を立ち上げる
+## Raspberry Pi を立ち上げる
 
 ここまで終わったら、microSD を Raspberry Pi 本体に差し込む。また、電源ケーブルを Raspberry Pi につなげる。  
 電源ケーブルは2つポートがあるうちの右側に差すことに注意。左側のポートはデータ通信用で、USB で他の機器と接続したい場合などに使う。  
 壊れていなければ、電源を入れると緑色のランプが光るはずだ。
 
-<LazyLoad>
-  <p>
-    <img src="/20200306/pic2.jpg" alt="pic2" />
-  </p>
-</LazyLoad>
+<Display shadow>
+  <img src="/20200306/pic2.jpg" alt="pic2"/>
+</Display>
 
-<LazyLoad>
-  <p>
-    <img src="/20200306/pic3.jpg" alt="pic3" />
-  </p>
-</LazyLoad>
+<Display shadow>
+  <img src="/20200306/pic3.jpg" alt="pic3"/>
+</Display>
 
-<br />
 
 あとは、
 
@@ -140,11 +126,9 @@ ping raspberrypi.local
 まあ、デスクトップ版 Raspbian 
 を入れた人の、パソコンの画面が初めて表示されることへの感動に比べたら小さいかもしれないが...
 
-<LazyLoad>
-  <p>
-    <img src="/20200306/pic4.jpg" alt="pic4" />
-  </p>
-</LazyLoad>
+<Display shadow caption="pingが返ってきた">
+  <img src="/20200306/pic4.jpg" alt="pic4"/>
+</Display>
 
 <br />
 
@@ -158,26 +142,24 @@ ssh pi@raspberrypi.local
 初期ユーザーは pi、初期パスワードは raspberry となる。
 
 
-### Raspberry Pi にセキュリティ対策を施す
+## Raspberry Pi にセキュリティ対策を施す
 
 初期ユーザーをそのまま使い回すのはまずい。というわけで、以下の記事などを参考にして対策しよう。
 
-<Iframely href="https://qiita.com/mochifuture/items/00ca8cdf74c170e3e6c6" url="//cdn.iframe.ly/Lurrlaz" />
+- <Link href="https://qiita.com/mochifuture/items/00ca8cdf74c170e3e6c6" color target="_blank">初心者向！Raspberry Pi 最低限のセキュリティ設定【所要時間 30分】 - Qiita</Link>
+- <Link href="https://qiita.com/nokonoko_1203/items/94a888444d5019f23a11" color target="_blank">ラズパイでやらなければいけない４つのセキュリティ対策！ - Qiita</Link>
 
-<br />
-
-<Iframely href="https://qiita.com/nokonoko_1203/items/94a888444d5019f23a11" url="//cdn.iframe.ly/nmhYYc1" />
-
-### microSD のバックアップを取る
+## microSD のバックアップを取る
 
 microSD が突然壊れたりすると困るので、バックアップを img ファイルとして書き出しておくのが安全だろう。
 
 手順は以下の記事などを参照。
 
-<Iframely href="https://raspida.com/backupimage" url="//cdn.iframe.ly/dcg1iht" />
+- <Link href="https://raspida.com/backupimage" color target="_blank">Raspberry Pi のOSをイメージで保存してmicroSDカードを使い回そう</Link>
 
 
 
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

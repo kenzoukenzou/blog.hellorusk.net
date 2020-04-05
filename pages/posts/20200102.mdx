@@ -1,20 +1,12 @@
-
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2020-01-02',
   title: 'ラムダ計算と再帰',
-  url: '/blog/2020/01/02',
-  description: '2020-01-02 の日記'
+  date: '2020-01-02T23:43:45+09:00',
+  description: '',
+  image: '',
 }
-
-
-<ModeSwitch />
-
-# ラムダ計算と再帰
-#### 2020-01-02
 
 まず、$(\lambda x. F(x x)) (\lambda x. F(x x))$ という式をβ簡約してみると、
 
@@ -89,5 +81,9 @@ fact(10)
 # 3628800
 ```
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

@@ -1,25 +1,16 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
-import LazyLoad from "react-lazyload";
+import Layout from 'lib/components/layout'
+import { Link, Display } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2019-05-18',
   title: 'git challenge #11 に参加した',
-  url: '/blog/2019/05/18/',
-  description: '2019-05-18 の日記'
+  date: '2019-05-18T23:30:17+09:00',
+  description: '',
+  image: '',
 }
 
-
-<ModeSwitch />
-
-# git challenge #11 に参加した
-#### 2019-05-18
-
 株式会社ミクシィが主催する git challenge の第11回目に参加してきました。  
-  
-  
-[https://mixi-git-challenge.github.io/publications/events/11.html](https://mixi-git-challenge.github.io/publications/events/11.html)
+
+<Link href="https://mixi-git-challenge.github.io/publications/events/11.html" color target="_blank">第11回 git challenge (2019.05.18) | git challenge publications</Link>
   
 
 git challenge というイベントの存在自体は少し前から耳にしていて、前回は都合がつかず応募できなかったのですが、
@@ -40,11 +31,12 @@ git challenge の問題で出てくるシチュエーションは、実際の開
   
 その後は、おいしいご飯を食べたりお酒を飲んだり、他の学生やエンジニアの方と雑談をしたりしていました。ミクシィさん楽しいイベントありがとうございました。
 
-<LazyLoad>
-  <p>
-    <img src="/20190518/pic1.jpg" alt="pic1" title="眺めの良いオフィスでした" />
-  </p>
-</LazyLoad>
+<Display shadow caption="眺めの良いオフィスでした">
+  <img src="/20190518/pic1.jpg" alt="pic1" title="眺めの良いオフィスでした" />
+</Display>
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

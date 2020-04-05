@@ -1,52 +1,88 @@
-const fs = require("fs");
-const util = require("util");
-const remarkMath = require("remark-math");
-const rehypeKatex = require("rehype-katex");
-const rehypePrism = require("@mapbox/rehype-prism");
-const withMDX = require("@zeit/next-mdx")({
+const withMDX = require("@next/mdx")({
+  extension: /\.(md|mdx)?$/,
   options: {
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [[rehypeKatex, { strict: false }], rehypePrism]
-  }
+    remarkPlugins: [require("remark-math")],
+    rehypePlugins: [
+      require("@mapbox/rehype-prism"),
+      require("rehype-join-line"),
+      require("rehype-katex"),
+    ],
+  },
 });
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  // eslint-disable-next-line no-undef
-  enabled: process.env.ANALYZE === "true"
-});
 
-const readdir = util.promisify(fs.readdir);
+const nextConfig = {
+  target: "serverless",
 
-module.exports = withBundleAnalyzer(
-  withMDX({
-    pageExtensions: ["tsx", "mdx"],
+  pageExtensions: ["jsx", "js", "mdx", "md", "ts", "tsx"],
 
-    exportPathMap: async function() {
-      const pathMap = {};
-      pathMap["/"] = { page: "/" };
-      pathMap["/whoami"] = { page: "/whoami" };
-      pathMap["/blog"] = { page: "/blog" };
-      pathMap["/form"] = { page: "/form" };
-      pathMap["404.html"] = { page: "/_error" };
+  cssModules: true,
 
-      const posts = await readdir("./pages/posts");
+  cssLoaderOptions: {
+    importLoaders: 1,
+    localIdentName: "[local]___[hash:base64:5]",
+  },
 
-      for (const post of posts) {
-        const postPath = post.replace(
-          /(\d{4})(\d{2})(\d{2})\.mdx/,
-          (match, p1, p2, p3) => {
-            return `/blog/${p1}/${p2}/${p3}`;
-          }
-        );
-        const pagePath = post.replace(
-          /(\d{4})(\d{2})(\d{2})\.mdx/,
-          (match, p1, p2, p3) => {
-            return `/posts/${p1}${p2}${p3}`;
-          }
-        );
-        pathMap[postPath] = { page: pagePath };
-      }
+  env: {
+    VERSION: require("./package.json").version,
+  },
 
-      return pathMap;
-    }
-  })
-);
+  webpack(config) {
+    // eslint-disable-next-line no-undef
+    config.resolve.modules.push(__dirname);
+    return config;
+  },
+
+  experimental: {
+    redirects() {
+      return [
+        {
+          source: "/blog/others/:path*",
+          permanent: true,
+          destination: "/posts/:path*",
+        },
+        {
+          source: "/blog/others/:path*/",
+          permanent: true,
+          destination: "/posts/:path*",
+        },
+        {
+          source: "/blog/js/:path*",
+          permanent: true,
+          destination: "/posts/:path*",
+        },
+        {
+          source: "/blog/js/:path*/",
+          permanent: true,
+          destination: "/posts/:path*",
+        },
+        {
+          source: "/blog/proxy/:path*",
+          permanent: true,
+          destination: "/posts/:path*",
+        },
+        {
+          source: "/blog/proxy/:path*/",
+          permanent: true,
+          destination: "/posts/:path*",
+        },
+        {
+          source: "/blog/2019/:m*/:d*/",
+          permanent: true,
+          destination: "/posts/2019:m*:d*",
+        },
+        {
+          source: "/blog/2020/:m*/:d*/",
+          permanent: true,
+          destination: "/posts/2020:m*:d*",
+        },
+        {
+          source: "/whoami/",
+          permanent: true,
+          destination: "/fixed/profile",
+        },
+      ];
+    },
+  },
+};
+
+module.exports = withMDX(nextConfig);

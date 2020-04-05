@@ -1,28 +1,21 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2019-05-16',
   title: '便利な Netlify Forms',
-  url: '/blog/2019/05/16/',
-  description: '2019-05-16 の日記'
+  date: '2019-05-16T23:43:25+09:00',
+  description: '',
+  image: '',
 }
 
-
-<ModeSwitch />
-
-# 便利な Netlify Forms
-#### 2019-05-16
-
-最近、自分のウェブサイトの中に新たに[フォーム](https://hellorusk.net/form/)を作成しました。
+最近、自分のウェブサイトの中に新たに[フォーム](https://hellorusk.netlify.com/form/)を作成しました。
 これは、様々な人から、見た方が良いアニメをできるだけ募集したいと思っているからです。普通の人であればこのような行為は Twitter でリプライを集めることによって行うでしょうが、
 私は Twitter をできるだけひっそりと運用していく方針でいるため、SNS よりも自分のウェブサイトを活用するのが良さそうだと考えました。  
 　 
 このフォームについてですが、[Netlify Forms](https://www.netlify.com/docs/form-handling/) によって実現しています。  
   
 
-<Iframely href="https://docs.netlify.com/forms/setup/" url="//cdn.iframe.ly/HTfFkdT" />
+<Link href="https://docs.netlify.com/forms/setup/" color target="_blank">Forms setup | Netlify Docs</Link>
   
 
 Netlify Forms とは Netlify でホスティングしているサイトにおいて使えるフォームサービスです。基本的には、
@@ -34,5 +27,9 @@ Netlify Forms とは Netlify でホスティングしているサイトにおい
 また（`<input type="file">` 等でファイルをアップロードできるフォームを作成している場合、）受け取ることができるファイルのサイズが 10 MB 以内という制限が2019年5月現在あります。
 よって、あまり投稿が来ないことを前提としたフォームで Netlify Forms を使っていくのが良いでしょう。
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

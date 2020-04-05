@@ -1,25 +1,14 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
-import LazyLoad from "react-lazyload";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+import Layout from 'lib/components/layout'
+import { Link, Note } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2020-01-13',
   title: '拙訳: 擬多項式時間アルゴリズムとは何か',
-  url: '/blog/2020/01/13',
-  description: '2020-01-13 の日記'
+  date: '2020-01-13T21:25:49+09:00',
+  description: '',
+  image: '',
 }
 
-
-<ModeSwitch />
-
-# 拙訳: 擬多項式時間アルゴリズムとは何か
-#### 2020-01-13
-
-https://stackoverflow.com/questions/19647658/what-is-pseudopolynomial-time-how-does-it-differ-from-polynomial-time
-
-<Iframely href="https://stackoverflow.com/questions/19647658/what-is-pseudopolynomial-time-how-does-it-differ-from-polynomial-time" url="//cdn.iframe.ly/tZJGB6q" />
+<Link href="https://stackoverflow.com/questions/19647658/what-is-pseudopolynomial-time-how-does-it-differ-from-polynomial-time" color target="_blank">algorithm - What is pseudopolynomial time? How does it differ from polynomial time? - Stack Overflow</Link>
 
 上記の記事が分かりやすかったので訳してみます。翻訳に問題がある場合は [Issue](https://github.com/7ma7X/hellorusk.net/issues) にてお願いいたします。
 
@@ -46,7 +35,7 @@ $O(n^2)$ の多項式時間アルゴリズムです。一方、[巡回セール�
 この文脈において $n$ が実際に何を意味するかの定義を統一するために、時間計算量の形式的な定義においては、
 問題の「入力サイズ」を以下のように定めます。
 
-> 問題の入力サイズとは、入力に必要なビット長のことである。
+<Note type="secondary" label={false}>問題の入力サイズとは、入力に必要なビット長のことである。</Note>
 
 例えば、仮にソートアルゴリズムの入力が 32bit 整数の配列であれば、入力サイズは、配列の長さを $n$ として $32n$ となります。
 また、点の数が $n$、辺の数が $m$ のグラフにおいては、入力として与えられるのはおそらく全ての点と辺を表現したリストになり、必要なビット長は
@@ -56,8 +45,8 @@ $\Omega(n + m)$ になります。[^1]
 
 この「入力サイズ」の定義の下で、多項式時間の形式的な定義は以下のようになります。
 
-> あるアルゴリズムが多項式時間アルゴリズムであるとは、実行時間がある定数 $k$ に対して $O(x^k)$ で書けることである。
-ここで $x$ とは入力として与えられるビット長のことである。
+<Note type="secondary" label={false}>あるアルゴリズムが多項式時間アルゴリズムであるとは、実行時間がある定数 k に対して O(x^k) で書けることである。
+ここで x とは入力として与えられるビット長のことである。</Note>
 
 グラフやリスト、木などを扱うアルゴリズムであれば、この定義は、直感的なよく用いられる定義とある程度は一致します。
 例えば、32bit 整数の配列をソートするアルゴリズムがあるとしましょう。選択ソートなどを使えば、
@@ -148,5 +137,8 @@ $\log U$ はその最大値を書き下すのに必要なビット数と比例�
 参考になれば幸いです！
 
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

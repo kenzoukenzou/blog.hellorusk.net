@@ -1,18 +1,12 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2019-02-17',
   title: 'ブログシステムを自作した',
-  url: '/blog/2019/02/17/',
-  description: '2019-02-17 の日記'
+  date: '2019-02-17T21:36:32+09:00',
+  description: '',
+  image: '',
 }
-
-<ModeSwitch />
-
-# ブログシステムを自作した
-#### 2019-02-17
 
 hellorusk.net のドメインを取得してからもうすぐ1年になります。  
 当初は jQuery のみを使った簡素なサイトでしたが、次第にモダンな JavaScript を用いて書き換えてきました。今年1月からは Next.js のフレームワークを新たに活用し始めました。その結果、CSS を [styled-jsx](https://github.com/zeit/styled-jsx) によって個々の Component ごとに分解できるというメリットを得ることができました。たかが個人サイトといえど、CSS の管理が行いやすくなるというのはサイトを保守していく上で大きな利点であるのは間違いありません。  
@@ -21,15 +15,22 @@ hellorusk.net のドメインを取得してからもうすぐ1年になりま�
   
 ブログシステムを構築する上で大きく役に立ったのが [MDX](https://github.com/mdx-js/mdx) という技術です。
 
-<Iframely href="https://github.com/mdx-js/mdx" url="//cdn.iframe.ly/kxnLNYW" />
+<Link href="https://github.com/mdx-js/mdx" color target="_blank">mdx-js/mdx: JSX in Markdown for ambitious projects</Link>
 
 これは Markdown を JSX と対応が取れるように自然に拡張したもので、いま書かれているこの文章も 20190217.mdx というファイルの上に置かれたものです。  
 MDX においては通常の Markdown がサポートされているだけでなく、他のモジュールを import してそれを Markdown の文中に置いたり、逆にオブジェクトを定義してそれを export することもできます。このブログでも、前者はツイートボタンやmetaタグの記述などに、後者は記事のタイトル・日付等の export に活用されています。詳しくは [GitHub のリポジトリ](https://github.com/7ma7X/hellorusk.net)で確認していただければと思います。  
 
-<Iframely href="https://github.com/7ma7X/hellorusk.net" url="//cdn.iframe.ly/fUisEXf" />
+<Link href="https://github.com/7ma7X/hellorusk.net" color target="_blank">7ma7X/hellorusk.net: Blog (Next.js + MDX)</Link>
+
+<br/>
+
+**2020.04.05 追記**
+
+ブログシステムを自作のものから [unix/unix.bio](https://github.com/unix/unix.bio) に移管しました。  
+こちらも Next.js + MDX で構成されているブログシステムですが、作者の [witt](https://github.com/unix) 氏が ZEIT 社の UI コンポーネント [zeit-ui](https://github.com/zeit-ui) の設計を手掛けていることもあって、とても洗練されておりオススメです。
 
 
 
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

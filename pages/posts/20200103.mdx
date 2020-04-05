@@ -1,20 +1,12 @@
-
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2020-01-03',
   title: 'ラムダ計算と自然数の演算',
-  url: '/blog/2020/01/03',
-  description: '2020-01-03 の日記'
+  date: '2020-01-03T23:38:47+09:00',
+  description: '',
+  image: '',
 }
-
-
-<ModeSwitch />
-
-# ラムダ計算と自然数の演算
-#### 2020-01-03
 
 ### 自然数の表現
 
@@ -175,5 +167,9 @@ print_nat(minus(three)(two))
 # 1
 ```
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

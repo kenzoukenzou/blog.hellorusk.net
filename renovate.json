@@ -3,5 +3,5 @@
     "config:base", "schedule:weekly"
   ],
   "automerge": true,
-  "ignoreDeps": ["next-page-transitions"]
+  "ignoreDeps": ["@zeit-ui/react"]
 }

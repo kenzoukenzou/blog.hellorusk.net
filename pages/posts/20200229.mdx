@@ -1,20 +1,12 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
-import LazyLoad from "react-lazyload";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2020-02-29',
   title: '隠れマルコフモデルのパラメータ推定',
-  url: '/blog/2020/02/29',
-  description: '2020-02-29 の日記'
+  date: '2020-02-29T21:10:13+09:00',
+  description: '',
+  image: '',
 }
-
-<ModeSwitch />
-
-# 隠れマルコフモデルのパラメータ推定
-#### 2020-02-29
 
 単語列のような系列データのラベリング問題を考える. 入力としてある記号列が与えられた際, 適切なラベル列を出力したい.  
 このような問題に対して HMM（隠れマルコフモデル）というモデルを仮定することが多い. ここでは隠れマルコフモデルにおけるパラメータ推定についてまとめておく.
@@ -132,5 +124,8 @@ $$
 より $\gamma_t(i), \xi_t(i, j)$ も新しく求まり, これがEステップとなる.
 
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

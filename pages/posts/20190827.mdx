@@ -1,19 +1,12 @@
-import BlogLayout, { Iframely } from "../../layouts/blog-layout";
-import BlogMeta from "../../components/blog-meta";
-import ModeSwitch from "../../components/mode-switch";
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
 
 export const meta = {
-  date: '2019-08-27',
   title: 'Next.js の Route Masking',
-  url: '/blog/2019/08/27/',
-  description: '2019-08-27 の日記'
+  date: '2019-08-27T00:25:10+09:00',
+  description: '',
+  image: '',
 }
-
-
-<ModeSwitch />
-
-# Next.js の Route Masking
-#### 2019-08-27
 
 Next.js の `<Link>` タグには `href` と `as` という2つの属性があり、
 この区別は Next.js を静的サイトビルダーとして使う場合であっても重要であることに今日ようやく気づきました。
@@ -56,8 +49,6 @@ Next.js のドキュメントを引用すると、
 `<Link href="/posts/20190217" as="/blog/2019/02/17">` が正しかったのです。  
 すぐに[修正コミット](https://github.com/7ma7X/hellorusk.net/commit/d8a73174a39805c86a67738cda6dfadae0439740)を打ちました。 
   
-<Iframely href="https://github.com/7ma7X/hellorusk.net/commit/d8a73174a39805c86a67738cda6dfadae0439740" url="//cdn.iframe.ly/WovAjdu" />
-  
 
 この結果、 `/blog` ページからそれぞれの post へのリンクを踏んで表示させるのに必要な時間が目に見えて短縮されました。
 prefetch が正しく行われるようになったからです。  
@@ -71,5 +62,9 @@ prefetch が正しく行われるようになったからです。
 Next.js が 9 系のバージョンに上がってからのようでした。
 やはり、ツールを最新バージョンにアップデートしていくのは非常に重要なことだと思います。
 
-<BlogLayout meta={meta} />
-<BlogMeta meta={meta} />
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
