@@ -1,0 +1,108 @@
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
+
+export const meta = {
+  title: 'Netlify から Zeit Now に乗り換える',
+  date: '2020-04-06T02:15:08.087Z',
+  description: '',
+  image: '',
+}
+
+これまでこの `hellorusk.net` は Netlify で配信していたが、ブログシステムの改築に合わせて、Zeit の [Now](https://zeit.co) に乗り換えることに決めた。  
+これまで Netlify でも Now でもいくつかサイトを deploy したことがあるので、改めて自分なりの知見をまとめておく。
+
+## 乗り換える方法
+
+**ルートドメインの場合**
+
+`hogehoge.com` を乗り換えるとする。  
+Netlify で配信していた場合、ネームサーバーとして Netlify の DNS サーバー（例えば
+
+```
+dns1.p06.nsone.net
+dns2.p06.nsone.net
+dns3.p06.nsone.net
+dns4.p06.nsone.net
+```
+
+みたいなもの）を使っているか、あるいは A レコード
+
+```
+@ A 104.198.14.52
+```
+
+を貼っていると思う（または ALIAS レコードを用いる場合もあるようだが、私が使っている Google Domain では ALIAS レコードは使えないので、よく分かりません...）。
+
+もし Netlify の A レコードを貼っていたら、まずはそれを外す。
+
+Zeit Now の場合、A レコードの方法は使えないようである。なので、ネームサーバーを Now のものに書きかえねばならない。具体的には
+
+```
+now domains add hogehoge.com
+```
+
+を打って出てくる Now の DNS サーバーに書きかえる。自分の場合、
+
+```
+a.zeit-world.co.uk
+b.zeit-world.org
+c.zeit-world.net
+f.zeit-world.com
+```
+
+である。
+
+正しく登録できたら、Now の管理画面から Custom Domain として `hogehoge.com` を追加できるようになると思う。  
+正しく登録できたかは
+
+```
+now domains verify hogehoge.com
+```
+
+や
+
+```
+now domains inspect hogehoge.com
+```
+
+あたりを打って確認すればよい。
+
+**サブドメインの場合**
+
+サブドメインの場合、必ずしもネームサーバーを Zeit Now のものに移動する必要はない。  
+  
+一般的には、ネームサーバーと、サブドメインの配信元が異なる（例えば お名前.com 
+で取得したドメインのサブドメインを Netlify でホスティングする、など）場合、CNAME レコードを用いている。  
+なので、ネームサーバーを移動しなくても、ドメイン自体を Now に登録さえすれば、
+あとは CNAME レコードを付け替えるだけである。
+
+登録の方法はルートドメインの場合と同じで、
+
+```
+now domains add hogehoge.com
+```
+
+を打てばよいが、このときネームサーバーを移動する方法とは別に、TXT レコードで認証する方法も出てくるので、今回はそちらを選択すればよい。
+
+ドメインを正しく登録できたら、CNAME レコードを
+
+```
+sub.hogehoge.com CNAME .alias.zeit.co
+```
+
+みたいに登録すればよい。
+
+ちなみに、ルートドメインの場合のようにネームサーバーを Now のものにすれば、CNAME の作業は不要、のはず。
+
+<br />
+
+以下の Now の公式ドキュメントも見ておくと安心。
+
+- <Link href="https://zeit.co/docs/v2/custom-domains" color target="_blank">Custom Domains - ZEIT Documentation</Link>
+- <Link href="https://zeit.co/guides/setup-godaddy-domain-now" color target="_blank">Setup a GoDaddy Domain with ZEIT Now - ZEIT Now Guides</Link>
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
