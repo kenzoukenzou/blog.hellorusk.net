@@ -8,7 +8,7 @@ export const meta = {
   image: '',
 }
 
-これまでこの `hellorusk.net` は Netlify で配信していたが、ブログシステムの改築に合わせて、Zeit の [Now](https://zeit.co) に乗り換えることに決めた。  
+今までこの `hellorusk.net` は Netlify で配信していたが、ブログシステムの改築に合わせて、Zeit の [Now](https://zeit.co) に乗り換えることに決めた。  
 これまで Netlify でも Now でもいくつかサイトを deploy したことがあるので、改めて自分なりの知見をまとめておく。
 
 ## 乗り換える方法
@@ -72,7 +72,7 @@ now domains inspect hogehoge.com
 サブドメインの場合、必ずしもネームサーバーを Zeit Now のものに移動する必要はない。  
   
 一般的には、ネームサーバーと、サブドメインの配信元が異なる（例えば お名前.com 
-で取得したドメインのサブドメインを Netlify でホスティングする、など）場合、CNAME レコードを用いている。  
+で取得したドメインのサブドメインを Netlify でホスティングする、など）場合、CNAME レコードを用いる。  
 なので、ネームサーバーを移動しなくても、ドメイン自体を Now に登録さえすれば、
 あとは CNAME レコードを付け替えるだけである。
 
