@@ -4,6 +4,7 @@ const extractMetadata = require("extract-mdx-metadata");
 const pagePrefix = path.join(__dirname, "../pages");
 const docsDir = path.join(__dirname, "../pages");
 const targetPath = path.join(__dirname, "../lib/data/metadata.json");
+const sitemap = require("nextjs-sitemap-generator");
 
 const getMetadata = async (files, parentPath) => {
   return Promise.all(
@@ -82,4 +83,13 @@ const sortPosts = (data) => {
     console.log(e);
     process.exit(1);
   }
+
+  sitemap({
+    baseUrl: "https://hellorusk.net",
+    pagesDirectory: path.join(__dirname, "../pages"),
+    ignoredPaths: ["index"],
+    targetDirectory: "public/",
+    nextConfigPath: path.join(__dirname, "../next.config.js"),
+    ignoredExtensions: ["png", "jpg"],
+  });
 })();

@@ -105,6 +105,16 @@ const nextConfig = {
           statusCode: 301,
           destination: "https://hellorusk.netlify.com/form/",
         },
+        {
+          source: "/index",
+          statusCode: 301,
+          destination: "/",
+        },
+        {
+          source: "/index/",
+          statusCode: 301,
+          destination: "/",
+        },
       ];
     },
   },
