@@ -2,7 +2,15 @@ import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Spacer, Text, useTheme, Image } from "@zeit-ui/react";
+import {
+  Spacer,
+  Text,
+  useTheme,
+  Image,
+  useToasts,
+  Button,
+  Link,
+} from "@zeit-ui/react";
 import Profile from "./profile";
 import { msToString } from "../date-transform";
 import BLOG from "../../blog.config";
@@ -14,6 +22,11 @@ const getDate = (date: any) => {
   if (`${d}` === "Invalid Date") return "";
   const time = Date.now() - new Date(date).getTime();
   return `${d.toLocaleString()} - ${msToString(time)}`;
+};
+
+const encodeCharacterForLink = (str: string | undefined) => {
+  if (!str) return "";
+  return str.replace(/#/g, "%23").replace(/\+/g, "%2B");
 };
 
 const Layout = ({ children, meta }: any) => {
@@ -28,6 +41,14 @@ const Layout = ({ children, meta }: any) => {
     )}&size=13`;
   }, [asPath]);
   const showViews = useMemo(() => BLOG.enableViews, []);
+
+  const normalizedTitle = encodeCharacterForLink(meta?.title);
+  const tweetlink = `https://twitter.com/intent/tweet?text=${normalizedTitle}%20-%20HelloRusk%20Official%20Website%0a&url=https://${BLOG.domain}${asPath}`;
+  const hatenalink = `https://b.hatena.ne.jp/add?mode=confirm&url=https://${BLOG.domain}${asPath}&title=${normalizedTitle}"`;
+
+  const [toasts, setToast] = useToasts();
+  const click = () =>
+    setToast({ text: "Thank you for sharing!", delay: 10000 });
 
   return (
     <section>
@@ -62,6 +83,22 @@ const Layout = ({ children, meta }: any) => {
         )}
         {inDetailPage && <Spacer y={1} />}
         {children}
+        {inDetailPage && (
+          <div className="share-sns">
+            <Spacer y={0.5} />
+            <Button type="secondary" onClick={click} ghost>
+              <Link href={hatenalink} target="_blank" pure>
+                Share on Hatena
+              </Link>
+            </Button>
+            <Spacer y={0.5} />
+            <Button type="success" onClick={click} ghost>
+              <Link href={tweetlink} target="_blank" pure>
+                Share on Twitter
+              </Link>
+            </Button>
+          </div>
+        )}
         <Spacer y={5} />
         <ContactsWithNoSSR />
       </div>
@@ -150,6 +187,10 @@ const Layout = ({ children, meta }: any) => {
           .date-box :global(.image) {
             display: none;
           }
+        }
+
+        .share-sns {
+          text-align: right;
         }
       `}</style>
     </section>
