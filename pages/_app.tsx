@@ -38,7 +38,7 @@ const Application = ({ Component, pageProps }: any) => {
         <meta property="og:description" content={BLOG.description} />
         <meta property="og:type" content="website" />
         <meta name="generator" content="unix.bio" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta name="author" content={BLOG.anthor} />
         <meta name="twitter:creator" content={`@${BLOG.twitter}`} />
         <meta property="og:title" content={BLOG.title} />
