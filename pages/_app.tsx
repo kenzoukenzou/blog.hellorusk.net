@@ -108,6 +108,10 @@ const Application = ({ Component, pageProps }: any) => {
               font-size: 15px;
             }
           }
+
+          .math {
+            overflow-x: auto;
+          }
         `}</style>
       </ZEITUIProvider>
     </>
