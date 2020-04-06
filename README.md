@@ -15,7 +15,7 @@ npm run post
 ## Feature
 
 - ブログシステムを自作のものから [unix/unix.bio](https://github.com/unix/unix.bio) に移管しました。
-- 以前のデザインは https://hellorusk.netlify.com に、そのソースコードは [PastDesign ブランチ](https://github.com/7ma7X/hellorusk.net/tree/PastDesign) にあります。
+- 以前のソースコードは [PastDesign ブランチ](https://github.com/7ma7X/hellorusk.net/tree/PastDesign) にあります。
 
 - 構成
   - Next.js + Now
