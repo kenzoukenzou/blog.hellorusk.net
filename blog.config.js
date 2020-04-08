@@ -1,5 +1,5 @@
 const BLOG = {
-  anthor: "HelloRusk",
+  author: "HelloRusk",
   title: "HelloRusk Official Website",
   description: "HelloRusk Official Website.",
   summary: "reading and coding ...",

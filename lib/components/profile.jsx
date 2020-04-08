@@ -29,7 +29,7 @@ const Profile = React.memo(({}) => {
         <Link href="/">
           <a>
             <Text h1 className="name">
-              {BLOG.anthor || ""}
+              {BLOG.author || ""}
             </Text>
           </a>
         </Link>
