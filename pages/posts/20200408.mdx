@@ -1,0 +1,134 @@
+import Layout from 'lib/components/layout'
+import { Link } from '@zeit-ui/react'
+
+export const meta = {
+  title: 'ガンマ分布とベータ分布',
+  date: '2020-04-08T12:02:16.271Z',
+  description: '',
+  image: '',
+}
+
+未だに忘れがちなので, ここにまとめておこう
+
+### ガンマ関数
+
+$\alpha > 0$ として, 
+
+$$
+\Gamma(\alpha) = \int_{0}^{\infty} x^{\alpha - 1} e^{-x} dx
+$$
+
+##### 性質
+
+- 正の整数 $n$ に対して, $\Gamma(n) = (n-1)!$
+- $\alpha > 1$ において, $\Gamma(\alpha) = (\alpha - 1) \Gamma(\alpha - 1)$
+- $\Gamma\left(\dfrac{1}{2}\right) = \sqrt{\pi}$. これは, 二重積分で求まるので有名な $\displaystyle\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$ に帰着させることでわかる
+
+### ガンマ分布
+
+$\alpha, \beta > 0$ をパラメータとして, 確率密度関数が
+
+$$
+f(x) = \dfrac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{- \beta x} \quad (0 \leq x < \infty)
+$$
+
+で定義されるような分布（$\Gamma(\alpha, \beta)$ と表記）
+
+##### 性質
+
+- 積率母関数は $\left(\dfrac{\beta}{\beta - t}\right)^\alpha (- \infty < t < \beta)$ （比較的簡単に導出できるので自分で確認しておこう）
+
+- $k$ 次のモーメントは、
+  $$
+  \begin{aligned}
+    E[X^k] &= \int_0^{\infty} x^k \dfrac{\beta^{\alpha}}{\Gamma(\alpha)} x^{\alpha - 1} e^{- \beta x} dx \\
+      &= \int_0^{\infty} \dfrac{\beta^{\alpha}}{\Gamma(\alpha)} x^{\alpha + k - 1} e^{- \beta x} dx \\
+      &= \dfrac{\Gamma(\alpha + k)}{\Gamma(\alpha) \beta^k}  \int_0^{\infty} \dfrac{\beta^{\alpha + k}}{\Gamma(\alpha + k)} x^{\alpha + k - 1} e^{- \beta x} dx \\
+      &= \dfrac{\Gamma(\alpha + k)}{\Gamma(\alpha) \beta^k} \\
+      &= \dfrac{\alpha (\alpha + 1) ... (\alpha + k - 1)}{\beta^k}
+  \end{aligned}
+  $$
+  このように, 直接計算して普通に求められる
+
+- **$\alpha = 1$ としたものは指数分布である**
+
+- $X_1, ... X_n$ が互いに独立に指数分布 $\Gamma(1, \beta)$ にしたがうとき, $Y = X_1 + X_2 + ... + X_n$ は $\Gamma(\alpha, \beta)$ にしたがう.
+
+  - （証明1）$X_1 + X_2 + ... + X_k$ が $\Gamma(k, \beta)$ にしたがうならば, $X_1 + X_2 + ... + X_{k+1}$ が $\Gamma(k + 1, \beta)$ にしたがうことを帰納法により示す. 
+  これは, 畳み込み積分によりできる. 
+  $$
+  \begin{aligned}
+    &\int_{0}^{y} (\beta e^{-\beta x}) \cdot \dfrac{\beta^k}{\Gamma(k)} (y - x)^{k-1} e^{-\beta(y - x)} dx \\
+    =& \dfrac{\beta^{k+1}}{\Gamma(k)} e^{-\beta y} \int_0^y (y - x)^{k-1} dx \\
+    =& \dfrac{\beta^{k+1}}{\Gamma(k)} e^{-\beta y} \dfrac{y^k}{k} \\
+    =& \dfrac{\beta^{k+1}}{\Gamma(k+1)} y^k e^{-\beta y} \\
+  \end{aligned}
+  $$
+
+  - （証明2）積率母関数の性質（$X, Y$ が独立のとき $M_{X+Y}(t) = M_X(t) M_Y(t)$）を使う. 
+  指数分布 $f(x) = \beta e^{- \beta x}$ の積率母関数が $\dfrac{\beta}{\beta - t}$ であることから, ほぼ明らか
+
+- 自由度 $n$ のカイ二乗分布 $\chi^2(n)$ は $\Gamma(\frac{n}{2}, \frac{1}{2})$ である
+
+- ポアソン分布の共役事前分布である
+  - <Link href="http://bayes.sigmath.es.osaka-u.ac.jp/ftanaka/T/modeling/2017sm5_haifu.pdf#page=12" color target="_blank">http://bayes.sigmath.es.osaka-u.ac.jp/ftanaka/T/modeling/2017sm5_haifu.pdf#page=12</Link>
+
+### ベータ関数
+
+$s, t > 0$ として,
+
+$$
+B(s, t) = \int_{0}^{1} x^{s-1} (1-x)^{t-1} dx
+$$
+
+##### 性質
+
+- $B(s, t) = B(t, s)$
+
+- $B(s, t) = \dfrac{\Gamma(s)\Gamma(t)}{\Gamma(s+t)}$
+
+- $\displaystyle\int_{0}^{\frac{\pi}{2}} \sin^\alpha \theta \cos^\beta \theta d \theta$ の形の積分は, $x = \sin^2 \theta$ 等の置換によりベータ関数に帰着できる
+
+- $\displaystyle\int_{0}^{\infty} \dfrac{x^\alpha}{(x + k)^\beta} dx$ の形の積分は, $y = \dfrac{k}{x + k}$ 等の置換によりベータ関数に帰着できる
+
+### ベータ分布
+
+$p, q > 0$ をパラメータとして, 確率密度関数が
+
+$$
+f(x) = \dfrac{1}{B(p, q)} x^{p-1} (1 - x)^{q - 1} \quad (0 < x < 1)
+$$
+
+で定義されるような分布（$Beta(p, q)$ と表記）
+
+##### 性質
+
+- 正の整数 $p, q$ に対して, $X_1, ... X_{p + q - 1}$ が互いに独立に標準一様分布 $U(0, 1)$ に従うとき, 順序統計量 $X_{(p)}$（小さい方から $p$ 番目, 大きい方から $q$ 番目のもの）が従う分布になっている
+  - 実際, $U(0,1)$ の 確率密度関数 $f(x) = 1$, 分布関数 $F(x) = x$ に対して,
+    $$
+      \dfrac{n!}{(p-1)!(n-p)!} F(x)^{p-1} \cdot f(x) \cdot (1 - F(x))^{n-p}
+    $$
+    を計算すると, ベータ分布の確率密度関数と一致している
+
+- $X_1, X_2$ が互いに独立にそれぞれガンマ分布 $\Gamma(\alpha_1, \beta)$ とガンマ分布 $\Gamma(\alpha_2, \beta)$ にしたがうとき, $Y = \dfrac{X_1}{X_1 + X_2}$ の従う分布は $Beta(\alpha_1, \alpha_2)$ である 
+  - <Link href="http://nlp.dse.ibaraki.ac.jp/~shinnou/siryou/toukei-kentei/1-stat-var-trans.pdf#page=21" color target="_blank">http://nlp.dse.ibaraki.ac.jp/~shinnou/siryou/toukei-kentei/1-stat-var-trans.pdf#page=21</Link>
+
+- 二項分布の共役事前分布である
+
+  - <Link href="http://bayes.sigmath.es.osaka-u.ac.jp/ftanaka/T/modeling/2017sm5_haifu.pdf#page=9" color target="_blank">http://bayes.sigmath.es.osaka-u.ac.jp/ftanaka/T/modeling/2017sm5_haifu.pdf#page=9</Link>
+
+### Reference
+
+- 『リスクを知るための確率・統計入門』（岩田）
+
+
+
+
+
+
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
