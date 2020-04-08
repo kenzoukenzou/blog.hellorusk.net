@@ -112,6 +112,10 @@ const Application = ({ Component, pageProps }: any) => {
           .math {
             overflow-x: auto;
           }
+
+          a {
+            word-break: break-all;
+          }
         `}</style>
       </ZEITUIProvider>
     </>
