@@ -30,10 +30,6 @@ class MyDocument extends Document {
     return (
       <Html lang={BLOG.language}>
         <Head>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
-          />
           <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body>

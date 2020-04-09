@@ -67,6 +67,12 @@ const Layout = ({ children, meta }: any) => {
         {meta?.title && <meta property="og:title" content={meta?.title} />}
         {meta?.image && <meta property="og:image" content={meta?.image} />}
         {meta?.image && <meta property="twitter:image" content={meta?.image} />}
+        {inDetailPage && (
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+          />
+        )}
       </Head>
       <div className="container">
         {inDetailPage && <Spacer />}
