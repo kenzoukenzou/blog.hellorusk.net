@@ -1,11 +1,12 @@
 import Head from "next/head";
+import { AppProps } from "next/app";
 import React, { useCallback, useState, useEffect, useMemo } from "react";
 import { ZEITUIProvider, useTheme, CSSBaseline } from "@zeit-ui/react";
 import ThemeConfigProvider from "../lib/components/theme-config-provider";
 import { getDNSPrefetchValue } from "../lib/date-transform";
 import BLOG from "../blog.config";
 
-const Application = ({ Component, pageProps }: any) => {
+const Application = ({ Component, pageProps }: AppProps) => {
   const theme = useTheme();
   const [themeType, setThemeType]: any = useState("light");
   const changeHandle = useCallback((isDark) => {

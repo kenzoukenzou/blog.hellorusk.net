@@ -17,7 +17,7 @@ import BLOG from "../../blog.config";
 
 const ContactsWithNoSSR = dynamic(() => import("./contacts"), { ssr: false });
 
-const getDate = (date: any) => {
+const getDate = (date: string) => {
   const d = new Date(date);
   if (`${d}` === "Invalid Date") return "";
   const time = Date.now() - new Date(date).getTime();
