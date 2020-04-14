@@ -1,0 +1,120 @@
+import Layout from 'lib/components/layout'
+import { Link, Display } from '@zeit-ui/react'
+
+export const meta = {
+  title: 'Streamplot でベクトル場を美しく描く',
+  date: '2020-04-14T13:12:52.709Z',
+  description: '',
+  image: '',
+}
+
+大学の授業で知ったのだが、有用だと思ったのでメモ。  
+<br />
+matplotlib の Streamplot を使うと、以下のような図が描ける。
+
+<Display shadow caption="Streamplot で描いた軌跡">
+  <img src="/20200414/fig1.png" alt="fig1" title="Streamplot で描いた軌跡" />
+</Display>
+
+これは、非線形方程式 $\dfrac{d^2 x}{dt^2} = - \sin x$ について, $x$（横軸） と 
+$\dfrac{d x}{d t}$（縦軸） の関係をプロットしたもの。以下のようなコードを書けばよい。
+
+```python 
+import matplotlib.pyplot as plt
+import numpy as np
+%matplotlib inline
+
+Y, X = np.mgrid[-5:5:100j, -2*np.pi:2*np.pi:100j]
+U = Y
+V = - np.sin(X)
+
+strm=plt.streamplot( X, Y, U, V, color=np.sqrt(U*U+V*V), linewidth=2, cmap='jet')
+cbar=plt.colorbar(strm.lines)
+
+plt.xlabel('X')
+plt.ylabel('Y')
+cbar.set_label('speed', rotation=270)
+
+plt.show()
+```
+
+まず、
+
+```python
+Y, X = np.mgrid[-5:5:100j, -2*np.pi:2*np.pi:100j]
+```
+
+において、`np.mgrid` は格子点を作る関数。この場合 `X` については $-2\pi$ から $2\pi$ の範囲で、
+`Y` については $-5$ から $5$ の範囲で、$100$ 個 $\times$ $100$ 個の格子点を作るということ。
+
+次に、
+
+```python
+strm=plt.streamplot( X, Y, U, V, color=np.sqrt(U*U+V*V), linewidth=2, cmap='jet')
+```
+
+となっているが、このように、`plt.streamplot` では `X, Y, U, V` の順に引数を渡す。
+`U, V` はそれぞれ `X, Y` の速度となっているべきもので、今回は $y = \dfrac{d x}{dt}$ と新たに記号をおけば、方程式を
+
+$$
+\begin{cases}
+  \dot{x} = y \\
+  \dot{y} = - \sin x 
+\end{cases}
+$$
+
+と書き直せるので、コードにある通りになる。そして、`color=np.sqrt(U*U+V*V)` と指定していることから、ベクトルの速さに応じて色を変える仕組みになっている。  
+また、`linewidth` というオプションで線の幅を調節したり、`cmap` というオプションで配色を変更したりできる。詳しくは
+
+
+<Link href="https://matplotlib.org/3.1.0/api/_as_gen/matplotlib.pyplot.streamplot.html#matplotlib.pyplot.streamplot" color target="_blank">matplotlib.pyplot.streamplot — Matplotlib 3.1.0 documentation</Link>
+
+を参考のこと。
+
+さらに、
+
+```python 
+cbar=plt.colorbar(strm.lines)
+```
+
+で、ベクトルの速さと色の関係を示したカラーバーも描画してくれるので、便利。
+
+---
+
+試しにもう一つ例を試してみる。
+
+$$
+  \dfrac{dx}{dt} = -x + \sin t 
+$$
+
+について、$t$ と $x$ の関係をプロットしてみる。
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+%matplotlib inline
+
+Y, X = np.mgrid[-8:8:100j, 0:20:100j]
+U = np.ones((100,100))
+V = - Y + np.sin(X)
+
+strm=plt.streamplot( X, Y, U, V, color=np.sqrt(U*U+V*V), linewidth=2, cmap='jet' )
+cbar=plt.colorbar(strm.lines)
+
+plt.xlabel('X = t')
+plt.ylabel('Y = x')
+cbar.set_label('speed', rotation=270)
+
+plt.show()
+```
+
+<Display shadow>
+  <img src="/20200414/fig2.png" alt="fig2"/>
+</Display>
+
+真ん中に周期解のようなものが見えるが、（計算が間違っていなければ） 解析解 $x = \dfrac{1}{\sqrt{2}}\sin(t - \dfrac{\pi}{4})$ に相当するものだと思う。
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
