@@ -1,0 +1,70 @@
+import Layout from 'lib/components/layout'
+import {} from '@zeit-ui/react'
+
+export const meta = {
+  title: 'Google Colab で直接 PDF 変換する',
+  date: '2020-04-16T14:21:17.895Z',
+  description: '',
+  image: '',
+}
+
+Jupyter Notebook で書いたコードを PDF のレポートとして提出したいことがよくあると思います。  
+`.ipynb` ファイルを PDF に変換するツールとして [nbconvert](https://nbconvert.readthedocs.io/en/latest/) が有名ですが、
+実際に nbconvert を使ってファイルを PDF に変換する際には、pandoc と TeX 環境を別に用意する必要があり、それらが手元に無い場合、一からインストールするのがやや面倒です。
+特に私は overleaf で TeX を書くようになってから、手元に TeX 環境を用意する必要が無くなっていたので、TeXLive などをアンインストールしていました。
+  
+今回は、Google Colaboratory で書いた `.ipynb` ファイルを、そのまま Google Colaboratory 上で nbconvert を使って PDF 変換する方法を紹介します。この方法ではPC のローカル環境にインストールするものは一切ありません。  
+なお、nbconvert で日本語フォント対応をするのはさらに面倒なので、今から紹介するのは日本語を含まない `.ipynb` 向けのものです。あくまで簡易的な手法だと思ってください。
+
+<br />
+
+例として、変換したい `.ipynb` ファイルが、Google Drive の「Colab Notebooks」ディレクトリ直下にある、`hoge.ipynb` であるとします。
+
+まず、`hoge.ipynb` **とは別に** Google Colaboratory のファイルを**新規に**作ります。名前も場所もどこでもいいです。  
+このファイルに、PDF 変換のためのコードを書きます。なぜ `hoge.ipynb` に直接書かないかというと、`hoge.ipynb` にそのコードの出力が余計に混ざってしまうのが嫌だからです。
+
+次に、そのファイルで以下のコードを打ち込んで実行します。
+
+```python
+!apt-get install texlive texlive-xetex texlive-latex-extra pandoc
+!pip install pypandoc
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+!cp drive/My\ Drive/Colab\ Notebooks/hoge.ipynb ./
+!jupyter nbconvert --to PDF "hoge.ipynb"
+```
+
+まず
+
+```python
+!apt-get install texlive texlive-xetex texlive-latex-extra pandoc
+!pip install pypandoc
+```
+
+では TeX や pandoc をインストールします。時間はちょっとかかりますね。
+
+次に
+
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+では、Google Drive 上のファイルと同期をとります。  
+これは認証が必要なので、「Go to this URL in a browser」とともに出てきた URL をクリックして、
+Google Drive File Stream の Google アカウントへのアクセスを許可し、出てきた認証コードを「Enter your authorization code:」のところに打ち込み、Enter を押します。
+
+```python
+!cp drive/My\ Drive/Colab\ Notebooks/hoge.ipynb ./
+!jupyter nbconvert --to PDF "hoge.ipynb"
+```
+
+ここは、変換したい `.ipynb` ファイルの名前や Google Drive 上の位置に応じて適宜変えてください。
+
+特にエラーが出ずに「[NbConvertApp] PDF successfully created」という出力になったら、そのまま Google Colaboratory の画面の左端の、ファイルのアイコンをクリックします。
+すると、`hoge.ipynb` とともに `hoge.pdf` が一覧にあるのが確認できると思うので、これを右クリックしてダウンロードすればOKです。
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
