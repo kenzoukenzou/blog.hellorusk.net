@@ -32,7 +32,7 @@
     "eslint-plugin-prettier": "3.1.3",
     "eslint-plugin-react": "7.19.0",
     "extract-mdx-metadata": "1.0.0",
-    "fs-extra": "8.1.0",
+    "fs-extra": "9.0.0",
     "prettier": "2.0.4",
     "prompt-sync": "4.2.0",
     "rehype-join-line": "1.0.2",
