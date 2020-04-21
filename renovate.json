@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base", "schedule:weekly"
+    "config:base", "schedule:monthly"
   ],
   "automerge": true,
   "ignoreDeps": ["@zeit-ui/react"]
