@@ -9,7 +9,7 @@
   "dependencies": {
     "@zeit-ui/react": "^0.0.1-beta.6",
     "ms": "2.1.2",
-    "next": "9.3.4",
+    "next": "9.3.5",
     "nextjs-sitemap-generator": "0.5.2",
     "react": "16.13.0",
     "react-dom": "16.13.0",
@@ -18,7 +18,7 @@
   "devDependencies": {
     "@mapbox/rehype-prism": "0.4.0",
     "@mdx-js/loader": "1.5.8",
-    "@next/mdx": "9.3.4",
+    "@next/mdx": "9.3.5",
     "@types/ms": "0.7.31",
     "@types/node": "13.13.1",
     "@types/react": "16.9.34",
