@@ -1,0 +1,114 @@
+import Layout from 'lib/components/layout'
+import { Note } from '@zeit-ui/react'
+
+export const meta = {
+  title: 'メモ: CBOW, Skip-Gram, NS',
+  date: '2020-05-20T14:11:43.695Z',
+  description: '',
+  image: '',
+}
+
+https://cs224d.stanford.edu/lecture_notes/notes1.pdf と eisenstein-nlp-notes.pdf から主にとってる.  
+何か間違えてたら [Issue](https://github.com/7ma7X/hellorusk.net/issues) でお願いします
+
+---
+
+## CBOW
+
+<Note label={false}>The cat jumped over the puddle.</Note>
+
+について, {"The", "cat", "over", "the", "puddle"} **から** "jumped" **を**推測したい.
+
+記号
+
+- 語彙 $V$ における単語 $w_i$
+- 入力の行列 $W_{in} \in R^{n \times |V|}$, この $i$ 列目が $w_i$ の分散表現となるべきもの
+- 出力の行列 $W_{out} \in R^{|V| \times n}$, この $i$ 行目が $w_i$ の分散表現となるべきもの
+
+推測の仕組み
+
+1. ある $c$ 番目の単語について周囲 $m$ 個の単語の one-hot 表現 $x^{(c-m)}, ..., x^{(c-1)}, x^{(c+1)}, ..., x^{(c+m)}$ がある
+2. それぞれ左から $W_{in}$ をかける（$v_i = W_{in} x^{(i)}$）と, それぞれの単語の分散表現 $v_{c-m}, ..., v_{c-1}, v_{c+1}, ..., v_{c+m}$ が得られる
+（one-hot表現なので特定の列ベクトルを切り出しているだけ）
+3. これら $2m$ 個のベクトルの平均を取る: $\hat{v}$
+4. $z = W_{out} \hat{v}$ を計算
+5. softmax で正規化する: $\hat{y} = softmax(z)$ 
+6. こうして得られた $\hat{y}$ が $c$ 番目の単語の one-hot 表現 $x^{(c)} = y$ に近いベクトルであってほしい
+
+この推測の学習をすることで, $W_{in}, W_{out}$ がいい感じになって, 分散表現を格納した行列になる（ゼロから作る本によると, この2つの結果物のうち実際には $W_{in}$ のみを分散表現として使う）.  
+学習では, $\hat{y}$ が $y$ に近づいて欲しいので, クロスエントロピー誤差
+
+$$
+H(\hat{y}, y) = - \sum_{j=1}^{|V|} y_j \log(\hat{y}_j)
+$$
+
+を小さくするように学習する. クロスエントロピーは勾配が綺麗なので逆伝播の式が書きやすく, ディープラーニングだと使うことが多い.   
+そして, $y_j$ は one-hot 表現なのでほぼ要素が0で, 
+$y$ が 1 の要素の部分で $\log$ の部分が大きくなってほしい, つまり $\hat{y}$ もできるだけその部分で 1 になってほしいというのがこの式の意味になる.
+
+結局, そういう計算で何をするかというと
+
+$$
+\sum_{m=1}^{M} \log \dfrac{\exp(u_{w_m}^T \hat{v}_m)}{\sum_{j=1}^{|V|} \exp(u_j^T \hat{v}_m)}
+$$
+
+を最大化（あるいはこれにマイナスをつけたものを最小化するとも言える）して, その過程で, 入力行列や出力行列をいい感じにしていくということになる
+
+## Skip-Gram
+
+<Note label={false}>The cat jumped over the puddle.</Note>
+
+について, {"The", "cat", "over", "the", "puddle"} **を** "jumped" **から**推測したい.
+
+CBOW とそんなに変わらなくて, CBOW では周囲 $m$ 個のベクトルの平均をとって, それを使って自身 $1$ 個の推測をして, 誤差を考えていたが, 
+Skip-Gram は自身 $1$ 個を使って周囲 $m$ 個の推測をして, 誤差の和を考える.
+
+式にすると, 
+
+$$
+\sum_{m=1}^{M} \sum_{n=1}^{h_m}   \log \dfrac{\exp(u_{w_{m-n}}^T v_{w_m})}{\sum_{j=1}^{|V|} \exp(u_j^T  v_{w_m})} + 
+\log \dfrac{\exp(u_{w_{m+n}}^T v_{w_m})}{\sum_{j=1}^{|V|} \exp(u_j^T  v_{w_m})}
+$$
+
+を最大化して, その過程で, 入力行列や出力行列をいい感じにしていく
+
+## Negative Sampling
+
+どちらのモデルにしても, Softmax 関数の分母 $\sum_{j=1}^{|V|} \exp(u_j^T  v_{w_m})$ が大変なことになってしまっていて計算が苦しい. Word2Vec の論文では
+Hierarchical softmax と Negative Sampling という2つの工夫が提案されている. そのうち Negative Sampling について述べる.  
+  
+ゼロから作る本の表現によると「多値分類ではなく二値分類」ということ.   
+{"The", "cat", "over", "the", "puddle"} から考えるべきなのは正解 "jumped" であるかどうかであり,
+間違いのバリエーションは割とどうでもいい.  
+
+二値分類ではソフトマックス関数ではなくシグモイド関数を使う.
+したがって, $i$ を単語, $j$ をその文脈とすると, 学習で大きくすべきスコアは
+
+$$
+  \log \dfrac{1}{1 + \exp(- u_i^T v_j)} + \sum_{i' \in W_{neg}} \log \left(1 - \dfrac{1}{1 + \exp(- u_{i'}^T v_j)} \right)
+$$
+
+みたいな形になる. $W_{neg}$ を抑えることで, 必要計算量は大きく減った. あとは, CBOW や Skip-Gram それぞれの中にあるソフトマックスを, この形に置き換えてあげれば良い.
+誤差評価はやはりクロスエントロピーである.
+
+
+
+負例 $W_{neg}$ のサンプリングは単語の使用頻度にもとづいた確率分布から行うが, 確率の値をそのまま使うのではなく $0.75$ 乗（して正規化）するとなんかいいらしい. 
+あまりに確率の低い単語を見捨てない効果があるらしいが, 非常にヒューリスティックですね
+
+
+
+## 今後
+
+Negative Sampling が PMI の分解と等価という話について調べたい
+
+
+
+
+
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
