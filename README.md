@@ -8,7 +8,7 @@ based on [unix/unix.bio](https://github.com/unix/unix.bio)
 npm run dev
 
 # deploy
-now
+vercel
 
 # add new post
 npm run post
