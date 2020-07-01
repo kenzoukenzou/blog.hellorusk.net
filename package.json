@@ -7,7 +7,7 @@
     "export": "npm run now-build && next export"
   },
   "dependencies": {
-    "@zeit-ui/react": "1.4.2",
+    "@zeit-ui/react": "1.7.5",
     "ms": "2.1.2",
     "next": "9.3.6",
     "nextjs-sitemap-generator": "0.5.2",
