@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { AppProps } from "next/app";
 import React, { useCallback, useState, useEffect, useMemo } from "react";
-import { ZEITUIProvider, useTheme, CSSBaseline } from "@zeit-ui/react";
+import { ZeitProvider, useTheme, CssBaseline } from "@zeit-ui/react";
 import ThemeConfigProvider from "../lib/components/theme-config-provider";
 import { getDNSPrefetchValue } from "../lib/date-transform";
 import BLOG from "../blog.config";
@@ -57,12 +57,12 @@ const Application = ({ Component, pageProps }: AppProps) => {
           content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
         />
       </Head>
-      <ZEITUIProvider theme={{ type: themeType }}>
-        <CSSBaseline>
+      <ZeitProvider theme={{ type: themeType }}>
+        <CssBaseline>
           <ThemeConfigProvider onChange={changeHandle}>
             <Component {...pageProps} />
           </ThemeConfigProvider>
-        </CSSBaseline>
+        </CssBaseline>
         <style global jsx>{`
           .tag {
             color: ${theme.palette.accents_5};
@@ -118,7 +118,7 @@ const Application = ({ Component, pageProps }: AppProps) => {
             word-break: break-all;
           }
         `}</style>
-      </ZEITUIProvider>
+      </ZeitProvider>
     </>
   );
 };
