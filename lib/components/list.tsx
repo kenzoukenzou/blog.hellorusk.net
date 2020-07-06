@@ -4,6 +4,7 @@ import Link from "next/link";
 import BLOG from "../../blog.config";
 import { msToString } from "../date-transform";
 import metadata from "../data/metadata.json";
+import PostItem from "./post-item";
 
 const getLatest = (data: any) => {
   const postNode = data.find((item: any) => item.name === "posts");
@@ -16,79 +17,49 @@ const time = (date: string) => {
   return msToString(t);
 };
 
-const makeLink = (post: any) => {
-  return (
-    <Row key={post.url} className="item">
-      <Col>
-        <Link href={post.url}>
-          <a className="text">
-            {post.name} <span className="date">({time(post.meta.date)})</span>
-          </a>
-        </Link>
-      </Col>
-    </Row>
-  );
-};
-
 const List = () => {
   const posts = useMemo(() => getLatest(metadata), []);
   const theme = useTheme();
   return (
     <section>
       <h2>{BLOG.labels.list || "All Posts"}</h2>
-      <div className="content">{posts.map((p: any) => makeLink(p))}</div>
+      <div className="content">
+        {posts.map((post: any, index: any) => (
+          <PostItem post={post} key={`${post.url}-${index}`} />
+        ))}
+      </div>
 
       <style jsx>{`
         section {
           margin-top: calc(${theme.layout.gap} * 2);
         }
 
-        h2 {
-          font-size: 1rem;
+        section h2 {
+          font-size: 0.8rem;
           color: ${theme.palette.accents_6};
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          border-bottom: 2px solid ${theme.palette.accents_6};
+          padding: 2px ${theme.layout.gapQuarter} 0 0;
+          display: inline-block;
+          margin: 0;
         }
 
         .content {
-          padding-left: ${theme.layout.gapHalf};
-          padding-bottom: 100px;
-          width: 80%;
-          max-width: 50vw;
+          margin: ${theme.layout.gap} 0;
         }
 
-        .content :global(.item) {
-          margin-bottom: 0.5rem;
-          border-bottom: 1px solid ${theme.palette.border};
-          width: fit-content;
-          padding: ${theme.layout.gapHalf} ${theme.layout.gap}
-            ${theme.layout.gapHalf} 0;
+        .more {
+          display: block;
         }
 
-        .content :global(.text) {
-          font-size: 1.1rem;
-          line-height: 1.2;
-          display: inline-block;
-        }
-
-        .content :global(.date) {
-          font-size: 12px;
-          color: ${theme.palette.accents_3};
-        }
-
-        @media only screen and (max-width: 767px) {
-          .content {
-            max-width: 100%;
-            width: 100%;
+        @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
+          section {
+            margin-top: ${theme.layout.gapQuarter};
           }
 
-          .content :global(.item) {
-            width: 90%;
-          }
-
-          .content :global(.text) {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: 100%;
+          section h2 {
+            margin-top: calc(1.5 * ${theme.layout.gap});
           }
         }
       `}</style>

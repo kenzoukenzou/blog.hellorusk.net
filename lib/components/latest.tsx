@@ -3,22 +3,13 @@ import { useTheme, Row } from "@zeit-ui/react";
 import Link from "next/link";
 import BLOG from "../../blog.config";
 import metadata from "../data/metadata.json";
+import PostItem from "./post-item";
 const latestLimit = BLOG.latestLimit || 5;
 
 const getLatest = (data: any) => {
   const postNode = data.find((item: any) => item.name === "posts");
   const posts = (postNode || {}).children || [];
   return posts.slice(0, latestLimit);
-};
-
-const makeLink = (post: any) => {
-  return (
-    <li key={post.url}>
-      <Link href={post.url}>
-        <a className="text">{post.name}</a>
-      </Link>
-    </li>
-  );
 };
 
 const makeMoreLink = (len: number) => {
@@ -37,7 +28,9 @@ const Latest = () => {
     <section>
       <h2>{BLOG.labels.latest || ""}</h2>
       <div className="content">
-        <ul>{posts.map((p: any) => makeLink(p))}</ul>
+        {posts.map((post: any, index: any) => (
+          <PostItem post={post} key={`${post.url}-${index}`} />
+        ))}
         <span className="more">{makeMoreLink(posts.length)}</span>
       </div>
 
@@ -46,42 +39,32 @@ const Latest = () => {
           margin-top: calc(${theme.layout.gap} * 2);
         }
 
-        h2 {
-          font-size: 1rem;
+        section h2 {
+          font-size: 0.8rem;
           color: ${theme.palette.accents_6};
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          border-bottom: 2px solid ${theme.palette.accents_6};
+          padding: 2px ${theme.layout.gapQuarter} 0 0;
+          display: inline-block;
+          margin: 0;
         }
 
         .content {
-          padding-left: ${theme.layout.gapHalf};
-          padding-bottom: calc(${theme.layout.gap} * 2);
+          margin: ${theme.layout.gap} 0;
         }
 
         .more {
-          padding-left: 25px;
-          margin-top: -10px;
           display: block;
         }
 
-        .content :global(li) {
-          margin-bottom: 0.3rem;
-        }
-
-        .content :global(.text) {
-          font-size: 0.85rem;
-        }
-
-        @media only screen and (max-width: 767px) {
-          .content {
-            padding-left: 5vw;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
+        @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
+          section {
+            margin-top: ${theme.layout.gapQuarter};
           }
 
-          .content :global(.text) {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
+          section h2 {
+            margin-top: calc(1.5 * ${theme.layout.gap});
           }
         }
       `}</style>
