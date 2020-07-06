@@ -14,4 +14,4 @@ vercel
 npm run post
 ```
 
-<img width="1054" alt="Lighthouse" src="https://user-images.githubusercontent.com/36184621/79068540-ad5a3c00-7d02-11ea-99e7-2e80e0dc9fab.png">
+<img width="1054" alt="Lighthouse" src="https://user-images.githubusercontent.com/36184621/86551059-02fb5900-bf7f-11ea-8730-09f70b31ea82.png">
