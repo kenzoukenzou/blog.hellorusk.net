@@ -93,13 +93,13 @@ const Layout = ({ children, meta }: any) => {
           <div className="share-sns">
             <Spacer y={0.5} />
             <Button type="secondary" onClick={click} ghost>
-              <Link href={hatenalink} target="_blank" pure>
+              <Link href={hatenalink} target="_blank">
                 Share on Hatena
               </Link>
             </Button>
             <Spacer y={0.5} />
             <Button type="success" onClick={click} ghost>
-              <Link href={tweetlink} target="_blank" pure>
+              <Link href={tweetlink} target="_blank">
                 Share on Twitter
               </Link>
             </Button>

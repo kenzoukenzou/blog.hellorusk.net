@@ -38,7 +38,6 @@ const Contacts = () => {
           <Link
             aria-label="email"
             rel="noreferrer"
-            pure
             target="_blank"
             href={email}
           >
@@ -49,7 +48,6 @@ const Contacts = () => {
           <Link
             aria-label="github"
             rel="noreferrer"
-            pure
             target="_blank"
             href={github}
           >
@@ -60,7 +58,6 @@ const Contacts = () => {
           <Link
             aria-label="twitter"
             rel="noreferrer"
-            pure
             target="_blank"
             href={twitter}
           >
