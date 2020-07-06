@@ -1,24 +1,24 @@
 import React, { useMemo } from "react";
-import { useTheme, Row } from "@zeit-ui/react";
-import Link from "next/link";
+import { useTheme, Link } from "@zeit-ui/react";
 import BLOG from "../../blog.config";
 import metadata from "../data/metadata.json";
 import PostItem from "./post-item";
+import NextLink from "next/link";
 const latestLimit = BLOG.latestLimit || 5;
+
+const getMoreLink = (len: number) => {
+  if (len < latestLimit) return null;
+  return (
+    <NextLink href="/blog" passHref>
+      <Link title="More">...</Link>
+    </NextLink>
+  );
+};
 
 const getLatest = (data: any) => {
   const postNode = data.find((item: any) => item.name === "posts");
   const posts = (postNode || {}).children || [];
   return posts.slice(0, latestLimit);
-};
-
-const makeMoreLink = (len: number) => {
-  if (len < latestLimit) return null;
-  return (
-    <Link href="/blog">
-      <a className="text">...</a>
-    </Link>
-  );
 };
 
 const Latest = () => {
@@ -31,7 +31,7 @@ const Latest = () => {
         {posts.map((post: any, index: any) => (
           <PostItem post={post} key={`${post.url}-${index}`} />
         ))}
-        <span className="more">{makeMoreLink(posts.length)}</span>
+        <span className="more">{getMoreLink(posts.length)}</span>
       </div>
 
       <style jsx>{`
