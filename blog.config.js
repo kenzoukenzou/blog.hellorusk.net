@@ -4,7 +4,7 @@ const BLOG = {
   description: "HelloRusk Official Website.",
   summary: "reading and coding ...",
   language: "ja",
-  latestLimit: 5,
+  latestLimit: 3,
 
   labels: {
     default: "Blog",
