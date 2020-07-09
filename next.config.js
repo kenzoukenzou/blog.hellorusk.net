@@ -96,6 +96,16 @@ const nextConfig = {
           destination: "/fixed/profile",
         },
         {
+          source: "/blog",
+          permanent: true,
+          destination: "/posts",
+        },
+        {
+          source: "/blog/",
+          permanent: true,
+          destination: "/posts",
+        },
+        {
           source: "/form",
           statusCode: 301,
           destination: "https://hellorusk.netlify.com/form",

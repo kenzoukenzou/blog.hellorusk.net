@@ -26,7 +26,7 @@ const ProfileLinks = () => {
   const links = useMemo(() => getFixes(metadata), []);
   return (
     <div className="link">
-      {makeLink({ url: "/blog", name: BLOG.labels.default || "posts" })}
+      {makeLink({ url: "/posts", name: BLOG.labels.default || "posts" })}
       {links.map((link: string) => makeLink(link))}
 
       <style jsx>{`
