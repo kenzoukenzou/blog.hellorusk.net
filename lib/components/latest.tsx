@@ -9,7 +9,7 @@ const latestLimit = BLOG.latestLimit || 5;
 const getMoreLink = (len: number) => {
   if (len < latestLimit) return null;
   return (
-    <NextLink href="/blog" passHref>
+    <NextLink href="/posts" passHref>
       <Link title="More">...</Link>
     </NextLink>
   );

@@ -1,5 +1,5 @@
 import Layout from 'lib/components/layout'
-import { Button, Link } from '@zeit-ui/react'
+import { Button, Link, Display, Spacer } from '@zeit-ui/react'
 
 export const meta = {
   title: '',
@@ -7,10 +7,20 @@ export const meta = {
   description: '',
 }
 
-Please check [https://www.hellorusk.net](https://www.hellorusk.net)
+## Interested in me?
+
+Please check [https://www.hellorusk.net](https://www.hellorusk.net) !
+
+<Spacer y={1} />
+
+## Interested in this site?
 
 `blog.hellorusk.net` is created by <a href="https://nextjs.org/" target="_blank">Next.js</a> and hosted on <a href="https://vercel.com/" target="_blank">Vercel</a>.  
 Source is <a href="https://github.com/7ma7X/blog.hellorusk.net" target="_blank">here</a>.
+
+<Display shadow caption="This website is blazingly fast.">
+  <img src="https://user-images.githubusercontent.com/36184621/86551059-02fb5900-bf7f-11ea-8730-09f70b31ea82.png" />
+</Display>
 
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
