@@ -1,0 +1,97 @@
+import Layout from 'lib/components/layout'
+import { Note } from '@zeit-ui/react'
+
+export const meta = {
+  title: '停止性問題は決定不能',
+  date: '2020-07-18T08:50:30.323Z',
+  description: '',
+  image: '',
+}
+
+復習。
+
+---
+
+日本語で書くと
+
+<Note type="secondary" label={false}>帰納関数のコードと引数に対して計算が止まるかどうかを判定する帰納述語は存在しない</Note>
+
+である. 
+
+まず, 万能帰納関数というのが存在する. 万能帰納関数 $\mathtt{comp}$ とは, 以下を満たすような関数である. <br />
+任意の自然数 $m$ および帰納関数 $f : \mathbb{N}^m \to \mathbb{N}$ に対して,
+ある自然数 $p_f$ が存在し, 
+
+$$
+\lambda(x_0, ..., x_{m-1}). \mathtt{comp}(p_f, \langle x_0, ..., x_{m-1} \rangle) \doteq f
+$$
+
+ただし, $\langle x_0, ..., x_{m-1} \rangle$ は $(x_0, ..., x_{m-1})$ のゲーデル数で, この数列と一対一対応するような自然数である.  
+$p_f$ は帰納関数 $f$ のコードと呼ばれる. $\mathtt{comp}$ はいわばインタプリタのようなもので, $f$ に対応するようなコード $p_f$ を
+このインタプリタに与えれば, $f$ が実行されるということである.  
+
+--- 
+
+次に, 帰納関数のコードと引数に対して計算が止まるかどうかを判定する帰納述語 $\mathtt{halt} \in \mathbb{N}^2$ を考える.   
+すなわち
+
+$$
+\mathtt{halt}(p, x) \ \ is \ \ true \equiv \mathtt{comp}(p, x) \ \ is \ \ defined
+$$
+
+と定義する.  
+あるプログラムがある入力に対して停止するかどうかというのは, そのプログラムに対応するコード $p$ と入力 $x$ を万能帰納関数 $\texttt{comp}$
+が受け取った時 $undefined$ になるかならないかという話だから, $\mathtt{halt}$ が真であるか否かという話になる. $\mathtt{halt}$ が帰納述語であれば
+真か偽か一意に定まり, 決定可能であることになる.  
+実際にはこのような帰納述語は存在せず, 停止性問題は決定不能であることを示す.
+
+---
+
+はじめに
+
+$$
+\texttt{comp}^{+}(p, x) = \begin{cases} \texttt{comp}(p, x) & if \ \ \texttt{comp}(p, x) \ \ is \ \ defined \\ 0 & if \ \ \texttt{comp}(p, x) \ \ is \ \ undefined \end{cases}
+$$
+
+を考える. これは万能帰納関数が全関数（任意の入力に対し $undefined$ にならない関数）になるよう修正を加えたものになる.  
+$\texttt{comp}^{+}$ が帰納関数である（必ず停止し, 値が一意に定まる）と仮定しよう. ここで, $\texttt{diag}: \mathbb{N} \to \mathbb{N}$
+を
+
+$$
+\texttt{diag}(x) = \texttt{comp}^{+}(x, \langle x \rangle) + 1 \ \ \ \cdots (\mathrm{i})
+$$
+
+と定義する. $\texttt{comp}^{+}$ が全関数かつ帰納関数であることから, $\texttt{diag}$ も全関数かつ帰納関数である.  
+ここで, $\texttt{diag}$ に対応するコードを $p_0$ とおく. 万能帰納関数 $\texttt{comp}$ の定義より, 
+
+$$
+\texttt{comp}(p_0, \langle x \rangle) \doteq \texttt{diag} (x)
+$$
+
+さらに $\texttt{diag}$ が全関数であることから
+
+$$
+\texttt{comp}^{+}(p_0, \langle x \rangle) = \texttt{diag} (x) \ \ \ \cdots (\mathrm{ii})
+$$
+
+$(\mathrm{i}), (\mathrm{ii})$ より
+
+$$
+\texttt{comp}^{+}(p_0, \langle p_0 \rangle) = \texttt{diag} (p_0) = \texttt{comp}^{+}(p_0, \langle p_0 \rangle) + 1 
+$$
+
+となり, 矛盾が導けた. したがって, 背理法により $\mathtt{comp}^{+}$ は帰納関数ではない.
+
+--- 
+
+この事実から, 帰納述語 $\mathtt{halt}$ が存在しないことも示せる. 仮に存在するとした場合, 
+
+$$
+\texttt{comp}^{+}(p, x) = \begin{cases} \texttt{comp}(p, x) & if \ \ \texttt{halt}(p, x) \ \ is \ \ true \\ 0 & if \ \ \texttt{halt}(p, x) \ \ is \ \ false \end{cases}
+$$
+
+で, 「帰納関数から帰納述語による場合分けで定義される関数も帰納関数である」という性質から $\texttt{comp}^{+}$ が帰納関数であることが言えてしまうが, 
+これはまさに先ほど示した内容と矛盾する. よって示された.
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
