@@ -1,5 +1,5 @@
-[![Dependency Status](https://img.shields.io/david/7ma7X/hellorusk.net.svg?style=flat)](https://img.shields.io/david/7ma7X/hellorusk.net.svg?style=flat)
-[![DevDpendency Status](https://img.shields.io/david/dev/7ma7X/hellorusk.net.svg?style=flat)](https://img.shields.io/david/dev/7ma7X/hellorusk.net.svg?style=flat)
+[![Dependency Status](https://img.shields.io/david/7ma7X/blog.hellorusk.net.svg?style=flat)](https://img.shields.io/david/7ma7X/blog.hellorusk.net.svg?style=flat)
+[![DevDpendency Status](https://img.shields.io/david/dev/7ma7X/blog.hellorusk.net.svg?style=flat)](https://img.shields.io/david/dev/7ma7X/blog.hellorusk.net.svg?style=flat)
 
 based on [unix/unix.bio](https://github.com/unix/unix.bio)
 
