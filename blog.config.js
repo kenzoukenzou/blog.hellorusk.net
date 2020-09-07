@@ -13,7 +13,7 @@ const BLOG = {
   },
 
   email: "hellorusk1998@gmail.com",
-  github: "7ma7X",
+  github: "HelloRusk",
   twitter: "kslint",
   domain: "blog.hellorusk.net",
 
