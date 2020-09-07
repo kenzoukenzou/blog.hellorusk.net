@@ -48,7 +48,7 @@ const sortPosts = (data) => {
           `[metadata]: missing key "date" in (${post.name}) ${post.url}`
         );
         console.error(
-          "> Try to run \"new Date().toUTCString()\" in console to get \"date\"."
+          '> Try to run "new Date().toUTCString()" in console to get "date".'
         );
         const meta = { ...post.meta, date: new Date().toUTCString() };
         return { ...post, meta };
@@ -59,7 +59,7 @@ const sortPosts = (data) => {
           `[metadata]: format error "date" in (${post.name}) ${post.url}`
         );
         console.error(
-          "> Try to run \"new Date().toUTCString()\" in console to get \"date\"."
+          '> Try to run "new Date().toUTCString()" in console to get "date".'
         );
       }
       return post;
@@ -85,7 +85,7 @@ const sortPosts = (data) => {
   }
 
   sitemap({
-    baseUrl: "https://hellorusk.net",
+    baseUrl: "https://blog.hellorusk.net",
     pagesDirectory: path.join(__dirname, "../pages"),
     ignoredPaths: ["index"],
     targetDirectory: "public/",
