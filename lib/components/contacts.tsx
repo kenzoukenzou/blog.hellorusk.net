@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useTheme, Spacer, Link } from "@zeit-ui/react";
+import { useTheme, Spacer, Link } from "@geist-ui/react";
 import BLOG from "../../blog.config";
 import useConfigs from "../states/config-context";
 import Github from "./icons/github";
