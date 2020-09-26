@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import Link from "next/link";
-import { useTheme } from "@zeit-ui/react";
+import { useTheme } from "@geist-ui/react";
 import metadata from "../data/metadata.json";
 import BLOG from "../../blog.config";
 

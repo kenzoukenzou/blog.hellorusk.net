@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Avatar, Text, Row, Spacer, useTheme } from "@zeit-ui/react";
+import { Avatar, Text, Row, Spacer, useTheme } from "@geist-ui/react";
 import Link from "next/link";
 import ProfileLinks from "./profile-links";
 import BLOG from "../../blog.config";

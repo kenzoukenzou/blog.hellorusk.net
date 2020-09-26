@@ -10,7 +10,7 @@ import {
   useToasts,
   Button,
   Link,
-} from "@zeit-ui/react";
+} from "@geist-ui/react";
 import Profile from "./profile";
 import { msToString } from "../date-transform";
 import BLOG from "../../blog.config";

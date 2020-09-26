@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "@zeit-ui/react";
+import { useTheme } from "@geist-ui/react";
 
 interface IconProps {
   width?: number;
