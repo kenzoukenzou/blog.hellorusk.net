@@ -90,14 +90,14 @@ pre-trained モデルをそのまま使う場合は、configuration を明示的
 **Pre-training**: すごい時間がかかる（Cloud TPU でも数日程度かかる）。Pre-trained されたモデルが配布されているので、普通の開発者はやる必要がない。  
 **Fine-tuning**: 時間はそこまでかからない。例えば、SQuAD という QA タスクの訓練データを学習するのは TPU で 30 分、GPU でも数時間程度である。
 
-Pre-trained Model には
+Pre-trained モデルには
 
 - MLM(Masked LM) *穴埋め問題 でパラメータ学習*
 - NSP(Next Sentence Prediction) *次の文の予測 でパラメータ学習*
 
 の 2 種類がある。
 
-### Pre-trained Model を動かして穴埋め問題を解いてみよう
+### Pre-trained モデルを動かして穴埋め問題を解いてみよう
 
 例として、
 
