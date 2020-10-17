@@ -14,7 +14,7 @@ const BLOG = {
 
   email: "hellorusk1998@gmail.com",
   github: "HelloRusk",
-  twitter: "kslint",
+  twitter: "HelloRusk",
   domain: "blog.hellorusk.net",
 
   cn: false,
