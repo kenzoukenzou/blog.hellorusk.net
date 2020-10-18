@@ -1,0 +1,97 @@
+import Layout from 'lib/components/layout'
+import { Link, Display } from '@geist-ui/react'
+
+export const meta = {
+  title: 'BERT 実装入門  その２',
+  date: '2020-10-18T12:26:13.189Z',
+  description: '',
+  image: '',
+}
+
+[前回](./20201016)の記事に引き続き入門していく。今回は fine-tuning をすることによってタスクを解いてみる。
+
+- <Link href="https://medium.com/@aniruddha.choudhury94/part-2-bert-fine-tuning-tutorial-with-pytorch-for-text-classification-on-the-corpus-of-linguistic-18057ce330e1" icon color target="_blank">Part 2: BERT Fine-Tuning Tutorial with PyTorch for Text Classification on The Corpus of Linguistic Acceptability (COLA) Dataset.</Link>
+
+### タスク設定
+
+今回扱うデータセットは [The Corpus of Linguistic Acceptability (CoLA)](https://nyu-mll.github.io/CoLA/) データセットである。
+このデータセットでは、各データの文章に対してそれぞれ gramatically correct か incorrect かのラベルが貼られている。
+
+### 入力文章の扱い方
+
+データセットには様々な長さの文章が含まれているが、BERT ではこれをどう扱えばよいのだろうか？
+
+BERT には以下の制約がある。
+
+1. 全ての文は固定長になるように padding や truncation しなければならない
+2. 最大の長さは 512 トークンである。
+
+Padding は `[PAD]` というトークンを使って行われる（これは BERT の vocabulary の 0 番目にあたる）。
+加えて、各トークンが `[PAD]` であるか否かに応じて Attention Mask の値が変わる（`[PAD]` であれば 0 になる）。
+
+
+<Display shadow caption="図は元記事より借用">
+  <img src="/20201018/figure1.png" alt="fig1" title="padding" />
+</Display>
+
+ちなみに、元の記事の内容は微妙に古く、今では `tokenizer.encode` 関数で padding も truncation もできるようだ。
+
+```python
+# MAX_LEN = 64 としてみる
+
+input_ids = []
+
+for sent in sentences[:10]:
+    encoded_sent = tokenizer.encode(
+        sent, 
+        add_special_tokens=True, # default で True にはなっている
+        truncation=True,
+        padding='max_length',
+        max_length=64
+    )
+    input_ids.append(encoded_sent)
+```
+
+### タスク向けの BERT モデル
+
+今回は、文書分類問題なので、`BertForSequenceClassification` というモデルを使う。
+これは、通常の BERT モデルに線形レイヤを加えたもの。
+
+### ハイパーパラメータの選択
+
+論文の著者たちは fine-tuning に関して以下からパラメータを選ぶように推奨している。
+
+- Batch size: 16, 32
+- Adam の学習率: 5e-5, 3e-5, 2e-5
+- エポック数（1つの訓練データを何回繰り返し学習させるか）: 2, 3, 4
+
+### Training Loop
+
+訓練
+
+- 入力データとラベルを unpack する
+- GPU に乗せる
+- 前回の過程の勾配を clear する
+- `forward()`
+- `backward()`
+- `optimizer.step()` でネットワークのパラメータを更新する
+- 進行状況を更新する
+
+Evaluation
+
+- 入力データとラベルを unpack する
+- GPU に乗せる
+- `forward()`
+- 誤差を計算し、進行状況を更新する
+
+
+<br/>
+
+前回同様 Google Colaboratory で再現実装したのでリンクを貼る。
+
+<Link href="https://colab.research.google.com/drive/1-DegNcYZWsXF5inC_VHN43EMhb8p5HBy?usp=sharing" icon color target="_blank">https://colab.research.google.com/drive/1-DegNcYZWsXF5inC_VHN43EMhb8p5HBy?usp=sharing</Link>
+
+<br/>
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
