@@ -1,5 +1,5 @@
 import Layout from 'lib/components/layout'
-import { Link } from '@geist-ui/react'
+import { Link, Card } from '@geist-ui/react'
 
 export const meta = {
   title: 'Next.js + MDX で数式を扱う',
@@ -23,11 +23,16 @@ npm install @mdx-js/loader
 その後は、
 
 ```bash
-npm install remark-math
-npm install rehype-katex
+npm install remark-math@3.0.1
+npm install rehype-katex@3.0.0
 ```
 
 してから、[ドキュメンテーション](https://mdxjs.com/guides/math-blocks)通りに `next.config.js` を編集しましょう。
+
+<Card shadow>
+  <h4>2020.10.20 追記</h4>
+  <p>最新バージョンの remark-math と rehype-katex ではうまく数式がレンダリングされないことが判明したので、バージョンを付記しておきました。</p>
+</Card>
 
 
 このブログのリポジトリの[コミット](https://github.com/HelloRusk/blog.hellorusk.net/commit/e300f2d14e0d7bf692048b65015df2a27a5aa3bd)も参考にしてください。
