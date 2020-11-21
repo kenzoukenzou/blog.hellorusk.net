@@ -1,6 +1,3 @@
-[![Dependency Status](https://img.shields.io/david/HelloRusk/blog.hellorusk.net.svg?style=flat)](https://img.shields.io/david/HelloRusk/blog.hellorusk.net.svg?style=flat)
-[![DevDpendency Status](https://img.shields.io/david/dev/HelloRusk/blog.hellorusk.net.svg?style=flat)](https://img.shields.io/david/dev/HelloRusk/blog.hellorusk.net.svg?style=flat)
-
 based on [unix/unix.bio](https://github.com/unix/unix.bio)
 
 ```sh
