@@ -35,6 +35,7 @@
     "extract-mdx-metadata": "1.0.0",
     "fs-extra": "9.0.1",
     "prettier": "2.2.1",
+    "prismjs": "^1.23.0",
     "prompt-sync": "4.2.0",
     "rehype-join-line": "1.0.2",
     "rehype-katex": "3.0.0",
