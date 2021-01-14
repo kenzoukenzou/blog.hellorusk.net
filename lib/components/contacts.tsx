@@ -3,7 +3,6 @@ import { useTheme, Spacer, Link } from "@geist-ui/react";
 import BLOG from "../../blog.config";
 import useConfigs from "../states/config-context";
 import Github from "./icons/github";
-import Twitter from "./icons/twitter";
 import Mail from "./icons/mail";
 import Sun from "./icons/sun";
 import Moon from "./icons/moon";
@@ -19,10 +18,6 @@ const Contacts = () => {
   const github = useMemo(() => {
     if (!BLOG.github) return null;
     return `https://github.com/${BLOG.github}`;
-  }, []);
-  const twitter = useMemo(() => {
-    if (!BLOG.twitter) return null;
-    return `https://twitter.com/${BLOG.twitter}`;
   }, []);
   const switchTheme = () => {
     const isDark = theme.type === "dark";
@@ -52,16 +47,6 @@ const Contacts = () => {
             href={github}
           >
             <Github />
-          </Link>
-        )}
-        {twitter && (
-          <Link
-            aria-label="twitter"
-            rel="noreferrer"
-            target="_blank"
-            href={twitter}
-          >
-            <Twitter />
           </Link>
         )}
         <div className="line">
