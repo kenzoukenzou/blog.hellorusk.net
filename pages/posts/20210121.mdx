@@ -1,0 +1,64 @@
+import Layout from 'lib/components/layout'
+import { Display } from '@geist-ui/react'
+
+export const meta = {
+  title: 'Cloudinary で Heroku アプリがどこまで速くなるか',
+  date: '2021-01-20T15:35:52.412Z',
+  description: '',
+  image: '',
+}
+
+卒論の息抜きとして、自分の個人開発アプリである [Spotify WordCloud](https://spotify-wordcloud.herokuapp.com/) の改修をしている。  
+  
+このアプリは、作成当初は AWS Elastic Beanstalk を使っていて、独自ドメインまで割り当てていた。その後、なるべく無料で済ませたくなったので、結局今は Heroku を使っている。  
+ただ、AWS に比べるといかんせん動作がもっさりしていた。特に、トップページに目立つように高画質のワードクラウド画像を置いているのだが、これの読み込みが非常に遅かった。  
+以下は PageSpeed Insights で計測したものである。
+
+<Display shadow caption="Cloudinary の導入以前（Mobile の場合）">
+  <img src="/20210121/figure1.png" alt="fig1" title="padding" />
+</Display>
+
+<Display shadow caption="Cloudinary の導入以前（Desktop の場合）">
+  <img src="/20210121/figure2.png" alt="fig2" title="padding" />
+</Display>
+
+もちろん原因は画像の読み込みの遅さだけではないのだけど、スコアがかなり低い。
+
+そこで、[Cloudinary](https://cloudinary.com/) という CDN を使うとどれだけ改善できるのか？というのが気になって試してみた。
+Cloudinary は画像・動画などのメディア専用の CDN。料金体系は [こちら](https://cloudinary.com/pricing) の通りで、小規模のアプリケーションであればまず無料枠に収まる。
+特徴としては、豊富な API のクエリパラメータでサイズを変えたり最適化したりできる点にあると思われる（が、今回はそこまで駆使していない）。
+
+今回、Cloudinary を使って、これまで Heroku にアプリと一緒にホスティングしていた画像を全部 Cloudinary に置き換えた。  
+結果、体感的には非常に読み込みが速くなった。PageSpeed Insights ではどうなっただろうか？
+
+<Display shadow caption="Cloudinary の導入後（Mobile の場合）">
+  <img src="/20210121/figure3.png" alt="fig3" title="padding" />
+</Display>
+
+<Display shadow caption="Cloudinary の導入後（Desktop の場合）">
+  <img src="/20210121/figure4.png" alt="fig4" title="padding" />
+</Display>
+
+特にモバイルでスコアが上がっている。「ラボデータ」のところを見ると、
+
+- Time to Interactive
+- Total Blocking Time
+- Cumulative Layout Shift
+
+で改善しているのが分かる。  
+とりわけ Cumulative Layout Shift の変化は劇的である。この指標は「ページを表示している間に文字などのレイアウトがどれほど動くか」（動かない方がユーザーにとって快適）を表しているそうなので、
+画像読み込みの高速化が一番よく効くのも、さもありなんである。
+
+### まとめ
+
+- [Cloudinary](https://cloudinary.com/) は無料プランもある画像・動画向け CDN で、Heroku で個人開発をしている貧乏人でも気軽に手が出せる。
+- CDN を使うと特に Cumulative Layout Shift などで PageSpeed のスコアが改善する。
+
+
+
+
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
